@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>まるのおうちとは</title>
+    <title>まるのおうち</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Yomogi&family=Zen+Maru+Gothic:wght@400;500&display=swap" rel="stylesheet">
 
@@ -11,163 +11,150 @@
         body {
             margin: 0;
             padding: 0;
-            background: linear-gradient(180deg, #F8EFFF, #F4F6FF);
+            background-color: #F7DDE8;
             font-family: 'Zen Maru Gothic', sans-serif;
             color: #444;
-            display: flex;
-            justify-content: center;
-            padding: 50px 20px;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.88);
-            width: 100%;
-            max-width: 700px;
-            padding: 50px 40px;
-            border-radius: 34px 28px 36px 30px;
-            box-shadow: 0 6px 14px rgba(0,0,0,0.06);
-            box-sizing: border-box; /* パディングを含めたサイズ計算 */
-        }
-
-        h1 {
-            font-family: 'Yomogi', cursive;
-            font-size: 2.4rem;
-            text-align: center;
-            margin-bottom: 30px;
-            color: #555;
-        }
-
-        h2 {
-            font-size: 1.4rem;
-            margin-top: 40px;
-            margin-bottom: 15px;
-            color: #555;
-            text-align: center;
-        }
-
-        p {
-            line-height: 2;
-            font-size: 1.05rem;
-            margin-bottom: 20px;
-        }
-
-        .list-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 14px;
-            margin-top: 20px;
-        }
-
-        .list-card {
-            background: #F8F7FF;
-            padding: 16px 20px;
-            border-radius: 28px 24px 32px 26px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            font-size: 1.05rem;
-            line-height: 1.6;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            /* スマホで突き抜けないための設定 */
-            overflow-wrap: anywhere;
-            word-break: normal;
         }
 
-        .list-card.wide {
-            grid-column: 1 / -1;
+        .main-container {
+            display: flex;
+            width: 100%;
+            max-width: 1100px;
+            padding: 40px;
+            box-sizing: border-box;
+            align-items: center;
+            gap: 60px;
         }
 
-        /* スマホ用レスポンシブ */
-        @media (max-width: 600px) {
-            body {
-                padding: 20px 15px;
-            }
-
-            .card {
-                padding: 40px 20px; /* 左右の余白を少し狭くして中身を広く */
-            }
-
-            h1 {
-                font-size: 1.8rem;
-            }
-
-            h2 {
-                font-size: 1.2rem;
-            }
-
-            .list-grid {
-                grid-template-columns: 1fr; /* 1列に強制 */
-            }
-
-            .list-card {
-                font-size: 0.95rem; /* スマホでは少し文字を小さく */
-                padding: 14px 18px;
-            }
+        .left-column {
+            flex: 1.2;
         }
 
-        .back-btn {
-            display: block;
-            margin: 40px auto 0;
-            width: 200px;
-            text-align: center;
-            padding: 14px 20px;
-            background: #C7DFFF;
+        .right-column {
+            flex: 0.8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-placeholder img {
+            width: 70px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            font-family: 'Yomogi', cursive;
+            font-size: 3.2rem;
+            margin: 0 0 15px 0;
+            color: #5a5a5a;
+            font-weight: normal;
+        }
+
+        .sub-message {
+            font-family: 'Yomogi', cursive;
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            color: #666;
+        }
+
+        .intro-text {
+            line-height: 2;
+            margin-bottom: 45px;
+            font-size: 1.05rem;
+            color: #555;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn {
+            background-color: #C7DFFF;
             color: #35527A;
-            text-decoration: none;
+            padding: 16px 28px;
+            text-align: center;
+            white-space: nowrap;
             font-weight: 600;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
             border-radius: 55% 45% 60% 40% / 45% 55% 40% 60%;
             border: 1.6px solid #BBD0EE;
+
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-decoration: none;
             transition: 0.25s;
         }
 
-        .back-btn:hover {
+        .btn:hover {
             transform: translateY(-2px);
             opacity: 0.95;
+        }
+
+        .gurimaru-img {
+            width: 320px;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+        }
+
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding: 20px;
+            }
+            .button-group {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .title {
+                font-size: 2.6rem;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <div class="card">
+    <div class="main-container">
 
-        <h1>まるのおうちとは</h1>
+        <div class="left-column">
 
-        <h2>子どもをまるごと受けとめる、小さな居場所</h2>
-        <p>
-            まるのおうちは、子どもが「自分にまるをつけられる」時間を大切にしている学びの場です。  
-            勉強が得意でも苦手でも、その子が感じた「できた」を一緒に見つけていきます。
-        </p>
-
-        <h2>少人数で、そっと寄り添う学び</h2>
-        <p>
-            一人ひとりのペースに合わせて、ゆっくり・ていねいに進めます。  
-            「わからない」を言いやすく、「できた」が自然に増えていくように、  
-            無理のない距離感で寄り添います。
-        </p>
-
-        <h2>安心して過ごせる空気づくり</h2>
-        <p>
-            まるのおうちは、勉強だけの場所ではありません。  
-            気持ちが落ち着く、ほっとできる、そんな空気を大切にしています。  
-            子どもたちが自分らしくいられる時間が流れています。
-        </p>
-
-        <h2>こんな子に向いています</h2>
-
-        <div class="list-grid">
-            <div class="list-card">宿題をするのが苦手な子</div>
-
-            <div class="list-card">学校の授業がちょっと難しく感じている子</div>
-
-            <div class="list-card wide">
-                自分の可能性を伸ばしたい子<br>（自主学習のやり方がわからない子、もっと学びたい子）
+            <div class="logo-placeholder">
+                <img src="logo.png" alt="まるのおうちロゴ">
             </div>
+
+            <h1 class="title">まるのおうち</h1>
+
+            <p class="sub-message">子どもをまるごと受けとめ、自分にまるをあげられる場所</p>
+
+            <div class="intro-text">
+                まるのおうちは、子どもをまるごと受けとめる小さな居場所。<br>
+                その子が感じた「できた」をたいせつにしています。<br>
+                自分にまるをあげられる時間が流れています。
+            </div>
+
+            <div class="button-group">
+                <a href="https://lin.ee/RL8yKoQ" class="btn" target="_blank">ご予約（公式LINEへ）</a>
+                <a href="about.html" class="btn">まるのおうちとは</a>
+                <a href="link.html" class="btn">料金・利用案内</a>
+            </div>
+
         </div>
 
-        <a href="index.html" class="back-btn">トップページへ戻る</a>
+        <div class="right-column">
+            <img src="gurimaru.png" alt="ぐり丸" class="gurimaru-img">
+        </div>
 
     </div>
 
