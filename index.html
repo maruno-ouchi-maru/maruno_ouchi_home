@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>まるのおうち</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Yomogi&family=Zen+Maru+Gothic:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #F7DDE8;
+            font-family: 'Zen Maru Gothic', sans-serif;
+            color: #444;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main-container {
+            display: flex;
+            width: 100%;
+            max-width: 1100px;
+            padding: 40px;
+            box-sizing: border-box;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .left-column {
+            flex: 1.2;
+        }
+
+        .right-column {
+            flex: 0.8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-placeholder img {
+            width: 70px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            font-family: 'Yomogi', cursive;
+            font-size: 3.2rem;
+            margin: 0 0 15px 0;
+            color: #5a5a5a;
+            font-weight: normal;
+        }
+
+        .sub-message {
+            font-family: 'Yomogi', cursive;
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            color: #666;
+        }
+
+        .intro-text {
+            line-height: 2;
+            margin-bottom: 45px;
+            font-size: 1.05rem;
+            color: #555;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn {
+            background-color: #C7DFFF;
+            color: #35527A;
+            padding: 16px 28px;
+            text-align: center;
+            white-space: nowrap;
+            font-weight: 600;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 55% 45% 60% 40% / 45% 55% 40% 60%;
+            border: 1.6px solid #BBD0EE;
+
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-decoration: none;
+            transition: 0.25s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.95;
+        }
+
+        .gurimaru-img {
+            width: 320px;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+        }
+
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding: 20px;
+            }
+            .button-group {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .title {
+                font-size: 2.6rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main-container">
+
+        <div class="left-column">
+
+            <div class="logo-placeholder">
+                <img src="logo.png" alt="まるのおうちロゴ">
+            </div>
+
+            <h1 class="title">まるのおうち</h1>
+
+            <p class="sub-message">子どもをまるごと受けとめ、自分にまるをあげられる場所</p>
+
+            <div class="intro-text">
+                まるのおうちは、子どもをまるごと受けとめる小さな居場所。<br>
+                その子が感じた「できた」をたいせつにしています。<br>
+                自分にまるをあげられる時間が流れています。
+            </div>
+
+            <div class="button-group">
+                <a href="https://lin.ee/RL8yKoQ" class="btn" target="_blank">ご予約（公式LINEへ）</a>
+                <a href="about.html" class="btn">まるのおうちとは</a>
+                <a href="link.html" class="btn">料金・利用案内</a>
+            </div>
+
+        </div>
+
+        <div class="right-column">
+            <img src="gurimaru.png" alt="ぐり丸" class="gurimaru-img">
+        </div>
+
+    </div>
+
+</body>
+</html>
