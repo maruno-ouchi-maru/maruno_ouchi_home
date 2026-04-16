@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>料金・利用案内</title>
 
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+
     <style>
         body {
             font-family: "Zen Maru Gothic", sans-serif;
@@ -26,16 +28,16 @@
             padding: 48px 32px;
             border-radius: 34px 28px 36px 30px;
             box-shadow: 0 6px 14px rgba(0,0,0,0.06);
+            text-align: center;
         }
 
         h1 {
             font-size: 1.7rem;
             margin-bottom: 36px;
-            text-align: center;
             color: #555;
         }
 
-        a {
+        .link-btn {
             display: block;
             background: #F8F7FF;
             padding: 18px 22px;
@@ -46,11 +48,35 @@
             font-size: 1.15rem;
             box-shadow: 0 3px 8px rgba(0,0,0,0.05);
             transition: 0.25s;
+            text-align: left;
         }
 
-        a:hover {
+        .link-btn:hover {
             background: #EEF2FF;
             transform: translateY(-3px);
+        }
+
+        /* 「トップページに戻る」ボタン */
+        .back-home {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 14px 35px;
+            background-color: #FFFBEB; /* シャボン玉とお揃いのクリーム色 */
+            color: #987666;           /* 輪郭とお揃いのココア色 */
+            text-decoration: none;
+            font-weight: bold;
+            /* まるのおうち風のいびつな丸 */
+            border-radius: 60% 40% 60% 40% / 45% 50% 50% 55%;
+            border: 2.5px solid #987666;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+
+        .back-home:hover {
+            background-color: #987666;
+            color: #fff;
+            transform: translateY(-2px) rotate(-1deg);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
         }
     </style>
 </head>
@@ -60,17 +86,18 @@
     <div class="card">
         <h1>料金・利用案内</h1>
 
-        <!-- 料金PDF -->
-        <a href="https://drive.google.com/file/d/1vRiMo5x504joaX9PLrkFY-ZHVwqEl2VF/view?usp=sharing" target="_blank">
+        <a href="https://drive.google.com/file/d/1vRiMo5x504joaX9PLrkFY-ZHVwqEl2VF/view?usp=sharing" class="link-btn" target="_blank">
             ▶ 料金について（PDF）
         </a>
 
-        <!-- 利用規約（WIX） -->
-        <a href="https://marunoouchir.wixsite.com/my-site" target="_blank">
+        <a href="https://marunoouchir.wixsite.com/my-site" class="link-btn" target="_blank">
             ▶ 利用規約はこちら
+        </a>
+
+        <a href="index.html" class="back-home">
+            トップページに戻る
         </a>
     </div>
 
 </body>
 </html>
-
