@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>まるのおうち</title>
+
+    <!-- ★SEO強化：タイトル -->
+    <title>倉敷市の小学生向け学習塾｜まるのおうち</title>
+
+    <!-- ★SEO強化：説明文 -->
+    <meta name="description" content="倉敷市片島町の小学生向け学習塾『まるのおうち』。宿題が苦手な子、勉強に自信がない子が、自分のペースで学べる少人数の学び場です。">
 
     <link href="https://fonts.googleapis.com/css2?family=Yomogi&family=Zen+Maru+Gothic:wght@400;500&display=swap" rel="stylesheet">
 
@@ -11,7 +16,7 @@
         body {
             margin: 0;
             padding: 0;
-            background-color: #F7DDE8; /* 背景のピンク */
+            background-color: #F7DDE8;
             font-family: 'Zen Maru Gothic', sans-serif;
             color: #444;
             min-height: 100vh;
@@ -80,7 +85,6 @@
             gap: 20px;
         }
 
-        /* いびつまるボタン */
         .btn {
             padding: 16px 28px;
             text-align: center;
@@ -107,63 +111,48 @@
         .btn-lavender { background-color: #EDE8FF; color: #4A3A7A; border-color: #C7BFF0; }
         .btn-mint { background-color: #E9FFF4; color: #2F6A55; border-color: #A8E8CC; }
 
-        /* --- ここからココア輪郭×シャボン玉のデザイン --- */
-
         .gurimaru-wrapper {
-            position: relative; /* ハイライト配置用 */
-            width: 360px; /* 元のサイズに戻す */
+            position: relative;
+            width: 360px;
             height: 360px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-
-            /* ↓ ココア色の輪郭を復活！ */
-            border: 10px solid #987666; 
-
-            /* シャボン玉の虹色の光沢（グラデーション） */
-            background: 
-                radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0) 60%, rgba(200, 255, 255, 0.25) 100%), /* 水色 */
-                radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0) 60%, rgba(255, 200, 255, 0.25) 100%), /* ピンク */
-                rgba(255, 252, 235, 0.3); /* 全体のクリーム色の透け感 */
-
-            /* 立体感を出すための内側の影と外側のぼんやりした影 */
-            box-shadow: 
-                inset 0 10px 30px rgba(255, 255, 255, 0.5), /* 内側の明るい影 */
-                inset 0 -10px 30px rgba(0, 0, 0, 0.03),    /* 内側の暗い影 */
-                0 15px 35px rgba(0,0,0,0.1);                /* 外側の影 */
-            
-            overflow: hidden; /* ハイライトがはみ出さないように */
+            border: 10px solid #987666;
+            background:
+                radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0) 60%, rgba(200, 255, 255, 0.25) 100%),
+                radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0) 60%, rgba(255, 200, 255, 0.25) 100%),
+                rgba(255, 252, 235, 0.3);
+            box-shadow:
+                inset 0 10px 30px rgba(255, 255, 255, 0.5),
+                inset 0 -10px 30px rgba(0, 0, 0, 0.03),
+                0 15px 35px rgba(0,0,0,0.1);
+            overflow: hidden;
         }
 
-        /* シャボン玉の表面の光の反射（ハイライト） */
         .gurimaru-wrapper::before {
             content: '';
             position: absolute;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.7);
-            /* 左上の光 */
             width: 70px;
             height: 35px;
             top: 40px;
             left: 55px;
             transform: rotate(-30deg);
-            filter: blur(4px); /* 少しぼかす */
+            filter: blur(4px);
         }
 
-        /* ぐり丸の写真 */
         .gurimaru-img {
-            width: 300px; /* 元のサイズに戻す */
+            width: 300px;
             height: 300px;
             object-fit: cover;
             border-radius: 50%;
-            /* 写真自体も少しシャボン玉に馴染ませる */
             opacity: 0.95;
-            position: relative; /* ハイライトより後ろに配置 */
+            position: relative;
             z-index: 1;
         }
-
-        /* --- ここまでココア輪郭×シャボン玉のデザイン --- */
 
         @media (max-width: 768px) {
             .main-container {
@@ -173,8 +162,7 @@
             }
             .button-group { justify-content: center; flex-wrap: wrap; }
             .title { font-size: 2.6rem; }
-            
-            /* スマホでのサイズ調整 */
+
             .gurimaru-wrapper {
                 width: 300px;
                 height: 300px;
@@ -191,16 +179,21 @@
     <div class="main-container">
         <div class="left-column">
             <div class="logo-placeholder">
-                <img src="logo.png" alt="まるのおうちロゴ">
+                <img src="logo.png" alt="倉敷市の小学生向け学習塾 まるのおうち ロゴ">
             </div>
+
             <h1 class="title">まるのおうち</h1>
+
             <p class="location-text">倉敷市片島町にある、小学生のための少人数制の学習塾です。</p>
+
             <p class="sub-message">子どもをまるごと受けとめ、自分にまるをあげられる場所</p>
+
             <div class="intro-text">
-                まるのおおうちは、子どもをまるごと受けとめる小さな居場所。<br>
+                まるのおうちは、子どもをまるごと受けとめる小さな居場所。<br>
                 その子が感じた「できた」をたいせつにしています。<br>
                 自分にまるをあげられる時間が流れています。
             </div>
+
             <div class="button-group">
                 <a href="https://lin.ee/RL8yKoQ" class="btn btn-blue" target="_blank">ご予約（公式LINEへ）</a>
                 <a href="about.html" class="btn btn-pink">まるのおうちとは</a>
@@ -211,7 +204,7 @@
 
         <div class="right-column">
             <div class="gurimaru-wrapper">
-                <img src="gurimaru.png" alt="ぐり丸" class="gurimaru-img">
+                <img src="gurimaru.png" alt="倉敷市の学習塾 まるのおうち マスコット ぐり丸" class="gurimaru-img">
             </div>
         </div>
     </div>
