@@ -11,9 +11,7 @@
         body {
             margin: 0;
             padding: 0;
-            /* りょうこが選んだ一番左のピンクをベースにするんよ */
             background-color: #FFD9E8; 
-            /* ほんの少しだけ濃いピンクのドットを入れて、奥行きを出すよ */
             background-image: radial-gradient(#F7BBD3 1.5px, transparent 1.5px);
             background-size: 35px 35px;
             font-family: 'Zen Maru Gothic', sans-serif;
@@ -32,10 +30,8 @@
             box-sizing: border-box;
             align-items: flex-start;
             gap: 40px;
-            /* コンテンツ部分は白を敷いて、読みやすさと清潔感を出すんよ */
             background: rgba(255, 255, 255, 0.92);
             border-radius: 40px;
-            /* ミルクココア色の影で、ふんわり立体感を出しとるよ */
             box-shadow: 0 15px 45px rgba(216, 194, 168, 0.3);
             backdrop-filter: blur(8px);
         }
@@ -47,12 +43,13 @@
         .right-column {
             flex: 0.3;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
         }
 
         .open-info {
-            background: #CFF5E7; /* ミントグリーンはそのまま活かそうや */
+            background: #CFF5E7; 
             border: 3px solid #A7E8D4;
             padding: 10px 18px;
             border-radius: 12px;
@@ -135,7 +132,7 @@
             width: 100%;
             max-width: 550px;
             padding: 30px 50px; 
-            border: 4px solid #D8C2A8; /* 枠線はりょうこのミルクココア色！ */
+            border: 4px solid #D8C2A8; 
             border-radius: 60% / 40%;
             background-color: transparent;
             margin: 40px auto;
@@ -189,9 +186,15 @@
             height: 252px;
             border-radius: 50%;
             overflow: hidden;
-            border: 8px solid #D8C2A8; /* ここもミルクココア色 */
+            border: 8px solid #D8C2A8; 
             background: rgba(255, 252, 235, 0.3);
             box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gurimaru-wrapper:hover {
+            transform: scale(1.05);
         }
 
         .slide {
@@ -206,13 +209,23 @@
         }
         .slide.active { opacity: 1; }
 
-        /* ポップアップメニューもこの際ちょっと可愛くしとこうや */
+        /* 案内メッセージ：サイズを少し小さくして1行に収まるようにしたよ */
+        .ehon-guide {
+            margin-top: 15px;
+            font-family: 'Yomogi', cursive;
+            color: #D8C2A8; 
+            font-size: 0.95rem; /* 1.1remから少し下げて調整したけぇね */
+            font-weight: bold;
+            text-align: center;
+            white-space: nowrap; /* 念のため勝手に改行せんように設定！ */
+        }
+
         .popup-menu {
             position: fixed;
             top: 50%; left: 50%;
             transform: translate(-50%, -50%) scale(0.7);
             width: 330px; height: 330px;
-            background: #FFF9FB; /* ほんのりピンク */
+            background: #FFF9FB; 
             border: 3px solid #FFD9E8;
             border-radius: 50%;
             display: none;
@@ -236,12 +249,31 @@
             transition: 0.2s;
         }
 
+        #popup-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.3);
+            display: none;
+            z-index: 90;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #999;
+            margin-bottom: 5px;
+        }
+
         @media (max-width: 768px) {
             .main-container { flex-direction: column-reverse; text-align: center; padding: 30px 20px; }
             .right-column { margin-bottom: 40px; }
             .logo-philosophy-wrap { flex-direction: column; align-items: center; }
             .philosophy { max-width: 100%; text-align: left; }
             .maru-frame { margin: 30px auto; padding: 25px 35px; text-align: left; }
+            .ehon-guide { font-size: 0.85rem; } /* スマホでも1行になるようにさらに調整 */
         }
     </style>
 </head>
@@ -298,15 +330,20 @@
         </div>
 
         <div class="right-column">
-            <div class="gurimaru-wrapper">
-                <img src="gurimaru.png" alt="看板犬のぐり丸1" class="slide active">
-                <img src="gurimaru2.png" alt="看板犬のぐり丸2" class="slide">
-                <img src="gurimaru3.png" alt="看板犬のぐり丸3" class="slide">
-            </div>
+            <a href="gurimaru.book.html" style="text-decoration: none;">
+                <div class="gurimaru-wrapper">
+                    <img src="gurimaru.png" alt="看板犬のぐり丸1" class="slide active">
+                    <img src="gurimaru2.png" alt="看板犬のぐり丸2" class="slide">
+                    <img src="gurimaru3.png" alt="看板犬のぐり丸3" class="slide">
+                </div>
+                <div class="ehon-guide">
+                    ＼ 写真をタップして 絵本を読んでね ／
+                </div>
+            </a>
         </div>
     </div>
 
-    <div id="popup-overlay" class="popup-overlay" onclick="closeMenu()"></div>
+    <div id="popup-overlay" onclick="closeMenu()"></div>
     <div id="popup-menu" class="popup-menu">
         <button class="close-btn" onclick="closeMenu()">×</button>
         <a href="https://lin.ee/RL8yKoQ" class="popup-item" target="_blank">ご予約（LINE）</a>
