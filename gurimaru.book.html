@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ぐり丸の絵本</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+      font-family: "UD Digi Kyokasho N-R", sans-serif;
+    }
+
+    .swiper {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 40px 0 60px;
+    }
+
+    .swiper-slide {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .page-photo {
+      width: 65%;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      object-fit: contain; 
+      border: 2px solid #D8C2A8; 
+      margin-bottom: 24px;
+      background-color: #ffffff;
+    }
+
+    .zoom-photo {
+      object-fit: cover; 
+    }
+
+    .page-text {
+      font-size: 17px;
+      line-height: 1.9;
+      color: #D8C2A8; 
+      white-space: pre-line;
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    /* 戻るボタンのスタイル */
+    .back-link {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 10px 20px;
+      color: #D8C2A8;
+      text-decoration: none;
+      border: 1px solid #D8C2A8;
+      border-radius: 20px;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+    .back-link:hover {
+      background-color: #D8C2A8;
+      color: #ffffff;
+    }
+
+    .swiper-pagination-bullet-active {
+      background: #D8C2A8 !important;
+    }
+    .swiper-button-next, .swiper-button-prev {
+      color: #D8C2A8 !important;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="swiper">
+    <div class="swiper-wrapper">
+
+      <div class="swiper-slide"><img src="gurimaru.png" class="page-photo"><p class="page-text">ぐり丸は、まるのおうちの一員です...</p></div>
+      <div class="swiper-slide"><img src="gurimaru6.png" class="page-photo"><p class="page-text">ぐり丸の だいすきなもの...</p></div>
+      <div class="swiper-slide"><img src="gurimaru3.png" class="page-photo"><p class="page-text">ぐり丸は、あまえんぼで...</p></div>
+      <div class="swiper-slide"><img src="gurimaru4.png" class="page-photo zoom-photo"><p class="page-text">ぐり丸は、とても かしこい子です...</p></div>
+      <div class="swiper-slide"><img src="gurimaru5.png" class="page-photo"><p class="page-text">授業のあいだ、ぐり丸は...</p></div>
+
+      <div class="swiper-slide">
+        <img src="gurimaru2.png" class="page-photo">
+        <p class="page-text">
+          「まるのおうちに ようこそ。
+          ぼくは みんなの味方だよ。」
+        </p>
+        <a href="index.html" class="back-link">トップページへ戻る</a>
+      </div>
+
+    </div>
+
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script>
+    const swiper = new Swiper('.swiper', {
+      loop: false,
+      mousewheel: true,
+      grabCursor: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  </script>
+
+</body>
+</html>
