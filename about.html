@@ -8,7 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Yomogi&family=Zen+Maru+Gothic:wght@400;500&display=swap" rel="stylesheet">
 
     <style>
-        /* 全ての要素でパディングが幅を壊さないように設定 */
         * {
             box-sizing: border-box;
         }
@@ -85,7 +84,48 @@
             grid-column: 1 / -1;
         }
 
-        /* スマホ用レスポンシブ */
+        /* ▼▼ ぐり丸吹き出し ▼▼ */
+        .gurimaru-box {
+            display: flex;
+            align-items: center; /* ← ここを center に変更！ */
+            gap: 20px;
+            margin: 50px 0 30px;
+            justify-content: center;
+        }
+
+        .gurimaru {
+            width: 255px; /* 3倍サイズ */
+            height: auto;
+        }
+
+        .speech-bubble {
+            background: #FFF4A8;
+            padding: 20px 24px;
+            border-radius: 38px 32px 42px 34px;
+            border: 2.4px solid #F2E48A;
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #444;
+            max-width: 60%;
+            position: relative;
+            font-family: 'Zen Maru Gothic', sans-serif;
+        }
+
+        .speech-bubble::after {
+            content: "";
+            position: absolute;
+            left: -18px;
+            bottom: 18px;
+            width: 26px;
+            height: 26px;
+            background: #FFF4A8;
+            border-left: 2.4px solid #F2E48A;
+            border-bottom: 2.4px solid #F2E48A;
+            border-radius: 60% 0 60% 60%;
+            transform: rotate(25deg);
+        }
+        /* ▲▲ ぐり丸吹き出しここまで ▲▲ */
+
         @media (max-width: 600px) {
             body {
                 padding: 20px 10px;
@@ -110,6 +150,15 @@
             .list-card {
                 font-size: 0.95rem;
                 padding: 12px 15px;
+            }
+
+            .gurimaru {
+                width: 180px;
+            }
+
+            .speech-bubble {
+                font-size: 0.9rem;
+                max-width: 70%;
             }
         }
 
@@ -155,20 +204,17 @@
             子どもたちが自分らしくいられる時間が流れています。
         </p>
 
-        <!-- ▼▼ ここから追加した部分 ▼▼ -->
         <h2>まるのおうちが予約制である理由</h2>
-<p>
-    まるのおうちは、予約制で運営しています。<br>  
-    それは、お子さんの“無理のないペース”で通えるようにしたいからです。
-</p>
-<p>
-    毎週決まった時間に通うのが難しい子や、  
-    その時期によって集中できる時間が変わる子もいます。  
-    予約制にすることで、ご家庭の予定やお子さんの調子に合わせて、  
-    事前に通う日を柔軟に選べるようにしています。
-</p>
-
-        <!-- ▲▲ 追加ここまで ▲▲ -->
+        <p>
+            まるのおうちは、予約制で運営しています。<br>  
+            それは、お子さんの“無理のないペース”で通えるようにしたいからです。
+        </p>
+        <p>
+            毎週決まった時間に通うのが難しい子や、  
+            その時期によって集中できる時間が変わる子もいます。  
+            予約制にすることで、ご家庭の予定やお子さんの調子に合わせて、  
+            事前に通う日を柔軟に選べるようにしています。
+        </p>
 
         <h2>こんな子に向いています</h2>
 
@@ -179,6 +225,16 @@
                 自分の可能性を伸ばしたい子（自主学習のやり方がわからない子、もっと学びたい子）
             </div>
         </div>
+
+        <!-- ▼▼ ぐり丸吹き出し（位置調整済み） ▼▼ -->
+        <div class="gurimaru-box">
+            <img src="gurimaru4.png" alt="ぐり丸" class="gurimaru">
+            <div class="speech-bubble">
+                公式LINEでは、まるのおうちのことを<br>
+                動画でもう少し詳しく紹介してるよ。
+            </div>
+        </div>
+        <!-- ▲▲ ぐり丸吹き出しここまで ▲▲ -->
 
         <a href="index.html?v=latest" class="back-btn">トップページへ戻る</a>
     </div>
