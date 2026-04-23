@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -84,17 +85,94 @@
             grid-column: 1 / -1;
         }
 
+        /* ▼▼ 学習スタイル図解セクション ▼▼ */
+        .learning-flow {
+            margin: 60px 0 30px;
+            padding: 30px;
+            background: #FFF;
+            border-radius: 40px;
+            border: 2px dashed #D8C2A8;
+        }
+
+        .flow-title {
+            font-family: 'Yomogi', cursive;
+            color: #D8C2A8;
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .step-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .step-bubble {
+            flex: 1;
+            padding: 20px 24px;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.02);
+            position: relative;
+        }
+
+        .step-number {
+            display: block;
+            font-family: 'Yomogi', cursive;
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .step-img {
+            width: 85px;
+            height: auto;
+            flex-shrink: 0;
+        }
+
+        .note-img {
+            width: 45px;
+            position: absolute;
+            right: -10px;
+            top: -20px;
+            transform: rotate(10deg);
+        }
+
+        /* 配色 */
+        .step-pink { background: #F7DDE8; border: 1.5px solid #EBCBD8; }
+        .step-mint { background: #E8F7F2; border: 1.5px solid #D5EBE4; }
+        .step-yellow { background: #FFF4A8; border: 1.5px solid #F2E48A; }
+
+        .flow-arrow {
+            color: #D8C2A8;
+            font-size: 1.2rem;
+            text-align: center;
+            margin: 5px 0;
+        }
+        /* ▲▲ 学習スタイル図解セクションここまで ▲▲ */
+
         /* ▼▼ ぐり丸吹き出し ▼▼ */
         .gurimaru-box {
             display: flex;
-            align-items: center; /* ← ここを center に変更！ */
+            align-items: center;
             gap: 20px;
-            margin: 50px 0 30px;
+            margin: 30px 0 30px;
             justify-content: center;
         }
 
         .gurimaru {
-            width: 255px; /* 3倍サイズ */
+            width: 255px; 
             height: auto;
         }
 
@@ -124,42 +202,20 @@
             border-radius: 60% 0 60% 60%;
             transform: rotate(25deg);
         }
-        /* ▲▲ ぐり丸吹き出しここまで ▲▲ */
 
         @media (max-width: 600px) {
-            body {
-                padding: 20px 10px;
-            }
-
-            .card {
-                padding: 30px 15px;
-            }
-
-            h1 {
-                font-size: 1.6rem;
-            }
-
-            h2 {
-                font-size: 1.1rem;
-            }
-
-            .list-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .list-card {
-                font-size: 0.95rem;
-                padding: 12px 15px;
-            }
-
-            .gurimaru {
-                width: 180px;
-            }
-
-            .speech-bubble {
-                font-size: 0.9rem;
-                max-width: 70%;
-            }
+            body { padding: 20px 10px; }
+            .card { padding: 30px 15px; }
+            h1 { font-size: 1.6rem; }
+            h2 { font-size: 1.1rem; }
+            .list-grid { grid-template-columns: 1fr; }
+            .list-card { font-size: 0.95rem; padding: 12px 15px; }
+            .gurimaru { width: 180px; }
+            .speech-bubble { font-size: 0.9rem; max-width: 70%; }
+            
+            .step-item { flex-direction: column; text-align: center; }
+            .step-img { width: 75px; order: -1; }
+            .note-img { right: 10px; }
         }
 
         .back-btn {
@@ -226,7 +282,54 @@
             </div>
         </div>
 
-        <!-- ▼▼ ぐり丸吹き出し（位置調整済み） ▼▼ -->
+        <div class="learning-flow">
+            <div class="flow-title">まるのおうちの学習スタイル</div>
+            
+            <div class="step-container">
+                <div class="step-item">
+                    <img src="shukudai.png" alt="宿題に取り組む" class="step-img">
+                    <div class="step-bubble step-pink">
+                        <span class="step-number">ステップ①</span>
+                        まずは、自分の力で宿題に取り組んでみます。<br>
+                        できるところから手をつけて、「やってみよう」の気持ちを大切にします。
+                    </div>
+                </div>
+
+                <div class="flow-arrow">▼</div>
+
+                <div class="step-item">
+                    <div class="step-bubble step-mint" style="text-align: right;">
+                        <span class="step-number">ステップ②</span>
+                        つまずいたところは、講師がそっと寄り添って教えます。<br>
+                        「ちょっと頑張ればできそうかも」と思えるように、無理のない背中の押し方で、できる一歩を一緒に見つけます。
+                    </div>
+                    <img src="situmon.png" alt="講師が教える" class="step-img">
+                </div>
+
+                <div class="flow-arrow">▼</div>
+
+                <div class="step-item">
+                    <img src="hirameki.png" alt="ひらめき" class="step-img">
+                    <div class="step-bubble step-pink">
+                        <img src="note.png" alt="ノート" class="note-img">
+                        <span class="step-number">ステップ③</span>
+                        宿題が終わったあとは、同じ問題を解き直したり、自分で類題を考えて解いたりします。<br>
+                        「やればできるんだ」という気持ちが、ゆっくり自分の中に育っていきます。
+                    </div>
+                </div>
+
+                <div class="flow-arrow">▼</div>
+
+                <div class="step-item">
+                    <div class="step-bubble step-yellow" style="text-align: center;">
+                        <span class="step-number">ステップ④</span>
+                        授業の最後は、「できた！」という気持ちで終われます。<br>
+                        小さな成功を積み重ねて、自分にまるをつけられる時間になります。
+                    </div>
+                    <img src="dekita.png" alt="できた" class="step-img">
+                </div>
+            </div>
+        </div>
         <div class="gurimaru-box">
             <img src="gurimaru4.png" alt="ぐり丸" class="gurimaru">
             <div class="speech-bubble">
@@ -234,11 +337,8 @@
                 動画でもう少し詳しく紹介してるよ。
             </div>
         </div>
-        <!-- ▲▲ ぐり丸吹き出しここまで ▲▲ -->
-
         <a href="index.html?v=latest" class="back-btn">トップページへ戻る</a>
     </div>
 
 </body>
 </html>
-
