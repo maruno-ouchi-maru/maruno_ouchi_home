@@ -34,6 +34,7 @@
             border-radius: 40px;
             box-shadow: 0 15px 45px rgba(216, 194, 168, 0.3);
             backdrop-filter: blur(8px);
+            margin: 20px;
         }
 
         .left-column {
@@ -167,9 +168,10 @@
             color: #555;
         }
 
-        /* PC版のボタン設定 */
+        /* MENUボタン：PC版（通常時はコンテンツ内に配置） */
         .menu-btn {
-            margin-top: 20px;
+            display: block;
+            margin: 20px 0;
             padding: 22px 40px;
             background: #FFF7C8;
             color: #7A6A2F;
@@ -235,7 +237,7 @@
             justify-content: center;
             gap: 10px;
             padding: 20px;
-            z-index: 2000; /* メニューは一番上に */
+            z-index: 9999; 
             transition: 0.25s ease;
         }
 
@@ -256,7 +258,7 @@
             width: 100%; height: 100%;
             background: rgba(0,0,0,0.3);
             display: none;
-            z-index: 1900;
+            z-index: 9990;
         }
 
         .close-btn {
@@ -275,6 +277,7 @@
             .main-container { 
                 flex-direction: column-reverse; 
                 padding: 30px 20px; 
+                margin: 10px;
             }
             .left-column {
                 display: flex;
@@ -291,25 +294,23 @@
                 text-align: center;
                 width: 100%;
             }
-            
-            /* ★ ここが追従ボタンの肝 ★ */
+
+            /* ★スマホでボタンを右下に完全固定★ */
             .menu-btn {
-                position: fixed !important; /* 何が何でも画面に固定 */
-                bottom: 25px !important;    /* 下から25pxの位置 */
-                right: 20px !important;     /* 右から20pxの位置 */
-                left: auto !important;
-                top: auto !important;
-                z-index: 1500 !important;   /* 他の要素より上に */
-                width: 75px !important;      /* 押しやすい大きさ */
-                height: 75px !important;
-                padding: 0 !important;      
-                margin: 0 !important;
+                position: fixed !important; 
+                bottom: 25px !important;    
+                right: 20px !important;     
+                z-index: 9000 !important;   
+                width: 80px !important;      
+                height: 80px !important;
                 border-radius: 50% !important;
+                padding: 0 !important;
+                margin: 0 !important;
                 display: flex !important;
                 align-items: center !important;
                 justify-content: center !important;
-                font-size: 0.85rem !important;
-                box-shadow: 0 6px 20px rgba(0,0,0,0.2) !important; 
+                font-size: 0.9rem !important;
+                box-shadow: 0 6px 20px rgba(0,0,0,0.3) !important;
             }
 
             .logo-philosophy-wrap { 
@@ -385,8 +386,6 @@
                 たいせつにしています。<br>
                 自分にまるをあげられる時間が流れています。
             </div>
-
-            <button class="menu-btn" onclick="openMenu()">MENU</button>
         </div>
 
         <div class="right-column">
@@ -402,6 +401,8 @@
             </a>
         </div>
     </div>
+
+    <button class="menu-btn" onclick="openMenu()">MENU</button>
 
     <div id="popup-overlay" onclick="closeMenu()"></div>
     <div id="popup-menu" class="popup-menu">
