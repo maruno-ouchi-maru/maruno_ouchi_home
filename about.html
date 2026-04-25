@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -39,7 +38,6 @@
             text-align: center;
             margin-bottom: 30px;
             color: #555;
-            word-break: break-all;
         }
 
         h2 {
@@ -48,14 +46,12 @@
             margin-bottom: 15px;
             color: #555;
             text-align: center;
-            word-break: break-all;
         }
 
         p {
             line-height: 2;
             font-size: 1.05rem;
             margin-bottom: 20px;
-            word-break: break-all;
         }
 
         .list-grid {
@@ -76,8 +72,6 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            word-break: break-all;
-            overflow-wrap: break-word;
             width: 100%;
         }
 
@@ -85,7 +79,7 @@
             grid-column: 1 / -1;
         }
 
-        /* ▼▼ 学習スタイル図解セクション ▼▼ */
+        /* 学習スタイルセクション */
         .learning-flow {
             margin: 60px 0 30px;
             padding: 30px;
@@ -124,6 +118,7 @@
             line-height: 1.7;
             box-shadow: 0 3px 10px rgba(0,0,0,0.02);
             position: relative;
+            text-align: left; /* ステップ内の文字は常に左揃え */
         }
 
         .step-number {
@@ -160,9 +155,8 @@
             text-align: center;
             margin: 5px 0;
         }
-        /* ▲▲ 学習スタイル図解セクションここまで ▲▲ */
 
-        /* ▼▼ ぐり丸吹き出し ▼▼ */
+        /* ぐり丸吹き出し */
         .gurimaru-box {
             display: flex;
             align-items: center;
@@ -172,7 +166,7 @@
         }
 
         .gurimaru {
-            width: 255px; 
+            width: 200px; 
             height: auto;
         }
 
@@ -186,7 +180,6 @@
             color: #444;
             max-width: 60%;
             position: relative;
-            font-family: 'Zen Maru Gothic', sans-serif;
         }
 
         .speech-bubble::after {
@@ -203,21 +196,7 @@
             transform: rotate(25deg);
         }
 
-        @media (max-width: 600px) {
-            body { padding: 20px 10px; }
-            .card { padding: 30px 15px; }
-            h1 { font-size: 1.6rem; }
-            h2 { font-size: 1.1rem; }
-            .list-grid { grid-template-columns: 1fr; }
-            .list-card { font-size: 0.95rem; padding: 12px 15px; }
-            .gurimaru { width: 180px; }
-            .speech-bubble { font-size: 0.9rem; max-width: 70%; }
-            
-            .step-item { flex-direction: column; text-align: center; }
-            .step-img { width: 75px; order: -1; }
-            .note-img { right: 10px; }
-        }
-
+        /* 戻るボタン */
         .back-btn {
             display: block;
             margin: 40px auto 0;
@@ -233,6 +212,41 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             transition: 0.25s;
         }
+
+        /* スマホ用改行クラス */
+        .sp-br { display: none; }
+
+        @media (max-width: 600px) {
+            body { padding: 20px 10px; }
+            .card { padding: 35px 20px; }
+            h1 { font-size: 1.8rem; }
+            h2 { font-size: 1.25rem; text-align: left; line-height: 1.5; }
+            p { font-size: 1rem; text-align: left; line-height: 1.8; }
+            
+            .list-grid { grid-template-columns: 1fr; }
+            .list-card { font-size: 0.95rem; padding: 15px; text-align: left; justify-content: flex-start; }
+            
+            /* 学習スタイルのスマホ調整 */
+            .learning-flow { padding: 20px 15px; }
+            .flow-title { text-align: center; line-height: 1.4; }
+            .step-item { flex-direction: column; text-align: center; }
+            .step-bubble { width: 100%; text-align: left; } /* スマホでも左揃えを強制 */
+            .step-img { width: 80px; order: -1; margin-bottom: 10px; }
+            .note-img { right: 5px; top: -15px; width: 35px; }
+
+            /* ぐり丸吹き出しのスマホ調整 */
+            .gurimaru-box { flex-direction: column; text-align: center; }
+            .gurimaru { width: 150px; }
+            .speech-bubble { max-width: 90%; font-size: 0.95rem; }
+            .speech-bubble::after {
+                left: 50%;
+                top: -15px;
+                bottom: auto;
+                transform: translateX(-50%) rotate(135deg);
+            }
+
+            .sp-br { display: block; }
+        }
     </style>
 </head>
 <body>
@@ -240,36 +254,33 @@
     <div class="card">
         <h1>まるのおうちとは</h1>
 
-        <h2>子どもをまるごと受けとめる、小さな居場所</h2>
+        <h2>子どもをまるごと受けとめる、<br class="sp-br">小さな居場所</h2>
         <p>
-            まるのおうちは、子どもが「自分にまるをつけられる」時間を大切にしている学びの場です。
+            まるのおうちは、子どもが「自分にまるをつけられる」時間を大切にしている学びの場です。<br>
             勉強が得意でも苦手でも、その子が感じた「できた」を一緒に見つけていきます。
         </p>
 
         <h2>少人数で、そっと寄り添う学び</h2>
         <p>
-            一人ひとりのペースに合わせて、ゆっくり・ていねいに進めます。
-            「わからない」を言いやすく、「できた」が自然に増えていくように、
-            無理のない距離感で寄り添います。
+            一人ひとりのペースに合わせて、ゆっくり・ていねいに進めます。<br>
+            「わからない」を言いやすく、「できた」が自然に増えていくように、無理のない距離感で寄り添います。
         </p>
 
         <h2>安心して過ごせる空気づくり</h2>
         <p>
-            まるのおうちは、勉強だけの場所ではありません。
-            気持ちが落ち着く、ほっとできる、そんな空気を大切にしています。
+            まるのおうちは、勉強だけの場所ではありません。<br>
+            気持ちが落ち着く、ほっとできる、そんな空気を大切にしています。<br>
             子どもたちが自分らしくいられる時間が流れています。
         </p>
 
-        <h2>まるのおうちが予約制である理由</h2>
+        <h2>まるのおうちが<br class="sp-br">予約制である理由</h2>
         <p>
-            まるのおうちは、予約制で運営しています。<br>  
+            まるのおうちは、予約制で運営しています。<br>
             それは、お子さんの“無理のないペース”で通えるようにしたいからです。
         </p>
         <p>
-            毎週決まった時間に通うのが難しい子や、  
-            その時期によって集中できる時間が変わる子もいます。  
-            予約制にすることで、ご家庭の予定やお子さんの調子に合わせて、  
-            事前に通う日を柔軟に選べるようにしています。
+            毎週決まった時間に通うのが難しい子や、その時期によって集中できる時間が変わる子もいます。<br>
+            予約制にすることで、ご家庭の予定やお子さんの調子に合わせて、事前に通う日を柔軟に選べるようにしています。
         </p>
 
         <h2>こんな子に向いています</h2>
@@ -278,12 +289,12 @@
             <div class="list-card">宿題をするのが苦手な子</div>
             <div class="list-card">学校の授業がちょっと難しく感じている子</div>
             <div class="list-card wide">
-                自分の可能性を伸ばしたい子（自主学習のやり方がわからない子、もっと学びたい子）
+                自分の可能性を伸ばしたい子<br class="sp-br">（自主学習のやり方がわからない子、もっと学びたい子）
             </div>
         </div>
 
         <div class="learning-flow">
-            <div class="flow-title">まるのおうちの学習スタイル</div>
+            <div class="flow-title">まるのおうちの<br class="sp-br">学習スタイル</div>
             
             <div class="step-container">
                 <div class="step-item">
@@ -298,7 +309,7 @@
                 <div class="flow-arrow">▼</div>
 
                 <div class="step-item">
-                    <div class="step-bubble step-mint" style="text-align: right;">
+                    <div class="step-bubble step-mint">
                         <span class="step-number">ステップ②</span>
                         つまずいたところは、講師がそっと寄り添って教えます。<br>
                         「ちょっと頑張ればできそうかも」と思えるように、無理のない背中の押し方で、できる一歩を一緒に見つけます。
@@ -321,7 +332,7 @@
                 <div class="flow-arrow">▼</div>
 
                 <div class="step-item">
-                    <div class="step-bubble step-yellow" style="text-align: center;">
+                    <div class="step-bubble step-yellow">
                         <span class="step-number">ステップ④</span>
                         授業の最後は、「できた！」という気持ちで終われます。<br>
                         小さな成功を積み重ねて、自分にまるをつけられる時間になります。
@@ -330,13 +341,15 @@
                 </div>
             </div>
         </div>
+
         <div class="gurimaru-box">
             <img src="gurimaru4.png" alt="ぐり丸" class="gurimaru">
             <div class="speech-bubble">
-                公式LINEでは、まるのおうちのことを<br>
+                公式LINEでは、まるのおうちのことを<br class="sp-br">
                 動画でもう少し詳しく紹介してるよ。
             </div>
         </div>
+
         <a href="index.html?v=latest" class="back-btn">トップページへ戻る</a>
     </div>
 
