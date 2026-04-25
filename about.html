@@ -46,6 +46,7 @@
             margin-bottom: 15px;
             color: #555;
             text-align: center;
+            line-height: 1.6;
         }
 
         p {
@@ -118,7 +119,6 @@
             line-height: 1.7;
             box-shadow: 0 3px 10px rgba(0,0,0,0.02);
             position: relative;
-            text-align: left; /* ステップ内の文字は常に左揃え */
         }
 
         .step-number {
@@ -128,6 +128,7 @@
             color: #555;
             margin-bottom: 5px;
             font-size: 1.1rem;
+            text-align: left; /* PCでは左揃え */
         }
 
         .step-img {
@@ -180,6 +181,8 @@
             color: #444;
             max-width: 60%;
             position: relative;
+            word-break: keep-all;
+            overflow-wrap: anywhere;
         }
 
         .speech-bubble::after {
@@ -220,24 +223,29 @@
             body { padding: 20px 10px; }
             .card { padding: 35px 20px; }
             h1 { font-size: 1.8rem; }
-            h2 { font-size: 1.25rem; text-align: left; line-height: 1.5; }
+            h2 { font-size: 1.25rem; text-align: center; line-height: 1.5; }
             p { font-size: 1rem; text-align: left; line-height: 1.8; }
             
             .list-grid { grid-template-columns: 1fr; }
-            .list-card { font-size: 0.95rem; padding: 15px; text-align: left; justify-content: flex-start; }
+            .list-card { font-size: 0.95rem; padding: 15px; text-align: center; }
             
             /* 学習スタイルのスマホ調整 */
             .learning-flow { padding: 20px 15px; }
             .flow-title { text-align: center; line-height: 1.4; }
             .step-item { flex-direction: column; text-align: center; }
-            .step-bubble { width: 100%; text-align: left; } /* スマホでも左揃えを強制 */
+            .step-bubble { width: 100%; text-align: left; }
+            .step-number { text-align: center; } /* ステップ①〜④を中央に */
             .step-img { width: 80px; order: -1; margin-bottom: 10px; }
             .note-img { right: 5px; top: -15px; width: 35px; }
 
             /* ぐり丸吹き出しのスマホ調整 */
             .gurimaru-box { flex-direction: column; text-align: center; }
             .gurimaru { width: 150px; }
-            .speech-bubble { max-width: 90%; font-size: 0.95rem; }
+            .speech-bubble { 
+                max-width: 95%; 
+                font-size: 0.95rem; 
+                padding: 18px 20px;
+            }
             .speech-bubble::after {
                 left: 50%;
                 top: -15px;
@@ -260,7 +268,7 @@
             勉強が得意でも苦手でも、その子が感じた「できた」を一緒に見つけていきます。
         </p>
 
-        <h2>少人数で、そっと寄り添う学び</h2>
+        <h2>少人数で、<br class="sp-br">そっと寄り添う学び</h2>
         <p>
             一人ひとりのペースに合わせて、ゆっくり・ていねいに進めます。<br>
             「わからない」を言いやすく、「できた」が自然に増えていくように、無理のない距離感で寄り添います。
