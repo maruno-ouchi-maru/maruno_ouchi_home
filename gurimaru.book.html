@@ -6,20 +6,22 @@
   <title>ぐり丸の絵本</title>
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Yomogi&family=Zen+Maru+Gothic:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
     body {
       margin: 0;
       padding: 0;
       background: #ffffff;
-      font-family: "UD Digi Kyokasho N-R", sans-serif;
+      font-family: 'Zen Maru Gothic', sans-serif;
+      color: #444;
     }
 
     .swiper {
       width: 100%;
       max-width: 600px;
       margin: 0 auto;
-      padding: 40px 0 60px;
+      padding: 20px 0 60px;
     }
 
     .swiper-slide {
@@ -27,46 +29,52 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
+      min-height: 80vh;
+      justify-content: center;
     }
 
     .page-photo {
       width: 65%;
+      max-width: 300px;
       aspect-ratio: 1 / 1;
       border-radius: 50%;
-      object-fit: contain; 
-      border: 2px solid #D8C2A8; 
+      object-fit: cover; 
+      border: 3px solid #D8C2A8; 
       margin-bottom: 24px;
       background-color: #ffffff;
-    }
-
-    .zoom-photo {
-      object-fit: cover; 
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     }
 
     .page-text {
-      font-size: 17px;
+      font-size: 1.1rem;
       line-height: 1.9;
-      color: #D8C2A8; 
+      color: #7A6A2F; 
       white-space: pre-line;
       text-align: center;
-      padding: 0 20px;
+      padding: 0 25px;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+      font-family: 'Yomogi', cursive;
     }
 
-    /* 戻るボタンのスタイル */
-    .back-link {
+    /* 戻るボタン：PC版 */
+    .back-btn-pc {
       display: inline-block;
       margin-top: 30px;
-      padding: 10px 20px;
-      color: #D8C2A8;
+      padding: 15px 30px;
+      background: #C7DFFF;
+      color: #35527A;
       text-decoration: none;
-      border: 1px solid #D8C2A8;
-      border-radius: 20px;
-      font-size: 14px;
+      font-weight: 600;
+      border-radius: 50px;
+      border: 1.6px solid #BBD0EE;
+      font-size: 1rem;
       transition: 0.3s;
     }
-    .back-link:hover {
-      background-color: #D8C2A8;
-      color: #ffffff;
+
+    /* 戻るボタン：スマホ専用（追従） */
+    .back-btn-sp {
+      display: none;
     }
 
     .swiper-pagination-bullet-active {
@@ -74,6 +82,45 @@
     }
     .swiper-button-next, .swiper-button-prev {
       color: #D8C2A8 !important;
+    }
+
+    /* スマホ用調整 */
+    @media (max-width: 600px) {
+      .swiper {
+        padding-top: 40px;
+      }
+      .page-photo {
+        width: 70%;
+        margin-bottom: 20px;
+      }
+      .page-text {
+        font-size: 1rem;
+        padding: 0 20px;
+      }
+      .back-btn-pc {
+        display: none; /* スマホではPC用を隠す */
+      }
+      .back-btn-sp {
+        display: flex !important;
+        position: fixed !important;
+        bottom: 25px !important;
+        right: 20px !important;
+        z-index: 9000 !important;
+        width: 85px !important;
+        height: 85px !important;
+        background: #FFF7C8 !important;
+        color: #7A6A2F !important;
+        border: 4px solid #F0E6A5 !important;
+        border-radius: 50% !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-weight: 600 !important;
+        font-size: 0.85rem !important;
+        text-decoration: none;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.3) !important;
+        text-align: center;
+        line-height: 1.2;
+      }
     }
   </style>
 </head>
@@ -83,44 +130,68 @@
   <div class="swiper">
     <div class="swiper-wrapper">
 
-      <div class="swiper-slide"><img src="gurimaru.png" class="page-photo"><p class="page-text">ぐり丸は、まるのおうちの一員です。
-          犬種：バーニードゥードル（バーニーズマウンテンドッグ×プードル）
-          誕生日：2025年４月12日
-          性別：男の子</p></div>
-      <div class="swiper-slide"><img src="gurimaru6.png" class="page-photo"><p class="page-text">ぐり丸の だいすきなもの。
+      <div class="swiper-slide">
+        <img src="gurimaru.png" class="page-photo">
+        <p class="page-text">ぐり丸は、まるのおうちの一員です。
+          犬種：バーニードゥードル
+          誕生日：2025年4月12日
+          性別：男の子</p>
+      </div>
+
+      <div class="swiper-slide">
+        <img src="gurimaru6.png" class="page-photo">
+        <p class="page-text">ぐり丸の だいすきなもの。
           おいしいものは なんでも。
           ひもみたいな おもちゃも すきです。
+
           そして いちばんすきなのは、
-          ちいさいころから ずっとせがんでくる “だっこ”。
+          ちいさいころから ずっとせがんでくる
+          “だっこ”。
+
           おおきくなった今も、
           だっこしてもらえると
-          しっぽが とまらないほど よろこびます。</p></div>
-      <div class="swiper-slide"><img src="gurimaru3.png" class="page-photo"><p class="page-text">ぐり丸は、あまえんぼで
+          しっぽが とまらないほど よろこびます。</p>
+      </div>
+
+      <div class="swiper-slide">
+        <img src="gurimaru3.png" class="page-photo">
+        <p class="page-text">ぐり丸は、あまえんぼで
           人がだいすき。
+
           でも ときどき、
           ちょっぴり びびってしまうこともあります。
+
           それでもね、
           「おすわり」も「まて」も
-          ちゃんと聞ける、がんばりやさんです。</p></div>
-      <div class="swiper-slide"><img src="gurimaru4.png" class="page-photo zoom-photo"><p class="page-text">ぐり丸は、とても かしこい子です。
+          ちゃんと聞ける、がんばりやさんです。</p>
+      </div>
+
+      <div class="swiper-slide">
+        <img src="gurimaru4.png" class="page-photo">
+        <p class="page-text">ぐり丸は、とても かしこい子です。
           おさんぽのときは、
           人や犬をおどろかせないように
-          そっと ふせて待ったり、
-          すみっこを歩いたりします。
+          そっと ふせて待ったりします。
+
           おそうじの時間には、
           じゃまにならないように
           ソファの上へ。
-          「どいて」で すっとゆずり、
-          「プレイス」で 自分のベッドへ。
+
           びっくりしてほえてしまう日もあるけれど、
           声をかけると ちゃんと落ちつける、
-          やさしい がんばりやさんです。</p></div>
-      <div class="swiper-slide"><img src="gurimaru5.png" class="page-photo"><p class="page-text">授業のあいだ、ぐり丸は
+          やさしい がんばりやさんです。</p>
+      </div>
+
+      <div class="swiper-slide">
+        <img src="gurimaru5.png" class="page-photo">
+        <p class="page-text">授業のあいだ、ぐり丸は
           自分のケージの中で
           ゆったりと すごしています。
+
           子どもたちのじゃまをしないように、
           そっと静かに、
-          みんなを見守っています。</p></div>
+          みんなを見守っています。</p>
+      </div>
 
       <div class="swiper-slide">
         <img src="gurimaru2.png" class="page-photo">
@@ -128,7 +199,7 @@
           「まるのおうちに ようこそ。
           ぼくは みんなの味方だよ。」
         </p>
-        <a href="index.html" class="back-link">トップページへ戻る</a>
+        <a href="index.html" class="back-btn-pc">トップページへ戻る</a>
       </div>
 
     </div>
@@ -137,6 +208,8 @@
     <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
   </div>
+
+  <a href="index.html" class="back-btn-sp">トップに<br>戻る</a>
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
