@@ -35,7 +35,6 @@
             box-shadow: 0 15px 45px rgba(216, 194, 168, 0.3);
             backdrop-filter: blur(8px);
             margin: 20px;
-            position: relative; /* カードの基準 */
         }
 
         .left-column { flex: 1.7; }
@@ -85,8 +84,8 @@
         .intro-text { line-height: 2; margin-bottom: 45px; font-size: 1.05rem; color: #555; }
         .keep-word { display: inline-block; }
 
-        /* --- MENUボタン基本スタイル (PC版) --- */
-        .menu-btn {
+        /* MENUボタン：PC版の設定 */
+        .menu-btn-pc {
             display: block;
             margin: 20px 0;
             padding: 22px 40px;
@@ -99,6 +98,11 @@
             cursor: pointer;
             box-shadow: 0 4px 15px rgba(0,0,0,0.08);
             transition: 0.25s;
+        }
+
+        /* MENUボタン：スマホ専用（追従）の設定 */
+        .menu-btn-sp {
+            display: none; /* 通常（PC）は隠しておく */
         }
 
         .gurimaru-wrapper {
@@ -123,30 +127,34 @@
 
         .sp-br { display: none; }
 
-        /* --- スマホ用調整 --- */
         @media (max-width: 768px) {
             .main-container { flex-direction: column-reverse; padding: 30px 20px; margin: 10px; }
             .left-column { display: flex; flex-direction: column; align-items: flex-start; }
             .right-column { margin-bottom: 40px; align-items: center; width: 100%; }
             .open-info, .insta-link, .logo-philosophy-wrap, .philosophy-title, .sub-message { align-self: center; text-align: center; width: 100%; }
 
-            /* ★ スマホで絶対追従させる魔法 ★ */
-            .menu-btn {
-                position: fixed !important; /* 画面に固定 */
-                bottom: 25px !important;    /* 下からの位置 */
-                right: 20px !important;     /* 右からの位置 */
-                z-index: 9000 !important;   /* 最前面に */
-                width: 85px !important;      /* 丸いボタンのサイズ */
-                height: 85px !important;
-                border-radius: 50% !important;
-                margin: 0 !important;
-                padding: 0 !important;
+            /* スマホではPC用のボタンを消す */
+            .menu-btn-pc { display: none; }
+
+            /* スマホ用の追従ボタンを表示する */
+            .menu-btn-sp {
                 display: flex !important;
+                position: fixed !important;
+                bottom: 25px !important;
+                right: 20px !important;
+                z-index: 9000 !important;
+                width: 85px !important;
+                height: 85px !important;
+                background: #FFF7C8 !important;
+                color: #7A6A2F !important;
+                border: 4px solid #F0E6A5 !important;
+                border-radius: 50% !important;
                 align-items: center !important;
                 justify-content: center !important;
+                font-weight: 600 !important;
                 font-size: 0.9rem !important;
                 box-shadow: 0 6px 20px rgba(0,0,0,0.3) !important;
-                background: #FFF7C8 !important;
+                cursor: pointer;
             }
 
             .logo-philosophy-wrap { flex-direction: column; align-items: center; }
@@ -210,7 +218,8 @@
                 自分にまるをあげられる時間が流れています。
             </div>
             
-            </div>
+            <button class="menu-btn-pc" onclick="openMenu()">MENU</button>
+        </div>
 
         <div class="right-column">
             <a href="gurimaru.book.html" style="text-decoration: none;">
@@ -226,7 +235,7 @@
         </div>
     </div>
 
-    <button class="menu-btn" onclick="openMenu()">MENU</button>
+    <button class="menu-btn-sp" onclick="openMenu()">MENU</button>
 
     <div id="popup-overlay" onclick="closeMenu()"></div>
     <div id="popup-menu" class="popup-menu">
