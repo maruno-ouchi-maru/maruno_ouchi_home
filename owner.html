@@ -37,39 +37,41 @@
             border-radius: 30px;
             box-shadow: 0 10px 30px rgba(106, 90, 47, 0.1);
             border: 4px solid #F0E6A5;
+            text-align: center; /* 中身を中央寄せに */
         }
 
-        /* 画像を丸く切り抜くための枠 */
+        /* ★新しい魔法：画像を絶対に切らない「手描き風フレーム」★ */
         .profile-img-wrap {
-            width: 260px;
-            height: 260px;
+            display: inline-block;
+            position: relative; /* 可愛い枠を重ねる基準 */
+            margin-bottom: 35px;
+            padding: 20px; /* 手描き枠の内側に画像を収める余白 */
+            
+            /* 可愛い手描き風の太い丸枠をCSSで作ります */
+            border: 15px solid transparent;
+            border-image: radial-gradient(#F0E6A5 70%, transparent 72%) 1;
             border-radius: 50%;
-            overflow: hidden;
-            display: block;
-            margin: 0 auto 35px;
-            border: 8px solid #FFFBE6;
+            background-color: #FFFBE6; /* 枠の内側の背景色 */
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            position: relative;
         }
 
         .profile-img {
-            width: 100%;
+            /* ★長方形画像を枠の中に絶対に収める★ */
+            width: 260px; /* 枠の内側に収まる最大サイズ */
             height: auto;
-            position: absolute;
-            /* 目が切れないように少し位置を下げめに調整（必要なら45%を調整してね） */
-            top: 45%; 
-            left: 50%;
-            transform: translate(-50%, -50%);
+            object-fit: contain; /* 画像全体を縮小して収める */
             display: block;
+            border-radius: 10px; /* 画像自体を少し角丸に */
         }
 
         p {
             font-size: 1.1rem;
             margin-bottom: 25px;
             word-break: break-all;
+            text-align: left; /* 文章は左寄せに戻す */
         }
 
-        /* 追従する「トップに戻る」ボタン（PC・スマホ共通） */
+        /* しつこくない、スマートな追従ボタン */
         .back-to-top-btn {
             position: fixed;
             bottom: 25px;
@@ -100,7 +102,11 @@
         @media (max-width: 600px) {
             h1 { font-size: 2.2rem; }
             .profile-box { padding: 25px; }
-            .profile-img-wrap { width: 200px; height: 200px; }
+            
+            /* スマホ用サイズ調整 */
+            .profile-img-wrap { padding: 15px; border-width: 10px; }
+            .profile-img { width: 180px; }
+            
             p { font-size: 1rem; }
             .back-to-top-btn { width: 80px; height: 80px; font-size: 0.8rem; }
         }
