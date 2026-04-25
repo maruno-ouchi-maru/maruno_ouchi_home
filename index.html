@@ -277,17 +277,18 @@
             .left-column {
                 display: flex;
                 flex-direction: column;
-                align-items: flex-start; /* 基本は左揃え */
+                align-items: flex-start; 
             }
             .right-column { 
                 margin-bottom: 40px; 
-                align-items: center; /* ぐり丸写真は中央 */
+                align-items: center; 
                 width: 100%;
             }
-            /* 中央揃えにしたい要素 */
-            .open-info, .insta-link, .logo-philosophy-wrap, .philosophy-title, .menu-btn {
+            /* スマホで中央揃えにしたい要素 */
+            .open-info, .insta-link, .logo-philosophy-wrap, .philosophy-title, .menu-btn, .sub-message {
                 align-self: center;
                 text-align: center;
+                width: 100%;
             }
             .logo-philosophy-wrap { 
                 flex-direction: column; 
@@ -295,10 +296,10 @@
             }
             .philosophy { 
                 max-width: 100%; 
-                text-align: left; /* 枠内の箇条書きは左揃えが読みやすい */
+                text-align: left; 
             }
-            /* 左揃えを維持する要素 */
-            .location-text, .intro-text, .sub-message {
+            /* スマホで左揃えを維持する要素 */
+            .location-text, .intro-text {
                 text-align: left;
                 align-self: flex-start;
                 width: 100%;
@@ -316,7 +317,7 @@
     <div class="main-container">
         <div class="left-column">
             <div class="open-info">
-                2026年秋 開校予定です<br class="sp-br">（現在はInstagramのDMにて無料相談受付中）
+                2026年秋 開校予定です<br class="sp-br">（現在はInstagramのDMにて<br class="sp-br">無料相談受付中）
             </div>
 
             <div class="insta-link">
@@ -344,7 +345,7 @@
                 宿題をその場で終わらせ、分からないところを丁寧に解き直して“できた”を増やします。
             </p>
 
-            <p class="sub-message">子どもをまるごと受けとめ、自分にまるをあげられる場所</p>
+            <p class="sub-message">子どもをまるごと受けとめ、<br class="sp-br">自分にまるをあげられる場所</p>
 
             <div class="maru-frame">
                 <h3 class="tokucho-title">まるのおうちの特徴</h3>
