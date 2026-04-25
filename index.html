@@ -234,7 +234,7 @@
             justify-content: center;
             gap: 10px;
             padding: 20px;
-            z-index: 100;
+            z-index: 1000;
             transition: 0.25s ease;
         }
 
@@ -255,7 +255,7 @@
             width: 100%; height: 100%;
             background: rgba(0,0,0,0.3);
             display: none;
-            z-index: 90;
+            z-index: 990;
         }
 
         .close-btn {
@@ -267,7 +267,6 @@
             margin-bottom: 5px;
         }
 
-        /* 改行調整：スマホのときだけ表示する */
         .sp-br { display: none; }
 
         @media (max-width: 768px) {
@@ -285,11 +284,30 @@
                 align-items: center; 
                 width: 100%;
             }
-            .open-info, .insta-link, .logo-philosophy-wrap, .philosophy-title, .menu-btn, .sub-message {
+            .open-info, .insta-link, .logo-philosophy-wrap, .philosophy-title, .sub-message {
                 align-self: center;
                 text-align: center;
                 width: 100%;
             }
+            
+            /* ★スマホでMENUボタンを右下に固定★ */
+            .menu-btn {
+                position: fixed; 
+                bottom: 30px;    
+                right: 20px;     
+                z-index: 995;    
+                width: 80px;     
+                height: 80px;
+                padding: 0;      
+                margin-top: 0;   
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 0.9rem;
+                box-shadow: 0 8px 25px rgba(0,0,0,0.2); 
+                border-radius: 50%;
+            }
+
             .logo-philosophy-wrap { 
                 flex-direction: column; 
                 align-items: center; 
@@ -307,7 +325,6 @@
                 font-size: 0.85rem; 
                 text-align: center;
             }
-            /* スマホ時のみ改行を有効化 */
             .sp-br { display: block; }
         }
     </style>
