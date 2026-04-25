@@ -168,7 +168,11 @@
             color: #555;
         }
 
-        /* MENUボタン：PC版（通常時はコンテンツ内に配置） */
+        /* 改行調整用の魔法 */
+        .keep-word {
+            display: inline-block;
+        }
+
         .menu-btn {
             display: block;
             margin: 20px 0;
@@ -272,7 +276,6 @@
 
         .sp-br { display: none; }
 
-        /* スマホ用（画面幅が768px以下の場合） */
         @media (max-width: 768px) {
             .main-container { 
                 flex-direction: column-reverse; 
@@ -295,7 +298,6 @@
                 width: 100%;
             }
 
-            /* ★スマホでボタンを右下に完全固定★ */
             .menu-btn {
                 position: fixed !important; 
                 bottom: 25px !important;    
@@ -380,9 +382,9 @@
             </div>
 
             <div class="intro-text">
-                まるのおうちは、子どもをまるごと受けとめる<br class="sp-br">
+                <span class="keep-word">まるのおうちは、</span><span class="keep-word">子どもをまるごと受けとめる</span><br class="sp-br">
                 小さな居場所。<br>
-                その子が感じた「できた」を<br class="sp-br">
+                <span class="keep-word">その子が感じた「できた」を</span><br class="sp-br">
                 たいせつにしています。<br>
                 自分にまるをあげられる時間が流れています。
             </div>
