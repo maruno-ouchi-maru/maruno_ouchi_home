@@ -168,11 +168,12 @@
             color: #555;
         }
 
-        /* 改行調整用の魔法 */
+        /* 改行調整用 */
         .keep-word {
             display: inline-block;
         }
 
+        /* MENUボタン：PC版の基本スタイル */
         .menu-btn {
             display: block;
             margin: 20px 0;
@@ -298,6 +299,7 @@
                 width: 100%;
             }
 
+            /* スマホでMENUボタンを右下に固定 */
             .menu-btn {
                 position: fixed !important; 
                 bottom: 25px !important;    
@@ -388,6 +390,8 @@
                 たいせつにしています。<br>
                 自分にまるをあげられる時間が流れています。
             </div>
+
+            <button class="menu-btn" onclick="openMenu()">MENU</button>
         </div>
 
         <div class="right-column">
@@ -403,8 +407,6 @@
             </a>
         </div>
     </div>
-
-    <button class="menu-btn" onclick="openMenu()">MENU</button>
 
     <div id="popup-overlay" onclick="closeMenu()"></div>
     <div id="popup-menu" class="popup-menu">
