@@ -266,40 +266,47 @@
             margin-bottom: 5px;
         }
 
-        /* 改行調整用：スマホのみ有効にするクラス */
+        /* スマホ用改行クラス */
         .sp-br { display: none; }
 
         @media (max-width: 768px) {
             .main-container { 
                 flex-direction: column-reverse; 
-                text-align: left; /* スマホで全体を左揃え */
                 padding: 30px 20px; 
+            }
+            .left-column {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start; /* 基本は左揃え */
             }
             .right-column { 
                 margin-bottom: 40px; 
-                align-items: center; 
+                align-items: center; /* ぐり丸写真は中央 */
+                width: 100%;
+            }
+            /* 中央揃えにしたい要素 */
+            .open-info, .insta-link, .logo-philosophy-wrap, .philosophy-title, .menu-btn {
+                align-self: center;
+                text-align: center;
             }
             .logo-philosophy-wrap { 
                 flex-direction: column; 
-                align-items: flex-start; 
+                align-items: center; 
             }
             .philosophy { 
                 max-width: 100%; 
-                text-align: left;
+                text-align: left; /* 枠内の箇条書きは左揃えが読みやすい */
             }
-            .maru-frame { 
-                margin: 30px 0; 
-                padding: 25px 20px; 
-                text-align: left;
-            }
+            /* 左揃えを維持する要素 */
             .location-text, .intro-text, .sub-message {
                 text-align: left;
+                align-self: flex-start;
+                width: 100%;
             }
             .ehon-guide { 
                 font-size: 0.85rem; 
                 text-align: center;
             }
-            /* スマホの時だけ改行を有効にする */
             .sp-br { display: block; }
         }
     </style>
@@ -309,7 +316,7 @@
     <div class="main-container">
         <div class="left-column">
             <div class="open-info">
-                2026年秋 開校予定です（現在はInstagramのDMにて無料相談受付中）
+                2026年秋 開校予定です<br class="sp-br">（現在はInstagramのDMにて無料相談受付中）
             </div>
 
             <div class="insta-link">
