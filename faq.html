@@ -4,393 +4,264 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>よくある質問｜まるのおうち</title>
-
     <link href="https://fonts.googleapis.com/css2?family=Yomogi&family=Zen+Maru+Gothic:wght@400;500&display=swap" rel="stylesheet">
-
     <style>
         body {
-            margin: 0;
-            padding: 0;
-            background: #DFF4EE;
+            margin: 0; padding: 0;
+            background-color: #F7DDE8; 
+            background-image: radial-gradient(#E8C7D5 1.5px, transparent 1.5px);
+            background-size: 35px 35px;
             font-family: 'Zen Maru Gothic', sans-serif;
-            color: #444;
-            display: flex;
-            justify-content: center;
-            padding: 50px 20px;
+            color: #444; display: flex; justify-content: center;
+            padding: 50px 20px; line-height: 1.8;
         }
-
         .card {
-            background: rgba(255, 255, 255, 0.9);
-            width: 100%;
-            max-width: 750px;
-            padding: 50px 40px;
-            border-radius: 34px 28px 36px 30px;
-            box-shadow: 0 6px 14px rgba(0,0,0,0.06);
+            background: rgba(255, 255, 255, 0.95);
+            width: 100%; max-width: 850px;
+            padding: 50px 40px; border-radius: 40px;
+            box-shadow: 0 10px 30px rgba(216, 194, 168, 0.2);
+            border: 3px solid #D8C2A8;
         }
+        h1 { font-family: 'Yomogi', cursive; font-size: 2.5rem; text-align: center; margin-bottom: 10px; color: #7A6A2F; }
+        .subtitle { text-align: center; font-size: 0.9rem; color: #888; margin-bottom: 30px; }
 
-        h1 {
-            font-family: 'Yomogi', cursive;
-            font-size: 2.4rem;
-            text-align: center;
-            margin-bottom: 25px;
-            color: #555;
+        /* 検索ボックス */
+        .search-container { margin-bottom: 40px; text-align: center; }
+        #searchInput {
+            width: 80%; padding: 15px 25px; font-size: 1rem;
+            border: 2px solid #D8C2A8; border-radius: 50px;
+            font-family: 'Zen Maru Gothic', sans-serif; outline: none;
+            background-color: #fff; transition: 0.3s;
         }
+        #searchInput:focus { box-shadow: 0 0 10px rgba(216, 194, 168, 0.5); }
 
-        /* ▼ 検索ボックス */
-        .search-box {
-            width: 100%;
-            padding: 12px 16px;
-            margin-bottom: 20px;
-            font-size: 1rem;
-            border: 2px solid #C7DFFF;
-            border-radius: 20px;
-            outline: none;
-            box-sizing: border-box;
-            background: #fff;
+        .category-title {
+            font-family: 'Yomogi', cursive; font-size: 1.5rem; color: #D84B81;
+            margin: 40px 0 20px; border-bottom: 2px dashed #D8C2A8; padding-bottom: 5px;
         }
-
-        .search-box:focus {
-            border-color: #35527A;
-        }
-
-        /* ▼ 該当なしメッセージ */
-        #noResult {
-            display: none;
-            text-align: center;
-            color: #777;
-            margin-bottom: 25px;
-        }
-
-        .qa-block {
-            margin-bottom: 35px;
-        }
-
-        .question {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: #35527A;
-        }
-
-        .answer {
-            font-size: 1.05rem;
-            line-height: 1.9;
-            color: #444;
-        }
-
+        .qa-block { margin-bottom: 20px; border-radius: 20px; overflow: hidden; border: 1px solid #F7DDE8; transition: 0.3s; }
+        .question { background-color: #F7DDE8; padding: 15px 20px; font-weight: bold; color: #D84B81; display: flex; align-items: flex-start; }
+        .question::before { content: "Q."; font-family: 'Yomogi', cursive; font-size: 1.3rem; margin-right: 10px; }
+        .answer { background-color: #fff; padding: 20px; white-space: pre-wrap; } /* 改行を反映 */
+        .answer::before { content: "A."; font-family: 'Yomogi', cursive; font-size: 1.3rem; color: #7A6A2F; display: block; margin-bottom: 5px; }
+        
+        .no-result { text-align: center; color: #888; padding: 40px; display: none; }
+        
         .back-btn {
-            display: block;
-            margin: 50px auto 0;
-            width: 200px;
-            text-align: center;
-            padding: 14px 20px;
-            background: #C7DFFF;
-            color: #35527A;
-            text-decoration: none;
-            font-weight: 600;
-            border-radius: 55% 45% 60% 40% / 45% 55% 40% 60%;
-            border: 1.6px solid #BBD0EE;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: 0.25s;
+            display: block; width: fit-content; margin: 50px auto 0;
+            padding: 12px 40px; background-color: #D8C2A8; color: white;
+            text-decoration: none; font-weight: bold; border-radius: 60% 40% 60% 40% / 45% 50% 50% 55%;
+            transition: 0.3s;
         }
+        .back-btn:hover { background-color: #C5AB8D; transform: scale(1.05) rotate(-1deg); }
 
-        .back-btn:hover {
-            transform: translateY(-2px);
-            opacity: 0.95;
-        }
-
-        @media (max-width: 600px) {
-            .card { padding: 30px 20px; }
-            h1 { font-size: 1.8rem; }
-            .question { font-size: 1.1rem; }
-            .answer { font-size: 0.95rem; }
-        }
+        @media (max-width: 600px) { .card { padding: 30px 15px; } h1 { font-size: 2rem; } #searchInput { width: 100%; } }
     </style>
 </head>
-
 <body>
-
 <div class="card">
-<h1>よくある質問</h1>
+    <h1>よくある質問</h1>
+    <div class="subtitle">気になることがあれば検索したり、各項目をチェックしてみてください</div>
 
-<!-- ▼ 検索ボックス -->
-<input type="text" id="searchInput" placeholder="キーワードで検索" class="search-box">
-
-<!-- ▼ 該当なしメッセージ -->
-<div id="noResult">該当する質問がありません</div>
-
-<!-- ▼ ここからFAQ本体（りょうこが作った内容そのまま） -->
-<!-- ① 予約について -->
-<div class="qa-block">
-    <div class="question">Q. なぜ予約制なのですか？</div>
-    <div class="answer">
-        お子さんのペースに合わせて、無理なく通えるようにするためです。<br>
-        ご家庭の予定や、その時期の調子に合わせて、事前に通う日を選べます。
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="キーワードで検索（例：持ち物、予約、特性）">
     </div>
-</div>
 
-<div class="qa-block">
-    <div class="question">Q. どれくらい前に予約すればいいですか？</div>
-    <div class="answer">
-        予約は<strong>前日の22時まで</strong>受け付けています。<br>
-        （例：3月31日の枠は、3月30日の22時まで予約できます）<br><br>
-        空き状況に応じてご予約いただけますので、<br>
-        公式LINEの予約画面からご希望の日時をお選びください。
+    <div id="noResult" class="no-result">
+        一致する質問は見つかりませんでした。<br>
+        お気軽に公式LINEからお問い合わせください。
     </div>
-</div>
 
-<!-- ② どんな子が通う？ -->
-<div class="qa-block">
-    <div class="question">Q. どんな子が通っていますか？</div>
-    <div class="answer">
-        宿題が苦手な子、授業が少し難しく感じている子、もっと学びたい子など、さまざまです。
+    <div id="qaList">
+        <div class="category-section">
+            <div class="category-title">通い方・予約について</div>
+            <div class="qa-block">
+                <div class="question">入塾のタイミングは決まっていますか？</div>
+                <div class="answer">いつでも受け付けています。月の途中からでも大丈夫ですので、まずは一度お気軽にご相談ください。</div>
+            </div>
+            <div class="qa-block">
+                <div class="question">なぜ予約制なのですか？</div>
+                <div class="answer">お子さんのペースに合わせて、無理なく通えるようにするためです。
+ご家庭の予定や、その時期の調子に合わせて、事前に通う日を選べます。</div>
+            </div>
+            <div class="qa-block">
+                <div class="question">どれくらい前に予約すればいいですか？</div>
+                <div class="answer">予約は前日の22時まで受け付けています。
+（例：3月31日の枠は、3月30日の22時まで予約できます）
+
+空き状況に応じてご予約いただけますので、公式LINEの予約画面からご希望の日時をお選びください。</div>
+            </div>
+            <div class="qa-block">
+                <div class="question">体験はできますか？</div>
+                <div class="answer">はい、初回は2,000円の体験授業を受けていただけます。
+授業の前に15分の無料相談がついており、お子さんの様子や学び方を一緒に確認できます。
+
+まるのおうちが合いそうでしたら、その後は公式LINEの予約画面から、通いたい日時をお選びいただけます。</div>
+            </div>
+            <div class="qa-block">
+                <div class="question">兄弟で通うことはできますか？</div>
+                <div class="answer">はい、兄弟で通っていたいただけます。
+
+ただし、同じ時間帯に一緒になると、ついおしゃべりが増えたり、気がそれやすくなることがあります。そのため、できれば別の時間帯でのご利用をおすすめしています。
+
+どうしても同じ時間をご希望の場合は、その時間に2枠の空きがある場合にご利用いただけます。</div>
+            </div>
+            <div class="qa-block">
+                <div class="question">保護者は見学できますか？</div>
+                <div class="answer">申し訳ありませんが、見学は行っていません。
+お子さまが落ち着いて取り組めるよう、授業中はお預かりでの参加をお願いしています。
+
+初回は、授業前の無料相談（15分）で、お子さまの様子や気になることをお伺いし、まるのおうちの説明をさせていただきます。</div>
+            </div>
+        </div>
+
+        <div class="category-section">
+            <div class="category-title">学習について</div>
+            <div class="qa-block">
+                <div class="question">どんな子が通っていますか？</div>
+                <div class="answer">宿題が苦手な子、授業が少し難しく感じている子、もっと学びたい子など、さまざまです。</div>
+            </div>
+            <div class="qa-block">
+                <div class="question">勉強が苦手でも大丈夫ですか？</div>
+                <div class="answer">もちろん大丈夫です。「わからない」を言いやすい空気を大切にしています。</div>
+            </div>
+            <div class="qa-block">
+                <div class="question">発達の特性があっても通えますか？</div>
+                <div class="answer">その子に合わせてペースを調整します。気になることがあれば事前にご相談ください。</div>
+            </div>
+            <div class="qa-block">
+                <div class="question">どんなふうに教えてくれるのですか？</div>
+                <div class="answer">まずは、持ってきた学校の宿題をお子さん自身の力でやってみるところから始めます。その中で分からないところが出てきたら、その場で丁寧に説明します。
+
+分かったつもりで終わらないように、
+・同じ問題をもう一度解き直す
+・数字だけ変えた類題にチャレンジする
+などを通して、つまずいたところをしっかり定着させていきます。
+
+「わかった」「できた」を積み重ねることを大切にしています。</div>
+            </div>
+            <div class="qa-block">
+                <div class="question">マンツーマンですか？少人数ですか？</div>
+                <div class="answer">講師1人に対して、最大でお子さま2人までの少人数制です。タイミングによっては、マンツーマンになることもあります。
+
+一人ひとりの様子を見ながら、必要に応じて個別に声をかけてサポートします。</div>
+            </div>
+            <div class="qa-block">
+                <div class="question">どんな教材を使いますか？</div>
+                <div class="answer">基本は、学校の宿題を使って進めます。宿題がない日や少ない日は、学校の教科書やドリルを持ってきてください。
+
+こちらで教材を用意することは、必要な場合を除いてほとんどありません。学校で使っているものを使うことで、家でも自分で進めやすくなるようにしています。</div>
+            </div>
+            <div class="qa-block">
+                <div class="question">宿題が少ない日や、宿題がない日でも通えますか？</div>
+                <div class="answer">はい、大丈夫です。
+まるのおうちでは、宿題の量に関わらず、その日の「わからない」「もう少し練習したい」を一緒に見つけて取り組みます。
+
+宿題が少ない日は、
+・前の日に分からなかったところの解き直し
+・似た問題での練習
+・自主学習のサポート
+などに時間を使うことができます。</div>
+            </div>
+            <div class="qa-block">
+                <div class="question">家庭学習の相談もできますか？</div>
+                <div class="answer">はい、できます。
+宿題の進め方や、家での声かけの仕方など、気になることがあればお気軽にお伝えください。
+より深いご相談をご希望の場合は、有料相談をご利用いただけます。</div>
+            </div>
+        </div>
+
+        <div class="category-section">
+            <div class="category-title">有料相談について</div>
+            <div class="qa-block">
+                <div class="question">有料相談はどんな時に利用すればいいですか？</div>
+                <div class="answer">学校のことや、お子さまの学習・生活面で「ちょっと聞いてほしい」「どうしたらいいか迷っている」という時にご利用いただけます。無料相談よりも、もう少し深く話したい内容がある時におすすめです。</div>
+            </div>
+            <div class="qa-block">
+                <div class="question">有料相談ではどんなことを話せますか？</div>
+                <div class="answer">・学校での困りごと
+・家庭学習の進め方
+・お子さまの特性や関わり方
+・気になる行動やつまずき
+など、どんな小さなことでも大丈夫です。必要に応じて、具体的な対応のヒントや見通しを一緒に整理します。</div>
+            </div>
+            <div class="qa-block">
+                <div class="question">有料相談はどのくらいの時間、料金ですか？</div>
+                <div class="answer">時間は1回30分です。料金は1回1,500円です。
+（公式LINEの予約画面からお支払い方法をご確認いただけます）</div>
+            </div>
+            <div class="qa-block">
+                <div class="question">有料相談の予約はどうすればいいですか？</div>
+                <div class="answer">公式LINEの「予約」→「有料相談」を選んでいただくと、空いている日時が表示されます。</div>
+            </div>
+            <div class="qa-block">
+                <div class="question">子どもは同席した方がいいですか？</div>
+                <div class="answer">どちらでも大丈夫です。お話の内容によって、保護者さまだけ・お子さまと一緒のどちらでも対応できます。</div>
+            </div>
+        </div>
+
+        <div class="category-section">
+            <div class="category-title">料金・設備・持ち物</div>
+            <div class="qa-block">
+                <div class="question">料金はいくらですか？</div>
+                <div class="answer">最新の料金は「料金・利用案内」のページに記載しています。ご不明な点があればお気軽にお問い合わせください。</div>
+            </div>
+            <div class="qa-block">
+                <div class="question">入会金はありますか？</div>
+                <div class="answer">入会金はありません。予約制で、通いたい日をその都度お選びいただけます。</div>
+            </div>
+            <div class="qa-block">
+                <div class="question">支払い方法は何がありますか？</div>
+                <div class="answer">現金、または当日こちらが提示するPayPayのQRコードでお支払いいただけます。現金の場合は、お子さまが持ってきても大丈夫です。</div>
+            </div>
+            <div class="qa-block">
+                <div class="question">駐車場はありますか？</div>
+                <div class="answer">敷地内に2台分の駐車スペースがあります。送迎の一時停車も可能です。詳しい場所や写真は、アクセスページをご確認ください。</div>
+            </div>
+            <div class="qa-block">
+                <div class="question">持ち物はありますか？</div>
+                <div class="answer">以下のものをご持参ください。
+・その日の宿題
+・学校で使っているノート（まるのおうち用）
+・筆箱（学校と同じ中身）
+・下敷き
+・水筒（必要な場合）
+
+宿題がない日や少ない日は、学校の教科書やドリルを持ってきていただけるとスムーズです。持ち物の詳しい説明は、公式LINEの紹介動画でもご案内しています。</div>
+            </div>
+        </div>
     </div>
+
+    <a href="index.html" class="back-btn">トップページへ戻る</a>
 </div>
 
-<div class="qa-block">
-    <div class="question">Q. 勉強が苦手でも大丈夫ですか？</div>
-    <div class="answer">
-        もちろん大丈夫です。「わからない」を言いやすい空気を大切にしています。
-    </div>
-</div>
-
-<div class="qa-block">
-    <div class="question">Q. 発達の特性があっても通えますか？</div>
-    <div class="answer">
-        その子に合わせてペースを調整します。気になることがあれば事前にご相談ください。
-    </div>
-</div>
-
-<!-- ③ 学び方 -->
-<div class="qa-block">
-    <div class="question">Q. どんなふうに教えてくれるのですか？</div>
-    <div class="answer">
-        まずは、持ってきた学校の宿題を<strong>お子さん自身の力でやってみる</strong>ところから始めます。<br>
-        その中で<strong>分からないところが出てきたら、その場で丁寧に説明</strong>します。<br><br>
-        分かったつもりで終わらないように、<br>
-        ・同じ問題をもう一度解き直す<br>
-        ・数字だけ変えた類題にチャレンジする<br>
-        などを通して、つまずいたところをしっかり定着させていきます。<br><br>
-        「わかった」「できた」を積み重ねることを大切にしています。
-    </div>
-</div>
-
-<div class="qa-block">
-    <div class="question">Q. マンツーマンですか？少人数ですか？</div>
-    <div class="answer">
-        講師1人に対して、<strong>最大でお子さま2人まで</strong>の少人数制です。<br>
-        タイミングによっては、<strong>マンツーマンになることもあります。</strong><br><br>
-        一人ひとりの様子を見ながら、必要に応じて個別に声をかけてサポートします。
-    </div>
-</div>
-
-<div class="qa-block">
-    <div class="question">Q. どんな教材を使いますか？</div>
-    <div class="answer">
-        基本は、学校の<strong>宿題</strong>を使って進めます。<br>
-        宿題がない日や少ない日は、<strong>学校の教科書やドリルを持ってきてください。</strong><br><br>
-        こちらで教材を用意することは、必要な場合を除いてほとんどありません。<br>
-        学校で使っているものを使うことで、家でも自分で進めやすくなるようにしています。
-    </div>
-</div>
-
-<div class="qa-block">
-    <div class="question">Q. 宿題が少ない日や、宿題がない日でも通えますか？</div>
-    <div class="answer">
-        はい、大丈夫です。<br>
-        まるのおうちでは、宿題の量に関わらず、<br>
-        その日の「わからない」「もう少し練習したい」を一緒に見つけて取り組みます。<br><br>
-        宿題が少ない日は、<br>
-        ・前の日に分からなかったところの解き直し<br>
-        ・似た問題での練習<br>
-        ・自主学習のサポート<br>
-        などに時間を使うことができます。
-    </div>
-</div>
-
-<div class="qa-block">
-    <div class="question">Q. 家庭学習の相談もできますか？</div>
-    <div class="answer">
-        はい、できます。<br>
-        宿題の進め方や、家での声かけの仕方など、気になることがあればお気軽にお伝えください。<br>
-        より深いご相談をご希望の場合は、有料相談をご利用いただけます。
-    </div>
-</div>
-
-<!-- ④ 体験 -->
-<div class="qa-block">
-    <div class="question">Q. 体験はできますか？</div>
-    <div class="answer">
-        はい、初回は<strong>2,000円の体験授業</strong>を受けていただけます。<br>
-        授業の前に<strong>15分の無料相談</strong>がついており、<br>
-        お子さんの様子や学び方を一緒に確認できます。<br><br>
-        まるのおうちが合いそうでしたら、<br>
-        その後は公式LINEの予約画面から、通いたい日時をお選びいただけます。
-    </div>
-</div>
-
-<!-- ⑤ 料金・支払い -->
-<div class="qa-block">
-    <div class="question">Q. 料金はいくらですか？</div>
-    <div class="answer">
-        最新の料金は「料金・利用案内」のページに記載しています。<br>
-        ご不明な点があればお気軽にお問い合わせください。
-    </div>
-</div>
-
-<div class="qa-block">
-    <div class="question">Q. 入会金はありますか？</div>
-    <div class="answer">
-        入会金はありません。<br>
-        予約制で、通いたい日をその都度お選びいただけます。
-    </div>
-</div>
-
-<div class="qa-block">
-    <div class="question">Q. 支払い方法は何がありますか？</div>
-    <div class="answer">
-        現金、または<strong>当日こちらが提示するPayPayのQRコード</strong>でお支払いいただけます。<br>
-        現金の場合は、お子さまが持ってきても大丈夫です。
-    </div>
-</div>
-
-<!-- ⑥ 有料相談 -->
-<div class="qa-block">
-    <div class="question">Q. 有料相談はどんな時に利用すればいいですか？</div>
-    <div class="answer">
-        学校のことや、お子さまの学習・生活面で<br>
-        「ちょっと聞いてほしい」「どうしたらいいか迷っている」<br>
-        という時にご利用いただけます。<br><br>
-        無料相談よりも、<strong>もう少し深く話したい内容がある時</strong>におすすめです。
-    </div>
-</div>
-
-<div class="qa-block">
-    <div class="question">Q. 有料相談ではどんなことを話せますか？</div>
-    <div class="answer">
-        ・学校での困りごと<br>
-        ・家庭学習の進め方<br>
-        ・お子さまの特性や関わり方<br>
-        ・気になる行動やつまずき<br><br>
-        など、どんな小さなことでも大丈夫です。<br>
-        必要に応じて、<strong>具体的な対応のヒントや見通し</strong>を一緒に整理します。
-    </div>
-</div>
-
-<div class="qa-block">
-    <div class="question">Q. 有料相談はどのくらいの時間ですか？</div>
-    <div class="answer">
-        1回<strong>30分</strong>です。<br>
-        短すぎず、落ち着いて話せる時間を確保しています。
-    </div>
-</div>
-
-<div class="qa-block">
-    <div class="question">Q. 有料相談の料金はいくらですか？</div>
-    <div class="answer">
-        1回<strong>1,500円</strong>です。<br>
-        （公式LINEの予約画面からお支払い方法をご確認いただけます）
-    </div>
-</div>
-
-<div class="qa-block">
-    <div class="question">Q. 有料相談の予約はどうすればいいですか？</div>
-    <div class="answer">
-        公式LINEの<strong>「予約」→「有料相談」</strong>を選んでいただくと、<br>
-        空いている日時が表示されます。
-    </div>
-</div>
-
-<div class="qa-block">
-    <div class="question">Q. 子どもは同席した方がいいですか？</div>
-    <div class="answer">
-        どちらでも大丈夫です。<br>
-        お話の内容によって、<strong>保護者さまだけ・お子さまと一緒</strong>のどちらでも対応できます。
-    </div>
-</div>
-
-<!-- ⑦ その他 -->
-<div class="qa-block">
-    <div class="question">Q. 保護者は見学できますか？</div>
-    <div class="answer">
-        申し訳ありませんが、見学は行っていません。<br>
-        お子さまが落ち着いて取り組めるよう、授業中はお預かりでの参加をお願いしています。<br><br>
-        初回は、授業前の<strong>無料相談（15分）</strong>で、<br>
-        お子さまの様子や気になることをお伺いし、まるのおうちの説明をさせていただきます。
-    </div>
-</div>
-
-<div class="qa-block">
-    <div class="question">Q. 兄弟で通うことはできますか？</div>
-    <div class="answer">
-        はい、兄弟で通っていただけます。<br><br>
-        ただし、同じ時間帯に一緒になると、<br>
-        <strong>ついおしゃべりが増えたり、気がそれやすくなることがあります。</strong><br>
-        そのため、できれば<strong>別の時間帯でのご利用をおすすめしています。</strong><br><br>
-        どうしても同じ時間をご希望の場合は、<br>
-        <strong>その時間に2枠の空きがある場合</strong>にご利用いただけます。
-    </div>
-</div>
-
-<div class="qa-block">
-    <div class="question">Q. 駐車場はありますか？</div>
-    <div class="answer">
-        敷地内に<strong>2台分の駐車スペース</strong>があります。<br>
-        送迎の一時停車も可能です。<br><br>
-        詳しい場所や写真は、<strong>アクセスページ</strong>をご確認ください。
-    </div>
-</div>
-
-<div class="qa-block">
-    <div class="question">Q. 持ち物はありますか？</div>
-    <div class="answer">
-        以下のものをご持参ください。<br><br>
-
-        ・その日の<strong>宿題</strong><br>
-        ・学校で使っている<strong>ノート</strong>（まるのおうち用）<br>
-        ・<strong>筆箱</strong>（学校と同じ中身）<br>
-        ・<strong>下敷き</strong><br>
-        ・<strong>水筒</strong>（必要な場合）<br><br>
-
-        宿題がない日や少ない日は、<strong>学校の教科書やドリル</strong>を持ってきていただけるとスムーズです。<br><br>
-
-        持ち物の詳しい説明は、公式LINEの「まるのおうちとは」にある紹介動画の内容に沿ってご案内しています。
-    </div>
-</div>
-
-<a href="index.html?v=latest" class="back-btn">トップページへ戻る</a>
-
-</div>
-
-<!-- ▼ 検索機能スクリプト（該当なし＋リセット対応） -->
 <script>
-document.getElementById("searchInput").addEventListener("keyup", function() {
-    let keyword = this.value.toLowerCase();
-    let blocks = document.querySelectorAll(".qa-block");
-    let noResult = document.getElementById("noResult");
+    document.getElementById("searchInput").addEventListener("keyup", function() {
+        let keyword = this.value.toLowerCase();
+        let categories = document.querySelectorAll(".category-section");
+        let noResult = document.getElementById("noResult");
+        let hitOverall = 0;
 
-    let hit = 0;
+        categories.forEach(section => {
+            let sectionHit = 0;
+            let sectionBlocks = section.querySelectorAll(".qa-block");
+            
+            sectionBlocks.forEach(block => {
+                let text = block.innerText.toLowerCase();
+                if (text.includes(keyword)) {
+                    block.style.display = "block";
+                    sectionHit++;
+                    hitOverall++;
+                } else {
+                    block.style.display = "none";
+                }
+            });
 
-    blocks.forEach(block => {
-        let text = block.innerText.toLowerCase();
+            section.style.display = (sectionHit > 0) ? "block" : "none";
+        });
 
-        // キーワードが空 → 全部表示
-        if (keyword === "") {
-            block.style.display = "block";
-            hit++;
-        } else {
-            // キーワードあり → 該当のみ表示
-            if (text.includes(keyword)) {
-                block.style.display = "block";
-                hit++;
-            } else {
-                block.style.display = "none";
-            }
-        }
+        noResult.style.display = (hitOverall === 0 && keyword !== "") ? "block" : "none";
     });
-
-    // 該当なしメッセージの表示/非表示
-    noResult.style.display = hit === 0 ? "block" : "none";
-});
 </script>
-
+</body>
+</html>
