@@ -3,363 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>まるのおうちとは</title>
-
+    <title>まるのおうちとは｜倉敷市の小学生向け学習塾</title>
     <link href="https://fonts.googleapis.com/css2?family=Yomogi&family=Zen+Maru+Gothic:wght@400;500&display=swap" rel="stylesheet">
-
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
+        * { box-sizing: border-box; }
         body {
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(180deg, #F8EFFF, #F4F6FF);
+            margin: 0; padding: 0;
+            background-color: #F7DDE8; 
+            background-image: radial-gradient(#E8C7D5 1.5px, transparent 1.5px);
+            background-size: 35px 35px;
             font-family: 'Zen Maru Gothic', sans-serif;
             color: #444;
-            display: flex;
-            justify-content: center;
-            padding: 50px 20px;
+            display: flex; justify-content: center; padding: 40px 20px;
         }
-
         .card {
-            background: rgba(255, 255, 255, 0.88);
-            width: 100%;
-            max-width: 700px;
-            padding: 50px 40px;
-            border-radius: 34px 28px 36px 30px;
-            box-shadow: 0 6px 14px rgba(0,0,0,0.06);
+            background: rgba(255, 255, 255, 0.95);
+            width: 100%; max-width: 850px;
+            padding: 50px 40px; border-radius: 40px;
+            box-shadow: 0 10px 30px rgba(216, 194, 168, 0.2);
+            backdrop-filter: blur(8px);
         }
-
         h1 {
-            font-family: 'Yomogi', cursive;
-            font-size: 2.4rem;
-            text-align: center;
-            margin-bottom: 30px;
-            color: #555;
+            font-family: 'Yomogi', cursive; color: #7A6A2F;
+            text-align: center; font-size: 2.2rem; margin-bottom: 40px;
         }
-
-        h2 {
-            font-size: 1.4rem;
-            margin-top: 40px;
-            margin-bottom: 15px;
-            color: #555;
-            text-align: center;
-            line-height: 1.6;
+        .section { margin-bottom: 50px; line-height: 2; }
+        .section-title {
+            color: #D84B81; font-size: 1.4rem; font-weight: bold;
+            margin-bottom: 20px; display: flex; align-items: center; gap: 10px;
         }
+        .section-title::before { content: '●'; font-size: 0.8rem; color: #D8C2A8; }
+        
+        .main-msg { font-size: 1.2rem; font-weight: 500; text-align: center; margin-bottom: 40px; color: #444; }
 
-        p {
-            line-height: 2;
-            font-size: 1.05rem;
-            margin-bottom: 20px;
+        /* 学習の流れ */
+        .flow-container {
+            background: #FAF6F2; border: 2px solid #D8C2A8;
+            border-radius: 30px; padding: 30px; margin-top: 20px;
         }
-
-        .list-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 14px;
-            margin-top: 20px;
-        }
-
-        .list-card {
-            background: #F8F7FF;
-            padding: 16px 20px;
-            border-radius: 28px 24px 32px 26px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            font-size: 1.05rem;
-            line-height: 1.6;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            width: 100%;
-        }
-
-        .list-card.wide {
-            grid-column: 1 / -1;
-        }
-
-        /* 学習スタイルセクション */
-        .learning-flow {
-            margin: 60px 0 30px;
-            padding: 30px;
-            background: #FFF;
-            border-radius: 40px;
-            border: 2px dashed #D8C2A8;
-        }
-
-        .flow-title {
-            font-family: 'Yomogi', cursive;
-            color: #D8C2A8;
-            font-size: 1.5rem;
-            text-align: center;
-            margin-bottom: 35px;
-        }
-
-        .step-container {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            align-items: center;
-        }
-
-        .step-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            width: 100%;
-        }
-
+        .step-item { display: flex; align-items: center; gap: 20px; margin-bottom: 15px; }
+        .step-img { width: 100px; height: auto; border-radius: 12px; }
         .step-bubble {
-            flex: 1;
-            padding: 20px 24px;
-            border-radius: 25px;
-            font-size: 0.95rem;
-            line-height: 1.7;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.02);
-            position: relative;
+            flex: 1; padding: 18px; border-radius: 18px; line-height: 1.6; font-size: 0.95rem;
         }
+        .step-blue { background: #E6F3F7; border: 1px solid #BEE1EB; }
+        .step-pink { background: #FDF2F5; border: 1px solid #F7DDE8; }
+        .step-yellow { background: #FFFBE6; border: 1px solid #F0E6A5; }
+        .step-number { display: block; font-weight: bold; color: #D84B81; font-size: 0.85rem; margin-bottom: 3px; }
+        .flow-arrow { text-align: center; color: #D8C2A8; font-size: 1.2rem; margin: 5px 0; }
 
-        .step-number {
-            display: block;
-            font-family: 'Yomogi', cursive;
-            font-weight: bold;
-            color: #555;
-            margin-bottom: 5px;
-            font-size: 1.1rem;
-            text-align: left;
+        .yoyaku-box {
+            background: #FFFBE6; border: 2px solid #F0E6A5;
+            padding: 30px; border-radius: 25px; margin-bottom: 40px;
         }
-
-        .step-img {
-            width: 85px;
-            height: auto;
-            flex-shrink: 0;
+        .target-box {
+            background: #FAF6F2; border: 2px solid #D8C2A8;
+            padding: 30px; border-radius: 25px;
         }
+        .target-list { padding-left: 1.2em; margin: 0; }
+        .target-list li { margin-bottom: 10px; font-weight: 500; }
 
-        .note-img {
-            width: 45px;
-            position: absolute;
-            right: -10px;
-            top: -20px;
-            transform: rotate(10deg);
+        /* ぐり丸コーナー */
+        .gurimaru-section {
+            display: flex; flex-direction: column; align-items: center;
+            margin-top: 60px; position: relative;
         }
-
-        /* 配色 */
-        .step-pink { background: #F7DDE8; border: 1.5px solid #EBCBD8; }
-        .step-mint { background: #E8F7F2; border: 1.5px solid #D5EBE4; }
-        .step-yellow { background: #FFF4A8; border: 1.5px solid #F2E48A; }
-
-        .flow-arrow {
-            color: #D8C2A8;
-            font-size: 1.2rem;
-            text-align: center;
-            margin: 5px 0;
+        .gurimaru-img {
+            width: 180px; height: 180px;
+            border-radius: 50%; border: 6px solid #D8C2A8;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            object-fit: cover; z-index: 2;
         }
-
-        /* ぐり丸吹き出し */
-        .gurimaru-box {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            margin: 30px 0 30px;
-            justify-content: center;
-        }
-
-        .gurimaru {
-            width: 200px; 
-            height: auto;
-        }
-
         .speech-bubble {
-            background: #FFF4A8;
-            padding: 20px 24px;
-            border-radius: 38px 32px 42px 34px;
-            border: 2.4px solid #F2E48A;
-            font-size: 1rem;
-            line-height: 1.7;
-            color: #444;
-            max-width: 60%;
-            position: relative;
-            word-break: keep-all;
-            overflow-wrap: anywhere;
+            background: white; padding: 25px 35px;
+            border-radius: 30px; border: 2px dashed #D8C2A8;
+            font-family: 'Yomogi', cursive; font-size: 1.1rem;
+            color: #7A6A2F; line-height: 1.6;
+            text-align: left; /* 左揃えに変更 */
+            width: 100%; max-width: 600px;
+            margin-top: -30px; padding-top: 50px;
+            position: relative; z-index: 1;
         }
 
-        .speech-bubble::after {
-            content: "";
-            position: absolute;
-            left: -18px;
-            bottom: 18px;
-            width: 26px;
-            height: 26px;
-            background: #FFF4A8;
-            border-left: 2.4px solid #F2E48A;
-            border-bottom: 2.4px solid #F2E48A;
-            border-radius: 60% 0 60% 60%;
-            transform: rotate(25deg);
-        }
-
-        /* 戻るボタン */
         .back-btn {
-            display: block;
-            margin: 40px auto 0;
-            width: 200px;
-            text-align: center;
-            padding: 14px 20px;
-            background: #C7DFFF;
-            color: #35527A;
-            text-decoration: none;
-            font-weight: 600;
-            border-radius: 55% 45% 60% 40% / 45% 55% 40% 60%;
-            border: 1.6px solid #BBD0EE;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: 0.25s;
+            display: block; width: fit-content; margin: 50px auto 0;
+            background: #D8C2A8; color: white; text-decoration: none;
+            padding: 12px 45px; border-radius: 30px; font-weight: bold; transition: 0.3s;
         }
-
-        /* スマホ用改行クラス */
-        .sp-br { display: none; }
+        .back-btn:hover { transform: scale(1.05); background: #C5AB8D; }
 
         @media (max-width: 600px) {
-            body { padding: 20px 10px; }
-            .card { padding: 35px 20px; }
+            .card { padding: 30px 20px; }
             h1 { font-size: 1.8rem; }
-            h2 { font-size: 1.25rem; text-align: center; line-height: 1.5; }
-            p { font-size: 1rem; text-align: left; line-height: 1.8; }
-            
-            .list-grid { grid-template-columns: 1fr; }
-            .list-card { font-size: 0.95rem; padding: 15px; text-align: center; }
-            
-            /* 学習スタイルのスマホ調整 */
-            .learning-flow { padding: 20px 15px; }
-            .flow-title { text-align: center; line-height: 1.4; }
             .step-item { flex-direction: column; text-align: center; }
-            .step-bubble { width: 100%; text-align: left; }
-            .step-number { text-align: center; }
-            .step-img { width: 80px; order: -1; margin-bottom: 10px; }
-            .note-img { right: 5px; top: -15px; width: 35px; }
-
-            /* ぐり丸吹き出しのスマホ調整 */
-            .gurimaru-box { flex-direction: column; text-align: center; }
-            .gurimaru { width: 150px; }
-            .speech-bubble { 
-                max-width: 95%; 
-                font-size: 0.95rem; 
-                padding: 18px 20px;
-            }
-            .speech-bubble::after {
-                left: 50%;
-                top: -15px;
-                bottom: auto;
-                transform: translateX(-50%) rotate(135deg);
-            }
-
-            .sp-br { display: block; }
+            .gurimaru-img { width: 140px; height: 140px; }
+            .speech-bubble { font-size: 1rem; padding: 45px 25px 25px; }
         }
     </style>
 </head>
 <body>
-
     <div class="card">
         <h1>まるのおうちとは</h1>
 
-        <h2>子どもをまるごと受けとめる、<br class="sp-br">小さな居場所</h2>
-        <p>
-            まるのおうちは、子どもが「自分にまるをつけられる」時間を大切にしている学びの場です。<br>
-            勉強が得意でも苦手でも、その子が感じた「できた」を一緒に見つけていきます。
-        </p>
-
-        <h2>少人数で、<br class="sp-br">そっと寄り添う学び</h2>
-        <p>
-            一人ひとりのペースに合わせて、ゆっくり・ていねいに進めます。<br>
-            「わからない」を言いやすく、「できた」が自然に増えていくように、無理のない距離感で寄り添います。
-        </p>
-
-        <h2>安心して過ごせる空気づくり</h2>
-        <p>
-            まるのおうちは、勉強だけの場所ではありません。<br>
-            気持ちが落ち着く、ほっとできる、そんな空気を大切にしています。<br>
-            子どもたちが自分らしくいられる時間が流れています。
-        </p>
-
-        <h2>まるのおうちが<br class="sp-br">予約制である理由</h2>
-        <p>
-            まるのおうちは、予約制で運営しています。<br>
-            それは、お子さんの“無理のないペース”で通えるようにしたいからです。
-        </p>
-        <p>
-            毎週決まった時間に通うのが難しい子や、その時期によって集中できる時間が変わる子もいます。<br>
-            予約制にすることで、ご家庭の予定やお子さんの調子に合わせて、事前に通う日を柔軟に選べるようにしています。
-        </p>
-
-        <h2>こんな子に向いています</h2>
-
-        <div class="list-grid">
-            <div class="list-card">宿題をするのが苦手な子</div>
-            <div class="list-card">学校の授業がちょっと難しく感じている子</div>
-            <div class="list-card wide">
-                自分の可能性を伸ばしたい子<br class="sp-br">（自主学習のやり方がわからない子、<br class="sp-br">もっと学びたい子）
-            </div>
+        <div class="section">
+            <p class="main-msg">子どもをまるごと受けとめる、小さな居場所</p>
+            <p>まるのおうちは、子どもが「自分にまるをつけられる」時間を大切にしている学びの場です。勉強が得意でも苦手でも、その子が感じた「できた」を一緒に見つけていきます。</p>
         </div>
 
-        <div class="learning-flow">
-            <div class="flow-title">まるのおうちの<br class="sp-br">学習スタイル</div>
-            
-            <div class="step-container">
+        <div class="section">
+            <h2 class="section-title">少人数で、そっと寄り添う学び</h2>
+            <p>一人ひとりのペースに合わせて、ゆっくり・ていねいに進めます。「わからない」を言いやすく、「できた」が自然に増えていくように、無理のない距離感で寄り添います。</p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">安心して過ごせる空気づくり</h2>
+            <p>まるのおうちは、勉強だけの場所ではありません。気持ちが落ち着く、ほっとできる、そんな空気を大切にしています。子どもたちが自分らしくいられる時間が流れています。</p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">まるのおうちの学習スタイル</h2>
+            <div class="flow-container">
                 <div class="step-item">
-                    <img src="shukudai.png" alt="宿題に取り組む" class="step-img">
-                    <div class="step-bubble step-pink">
+                    <img src="shukudai.png" alt="宿題" class="step-img">
+                    <div class="step-bubble step-blue">
                         <span class="step-number">ステップ①</span>
-                        まずは、自分の力で宿題に取り組んでみます。<br>
-                        できるところから手をつけて、「やってみよう」の気持ちを大切にします。
+                        まずは学校の宿題から。その日のうちに終わらせる習慣をつけ、お家での時間を心置きなく過ごせるようにします。
                     </div>
                 </div>
-
                 <div class="flow-arrow">▼</div>
-
                 <div class="step-item">
-                    <div class="step-bubble step-mint">
+                    <img src="situmon.png" alt="質問" class="step-img">
+                    <div class="step-bubble step-yellow">
                         <span class="step-number">ステップ②</span>
-                        つまずいたところは、講師がそっと寄り添って教えます。<br>
-                        「ちょっと頑張ればできそうかも」と思えるように、無理のない背中の押し方で、できる一歩を一緒に見つけます。
+                        わからないところは、講師と一緒に考えます。ヒントを出しながら「自分で解けた！」という感覚を大切にします。
                     </div>
-                    <img src="situmon.png" alt="講師が教える" class="step-img">
                 </div>
-
                 <div class="flow-arrow">▼</div>
-
                 <div class="step-item">
-                    <img src="hirameki.png" alt="ひらめき" class="step-img">
+                    <img src="hirameki.png" alt="解き直し" class="step-img">
                     <div class="step-bubble step-pink">
-                        <img src="note.png" alt="ノート" class="note-img">
                         <span class="step-number">ステップ③</span>
-                        宿題が終わったあとは、同じ問題を解き直したり、自分で類題を考えて解いたりします。<br>
-                        「やればできるんだ」という気持ちが、ゆっくり自分の中に育っていきます。
+                        宿題の後は「解き直し」と「類題」に挑戦。自分で似た問題を考えて解くことで、確かな自信を育てます。
                     </div>
                 </div>
-
                 <div class="flow-arrow">▼</div>
-
                 <div class="step-item">
+                    <img src="dekita.png" alt="成功" class="step-img">
                     <div class="step-bubble step-yellow">
                         <span class="step-number">ステップ④</span>
-                        授業の最後は、「できた！」という気持ちで終われます。<br>
-                        小さな成功を積み重ねて、自分にまるをつけられる時間になります。
+                        「できた！」という気持ちで一日を締めくくり、自分にたくさんの「まる」をあげられる時間を積み重ねます。
                     </div>
-                    <img src="dekita.png" alt="できた" class="step-img">
                 </div>
             </div>
         </div>
 
-        <div class="gurimaru-box">
-            <img src="gurimaru4.png" alt="ぐり丸" class="gurimaru">
+        <div class="section yoyaku-box">
+            <h2 class="section-title">まるのおうちが予約制である理由</h2>
+            <p>まるのおうちは、予約制で運営しています。それは、お子さんの“無理のないペース”で通えるようにしたいからです。毎週決まった時間に通うのが難しい子や、その時期によって集中できる時間が変わる子もいます。予約制にすることで、ご家庭の予定やお子さんの調子に合わせて、事前に通う日を柔軟に選べるようにしています。</p>
+        </div>
+
+        <div class="section target-box">
+            <h2 class="section-title">こんな子に向いています</h2>
+            <ul class="target-list">
+                <li>宿題をするのが苦手な子</li>
+                <li>学校の授業がちょっと難しく感じている子</li>
+                <li>自分の可能性を伸ばしたい子（自主学習のやり方がわからない子、もっと学びたい子）</li>
+            </ul>
+        </div>
+
+        <div class="gurimaru-section">
+            <img src="gurimaru3.png" alt="ぐり丸" class="gurimaru-img">
             <div class="speech-bubble">
-                公式LINEでは、まるのおうちのことを<br class="sp-br">
-                動画でもう少し詳しく紹介してるよ。
+                ボク、ぐり丸！まるのおうちでは、勉強だけじゃなくて、あいさつや靴を揃えるマナーも大切にしているんだ。<br>
+                公式LINEでは、まるのおうちのことを動画でもう少し詳しく紹介してるよ。<br>
+                みんなに会えるのを楽しみに待ってるよ！
             </div>
         </div>
 
-        <a href="index.html?v=latest" class="back-btn">トップページへ戻る</a>
+        <a href="index.html" class="back-btn">トップページへ戻る</a>
     </div>
-
 </body>
 </html>
