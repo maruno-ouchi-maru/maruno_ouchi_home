@@ -11,104 +11,109 @@
         body {
             margin: 0;
             padding: 0;
-            background-color: #FFF7C8;
+            background-color: #F7DDE8; 
+            background-image: radial-gradient(#E8C7D5 1.5px, transparent 1.5px);
+            background-size: 35px 35px;
             font-family: 'Zen Maru Gothic', sans-serif;
             color: #444;
-            line-height: 1.9;
+            line-height: 2;
         }
 
         .container {
             max-width: 800px;
             margin: 0 auto;
-            padding: 40px 20px 120px;
+            padding: 50px 20px 140px;
         }
 
         h1 {
             font-family: 'Yomogi', cursive;
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             text-align: center;
-            margin-bottom: 30px;
-            color: #6A5A2F;
+            margin-bottom: 40px;
+            color: #7A6A2F;
         }
 
         .profile-box {
-            background: #ffffff;
-            padding: 40px;
-            border-radius: 30px;
-            box-shadow: 0 10px 30px rgba(106, 90, 47, 0.1);
-            border: 4px solid #F0E6A5;
-            text-align: center; /* 中身を中央寄せに */
+            background: rgba(255, 255, 255, 0.95);
+            padding: 50px 40px;
+            border-radius: 40px;
+            box-shadow: 0 10px 30px rgba(216, 194, 168, 0.2);
+            border: 3px solid #D8C2A8;
+            text-align: center;
         }
 
-        /* ★新しい魔法：画像を絶対に切らない「手描き風フレーム」★ */
+        /* 修正：絵本風フレーム（丸くしない） */
         .profile-img-wrap {
             display: inline-block;
-            position: relative; /* 可愛い枠を重ねる基準 */
-            margin-bottom: 35px;
-            padding: 20px; /* 手描き枠の内側に画像を収める余白 */
-            
-            /* 可愛い手描き風の太い丸枠をCSSで作ります */
-            border: 15px solid transparent;
-            border-image: radial-gradient(#F0E6A5 70%, transparent 72%) 1;
-            border-radius: 50%;
-            background-color: #FFFBE6; /* 枠の内側の背景色 */
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+            padding: 15px;
+            background-color: #fff; /* 白い縁取り */
+            border: 2px solid #D8C2A8; /* しっかりしたミルクココアの枠線 */
+            border-radius: 15px; /* 角を少し丸める程度 */
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1); /* 影をつけて立体的に */
+            transform: rotate(-1deg); /* 少し傾けて手書き感を */
         }
 
         .profile-img {
-            /* ★長方形画像を枠の中に絶対に収める★ */
-            width: 260px; /* 枠の内側に収まる最大サイズ */
-            height: auto;
-            object-fit: contain; /* 画像全体を縮小して収める */
+            width: 100%;
+            max-width: 400px; /* パソコンでの最大幅 */
+            height: auto; /* 比率を維持 */
             display: block;
-            border-radius: 10px; /* 画像自体を少し角丸に */
+            border-radius: 8px; /* 内側の角も少し丸める */
         }
 
-        p {
-            font-size: 1.1rem;
+        .name-tag {
+            font-family: 'Yomogi', cursive;
+            font-size: 1.5rem;
+            color: #D84B81;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .intro-text {
+            text-align: left;
+            font-size: 1.05rem;
+        }
+
+        .intro-text p {
             margin-bottom: 25px;
-            word-break: break-all;
-            text-align: left; /* 文章は左寄せに戻す */
         }
 
-        /* しつこくない、スマートな追従ボタン */
+        /* トップに戻るボタン */
         .back-to-top-btn {
             position: fixed;
-            bottom: 25px;
-            right: 20px;
+            bottom: 30px;
+            right: 25px;
             z-index: 9999;
             width: 85px;
             height: 85px;
-            background: #FFF7C8;
-            color: #7A6A2F;
-            border: 4px solid #F0E6A5;
+            background: #D8C2A8;
+            color: white;
+            border: none;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 600;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             text-decoration: none;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
             text-align: center;
-            line-height: 1.2;
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            -webkit-tap-highlight-color: transparent;
+            line-height: 1.3;
+            transition: 0.3s;
         }
 
-        .back-to-top-btn:hover { transform: scale(1.1); background: #fffbe6; }
-        .back-to-top-btn:active { transform: scale(0.92); }
+        .back-to-top-btn:hover { transform: scale(1.1); background: #C5AB8D; }
 
         @media (max-width: 600px) {
-            h1 { font-size: 2.2rem; }
-            .profile-box { padding: 25px; }
-            
-            /* スマホ用サイズ調整 */
-            .profile-img-wrap { padding: 15px; border-width: 10px; }
-            .profile-img { width: 180px; }
-            
-            p { font-size: 1rem; }
-            .back-to-top-btn { width: 80px; height: 80px; font-size: 0.8rem; }
+            .container { padding: 30px 15px 120px; }
+            h1 { font-size: 2rem; }
+            .profile-box { padding: 40px 20px; }
+            .profile-img-wrap { padding: 10px; } /* スマホでは縁取りを細く */
+            .profile-img { max-width: 100%; } /* スマホ画面幅に合わせる */
+            .name-tag { font-size: 1.3rem; }
+            .intro-text { font-size: 1rem; }
+            .back-to-top-btn { width: 75px; height: 75px; font-size: 0.8rem; }
         }
     </style>
 </head>
@@ -119,26 +124,28 @@
 
         <div class="profile-box">
             <div class="profile-img-wrap">
-                <img src="owner.png" alt="まるのおうち 運営者りょうことぐり丸のイラスト" class="profile-img">
+                <img src="owner.png" alt="まるのおうち 運営者 倉本僚子" class="profile-img">
             </div>
 
-            <p>まるのおうちをしている りょうこです。</p>
+            <div class="name-tag">倉本 僚子（くらもと りょうこ）</div>
 
-            <p>小学校の先生として8年間、たくさんの子どもたちと過ごしてきました。その中でずっと感じていたのは、本当はもっと個別に寄り添う時間が必要なのに、学校という場ではどうしても難しい瞬間があるということでした。</p>
+            <div class="intro-text">
+                <p>まるのおうちをしている、りょうこです。</p>
 
-            <p>授業中に「ここで一緒に見てあげたい」と思っても、クラス全体を見ながらでは十分に時間を取れないことがあります。もう一人、大人の目と手があれば、もっと安心して学べる子が増えるのに…と感じる場面もありました。</p>
+                <p>小学校の先生として8年間、たくさんの子どもたちと過ごしてきました。その中でずっと感じていたのは、本当はもっと個別に寄り添う時間が必要なのに、学校という場ではどうしても難しい瞬間があるということでした。</p>
 
-            <p>学校には、もっと地域の力が関わっていいと思っています。まるのおうちのような小さな学び場でも、大手の塾でも、子どもを支える大人が増えることは、決して悪いことではありません。</p>
+                <p>授業中に「ここで一緒に見てあげたい」と思っても、クラス全体を見ながらでは十分に時間を取れないことがあります。もう一人、大人の目と手があれば、もっと安心して学べる子が増えるのに…と感じる場面もありました。</p>
 
-            <p>こちらの思いを学校と分かち合えると、地域の力も子どもを支える一つの輪として働けることが自然と伝わっていくように感じています。</p>
+                <p>学校には、もっと地域の力が関わっていいと思っています。まるのおうちのような小さな学び場でも、大手の塾でも、子どもを支える大人が増えることは、決して悪いことではありません。</p>
 
-            <p>そうした「子どもを支える輪」の一つとして、まるのおうちがありたいと思っています。</p>
+                <p>地域の力も、子どもを支える一つの輪として自然に存在していけたら。そうした「子どもを支える輪」の一つとして、まるのおうちがありたいと思っています。</p>
 
-            <p>まるのおうちは、子どもが「できた！」を積み重ねていける小さな居場所です。勉強が得意な子も、苦手な子も、自分のペースで進んでいいんだと感じられるように、ひとりひとりに合わせて寄り添っています。</p>
+                <p>まるのおうちは、子どもが「できた！」を積み重ねていける小さな居場所です。勉強が得意な子も、苦手な子も、自分のペースで進んでいいんだと感じられるように、ひとりひとりに寄り添います。</p>
 
-            <p>私自身、子どもたちの小さな変化や、ふっと見せてくれる笑顔が大好きです。できなかったことができるようになった瞬間の、あの誇らしそうな表情を見るのが何よりの喜びです。</p>
+                <p>私自身、子どもたちの小さな変化や、ふっと見せてくれる笑顔が大好きです。できなかったことができるようになった瞬間の、あの誇らしそうな表情を見るのが何よりの喜びです。</p>
 
-            <p>これからも、ぐり丸と一緒に、子どもたちが安心して過ごせる場所をつくりながら、「自分にまるをあげられる時間を」大切にしていきたいと思っています。</p>
+                <p>これからも、<strong>看板犬のぐり丸</strong>と一緒に、子どもたちが安心して過ごせる場所をつくりながら、「自分にまるをあげられる時間」を大切にしていきたいと思っています。</p>
+            </div>
         </div>
     </div>
 
