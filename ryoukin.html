@@ -52,19 +52,24 @@
             margin: 15px 0 30px; border: 1px solid #FFE0B2; font-size: 0.95rem;
         }
 
-        /* 相談料金のレイアウト */
         .sodan-grid {
             display: grid; 
             grid-template-columns: 1fr 1fr; 
             gap: 20px;
         }
 
-        /* 戻るボタン共通スタイル（トップページに合わせた有機的な形） */
+        /* スケジュールのテキスト調整 */
+        .schedule-text {
+            word-break: keep-all;
+            overflow-wrap: normal;
+        }
+
+        /* 戻るボタン共通スタイル（カプセル型・角丸） */
         .back-btn {
             display: block; width: fit-content;
-            padding: 14px 50px; color: #7A6A2F; /* 文字色は少し濃い茶色で見やすく */
+            padding: 12px 50px; color: #7A6A2F;
             text-decoration: none; font-weight: bold; 
-            border-radius: 60% 40% 60% 40% / 45% 50% 50% 55%;
+            border-radius: 30px; /* きれいな角丸に変更 */
             transition: 0.3s;
             text-align: center;
             margin: 0 auto;
@@ -77,19 +82,21 @@
         .btn-home { background-color: #BEE1EB; margin-top: 20px; color: #4A6FA5; } /* 綺麗な水色 */
 
         @media (max-width: 600px) { 
-            .container { padding: 40px 20px; } 
+            .container { padding: 40px 15px; } 
             h1 { font-size: 2rem; } 
             .section-box { padding: 20px; }
             
-            /* 相談料金を縦並びにして横幅を確保 */
-            .sodan-grid {
-                grid-template-columns: 1fr;
-            }
-            .sodan-grid .section-box {
-                margin-bottom: 10px;
+            .sodan-grid { grid-template-columns: 1fr; }
+
+            /* スケジュールを1行に収めるための調整 */
+            .schedule-title { font-size: 0.95rem; }
+            .schedule-text { 
+                font-size: 0.85rem; 
+                letter-spacing: -0.05em; /* 字間を詰めて横並びを死守 */
+                white-space: nowrap; 
             }
 
-            .back-btn { padding: 12px 30px; font-size: 0.95rem; }
+            .back-btn { width: 90%; padding: 14px 20px; } /* スマホでは押しやすく幅広に */
         }
     </style>
 </head>
@@ -164,14 +171,16 @@
         <p>【対面の場合】<br>
         ・PayPay または 現金でお支払いください。</p>
         
-        <p style="margin-top:20px;"><strong>■ 有料相談スケジュール（月〜金）：</strong><br>
-        10:00〜 / 11:00〜 / 13:00〜 / 14:00〜 / 20:45〜</p>
+        <p style="margin-top:20px;">
+            <strong class="schedule-title">■ 有料相談スケジュール（月〜金）：</strong><br>
+            <span class="schedule-text">10:00〜 / 11:00〜 / 13:00〜 / 14:00〜 / 20:45〜</span>
+        </p>
     </div>
 
     <div class="section-box" style="background-color:#FFF0F0; border-color:#FFDada;">
         <span class="section-title" style="color:#C45A5A;">■ 犬アレルギーについて</span>
         <p class="red">安全のため、犬アレルギーのあるお子さまはご利用いただけません。</p>
-        <p style="font-size:0.9rem;">犬のいる環境で症状が出る場合があり、その際の責任は負いかねます。<br>ご了承ください。</p>
+        <p style="font-size:0.9rem;">犬のいる環境で症状が出る場合があり、その際の責任は負いかねます。ご了承ください。</p>
     </div>
 
     <a href="link.html" class="back-btn btn-link">一覧（リンクページ）へ戻る</a>
