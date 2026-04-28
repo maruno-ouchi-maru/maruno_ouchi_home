@@ -1,154 +1,160 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>運営者紹介｜まるのおうち</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>運営者紹介｜まるのおうち</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Yomogi&family=Zen+Maru+Gothic:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Yomogi&family=Zen+Maru+Gothic:wght@400;500&display=swap" rel="stylesheet">
 
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #F7DDE8; 
-            background-image: radial-gradient(#E8C7D5 1.5px, transparent 1.5px);
-            background-size: 35px 35px;
-            font-family: 'Zen Maru Gothic', sans-serif;
-            color: #444;
-            line-height: 2;
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #F7DDE8; 
+        background-image: radial-gradient(#E8C7D5 1.5px, transparent 1.5px);
+        background-size: 35px 35px;
+        font-family: 'Zen Maru Gothic', sans-serif;
+        color: #444;
+        line-height: 2;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 50px 20px 140px;
+    }
+
+    h1 {
+        font-family: 'Yomogi', cursive;
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 40px;
+        color: #7A6A2F;
+    }
+
+    .profile-box {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 50px 40px;
+        border-radius: 40px;
+        box-shadow: 0 10px 30px rgba(216, 194, 168, 0.2);
+        border: 3px solid #D8C2A8;
+        text-align: center;
+    }
+
+    .profile-img-wrap {
+        display: inline-block;
+        margin-bottom: 40px;
+        padding: 15px;
+        background-color: #fff;
+        border: 2px solid #D8C2A8;
+        border-radius: 15px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        transform: rotate(-1deg);
+    }
+
+    .profile-img {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        display: block;
+        border-radius: 8px;
+    }
+
+    .name-tag {
+        font-family: 'Yomogi', cursive;
+        font-size: 1.5rem;
+        color: #D84B81;
+        margin-bottom: 30px;
+        font-weight: bold;
+        /* 追加：お名前が途中で切れないようにする */
+        display: inline-block;
+        white-space: nowrap; 
+    }
+
+    .intro-text {
+        text-align: left;
+        font-size: 1.05rem;
+    }
+
+    .intro-text p {
+        margin-bottom: 25px;
+    }
+
+    .back-to-top-btn {
+        position: fixed;
+        bottom: 30px;
+        right: 25px;
+        z-index: 9999;
+        width: 85px;
+        height: 85px;
+        background: #D8C2A8;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        font-size: 0.9rem;
+        text-decoration: none;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        text-align: center;
+        line-height: 1.3;
+        transition: 0.3s;
+    }
+
+    .back-to-top-btn:hover { transform: scale(1.1); background: #C5AB8D; }
+
+    @media (max-width: 600px) {
+        .container { padding: 30px 15px 120px; }
+        h1 { font-size: 2rem; }
+        .profile-box { padding: 40px 20px; }
+        .profile-img-wrap { padding: 10px; }
+        .profile-img { max-width: 100%; }
+        
+        /* スマホでお名前が1行に収まるように微調整 */
+        .name-tag { 
+            font-size: 1.15rem; 
+            letter-spacing: -0.02em;
         }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 50px 20px 140px;
-        }
-
-        h1 {
-            font-family: 'Yomogi', cursive;
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 40px;
-            color: #7A6A2F;
-        }
-
-        .profile-box {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 50px 40px;
-            border-radius: 40px;
-            box-shadow: 0 10px 30px rgba(216, 194, 168, 0.2);
-            border: 3px solid #D8C2A8;
-            text-align: center;
-        }
-
-        /* 修正：絵本風フレーム（丸くしない） */
-        .profile-img-wrap {
-            display: inline-block;
-            margin-bottom: 40px;
-            padding: 15px;
-            background-color: #fff; /* 白い縁取り */
-            border: 2px solid #D8C2A8; /* しっかりしたミルクココアの枠線 */
-            border-radius: 15px; /* 角を少し丸める程度 */
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1); /* 影をつけて立体的に */
-            transform: rotate(-1deg); /* 少し傾けて手書き感を */
-        }
-
-        .profile-img {
-            width: 100%;
-            max-width: 400px; /* パソコンでの最大幅 */
-            height: auto; /* 比率を維持 */
-            display: block;
-            border-radius: 8px; /* 内側の角も少し丸める */
-        }
-
-        .name-tag {
-            font-family: 'Yomogi', cursive;
-            font-size: 1.5rem;
-            color: #D84B81;
-            margin-bottom: 30px;
-            font-weight: bold;
-        }
-
-        .intro-text {
-            text-align: left;
-            font-size: 1.05rem;
-        }
-
-        .intro-text p {
-            margin-bottom: 25px;
-        }
-
-        /* トップに戻るボタン */
-        .back-to-top-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 25px;
-            z-index: 9999;
-            width: 85px;
-            height: 85px;
-            background: #D8C2A8;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            font-size: 0.9rem;
-            text-decoration: none;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-            text-align: center;
-            line-height: 1.3;
-            transition: 0.3s;
-        }
-
-        .back-to-top-btn:hover { transform: scale(1.1); background: #C5AB8D; }
-
-        @media (max-width: 600px) {
-            .container { padding: 30px 15px 120px; }
-            h1 { font-size: 2rem; }
-            .profile-box { padding: 40px 20px; }
-            .profile-img-wrap { padding: 10px; } /* スマホでは縁取りを細く */
-            .profile-img { max-width: 100%; } /* スマホ画面幅に合わせる */
-            .name-tag { font-size: 1.3rem; }
-            .intro-text { font-size: 1rem; }
-            .back-to-top-btn { width: 75px; height: 75px; font-size: 0.8rem; }
-        }
-    </style>
+        
+        .intro-text { font-size: 1rem; }
+        .back-to-top-btn { width: 75px; height: 75px; font-size: 0.8rem; }
+    }
+</style>
 </head>
-
 <body>
-    <div class="container">
-        <h1>運営者紹介</h1>
+<div class="container">
+<h1>運営者紹介</h1>
 
-        <div class="profile-box">
-            <div class="profile-img-wrap">
-                <img src="owner.png" alt="まるのおうち 運営者 倉本僚子" class="profile-img">
-            </div>
+    <div class="profile-box">
+        <div class="profile-img-wrap">
+            <img src="owner.png" alt="まるのおうち 運営者 倉本僚子" class="profile-img">
+        </div>
 
-            <div class="name-tag">倉本 僚子（くらもと りょうこ）</div>
+        <div class="name-tag">倉本 僚子（くらもと りょうこ）</div>
 
-            <div class="intro-text">
-                <p>まるのおうちをしている、りょうこです。</p>
+        <div class="intro-text">
+            <p>まるのおうちをしている、りょうこです。</p>
 
-                <p>小学校の先生として8年間、たくさんの子どもたちと過ごしてきました。その中でずっと感じていたのは、本当はもっと個別に寄り添う時間が必要なのに、学校という場ではどうしても難しい瞬間があるということでした。</p>
+            <p>小学校の先生として8年間、たくさんの子どもたちと過ごしてきました。その中でずっと感じていたのは、本当はもっと個別に寄り添う時間が必要なのに、学校という場ではどうしても難しい瞬間があるということでした。</p>
 
-                <p>授業中に「ここで一緒に見てあげたい」と思っても、クラス全体を見ながらでは十分に時間を取れないことがあります。もう一人、大人の目と手があれば、もっと安心して学べる子が増えるのに…と感じる場面もありました。</p>
+            <p>授業中に「ここで一緒に見てあげたい」と思っても、クラス全体を見ながらでは十分に時間を取れないことがあります。もう一人、大人の目と手があれば、もっと安心して学べる子が増えるのに…と感じる場面もありました。</p>
 
-                <p>学校には、もっと地域の力が関わっていいと思っています。まるのおうちのような小さな学び場でも、大手の塾でも、子どもを支える大人が増えることは、決して悪いことではありません。</p>
+            <p>学校には、もっと地域の力が関わっていいと思っています。まるのおうちのような小さな学び場でも、大手の塾でも、子どもを支える大人が増えることは、決して悪いことではありません。</p>
 
-                <p>地域の力も、子どもを支える一つの輪として自然に存在していけたら。そうした「子どもを支える輪」の一つとして、まるのおうちがありたいと思っています。</p>
+            <p>地域の力も、子どもを支える一つの輪として自然に存在していけたら。そうした「子どもを支える輪」の一つとして、まるのおうちがありたいと思っています。</p>
 
-                <p>まるのおうちは、子どもが「できた！」を積み重ねていける小さな居場所です。勉強が得意な子も、苦手な子も、自分のペースで進んでいいんだと感じられるように、ひとりひとりに寄り添います。</p>
+            <p>まるのおうちは、子どもが「できた！」を積み重ねていける小さな居場所です。勉強が得意な子も、苦手な子も、自分のペースで進んでいいんだと感じられるように、ひとりひとりに寄り添います。</p>
 
-                <p>私自身、子どもたちの小さな変化や、ふっと見せてくれる笑顔が大好きです。できなかったことができるようになった瞬間の、あの誇らしそうな表情を見るのが何よりの喜びです。</p>
+            <p>私自身、子どもたちの小さな変化や、ふっと見せてくれる笑顔が大好きです。できなかったことができるようになった瞬間の、あの誇らしそうな表情を見るのが何よりの喜びです。</p>
 
-                <p>これからも、<strong>看板犬のぐり丸</strong>と一緒に、子どもたちが安心して過ごせる場所をつくりながら、「自分にまるをあげられる時間」を大切にしていきたいと思っています。</p>
-            </div>
+            <p>これからも、<strong>看板犬のぐり丸</strong>と一緒に、子どもたちが安心して過ごせる場所をつくりながら、「自分にまるをあげられる時間」を大切にしていきたいと思っています。</p>
         </div>
     </div>
+</div>
 
-    <a href="index.html" class="back-to-top-btn">トップに<br>戻る</a>
+<a href="index.html" class="back-to-top-btn">トップに<br>戻る</a>
 </body>
 </html>
