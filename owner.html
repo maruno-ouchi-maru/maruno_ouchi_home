@@ -67,9 +67,8 @@
         color: #D84B81;
         margin-bottom: 30px;
         font-weight: bold;
-        /* 追加：お名前が途中で切れないようにする */
         display: inline-block;
-        white-space: nowrap; 
+        white-space: nowrap; /* お名前を1行に固定 */
     }
 
     .intro-text {
@@ -81,6 +80,7 @@
         margin-bottom: 25px;
     }
 
+    /* トップに戻るボタン（ロゴ色の黄色に修正） */
     .back-to-top-btn {
         position: fixed;
         bottom: 30px;
@@ -88,9 +88,9 @@
         z-index: 9999;
         width: 85px;
         height: 85px;
-        background: #D8C2A8;
-        color: white;
-        border: none;
+        background: #F0E6A5; /* まるのおうちの黄色 */
+        color: #7A6A2F; /* 文字色は見やすい茶色に */
+        border: 2px solid #D8C2A8;
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -104,7 +104,10 @@
         transition: 0.3s;
     }
 
-    .back-to-top-btn:hover { transform: scale(1.1); background: #C5AB8D; }
+    .back-to-top-btn:hover { 
+        transform: scale(1.1); 
+        background: #E6D98A; 
+    }
 
     @media (max-width: 600px) {
         .container { padding: 30px 15px 120px; }
@@ -113,7 +116,7 @@
         .profile-img-wrap { padding: 10px; }
         .profile-img { max-width: 100%; }
         
-        /* スマホでお名前が1行に収まるように微調整 */
+        /* スマホでお名前が切れないようにサイズを微調整 */
         .name-tag { 
             font-size: 1.15rem; 
             letter-spacing: -0.02em;
