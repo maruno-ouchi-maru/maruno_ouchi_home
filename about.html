@@ -31,10 +31,11 @@
         .section-title {
             color: #D84B81; font-size: 1.4rem; font-weight: bold;
             margin-bottom: 20px; display: flex; align-items: center; gap: 10px;
+            letter-spacing: -0.02em; /* わずかに字間を詰めて横並びを維持 */
         }
-        .section-title::before { content: '●'; font-size: 0.8rem; color: #D8C2A8; }
+        .section-title::before { content: '●'; font-size: 0.8rem; color: #D8C2A8; flex-shrink: 0; }
         
-        .main-msg { font-size: 1.2rem; font-weight: 500; text-align: center; margin-bottom: 40px; color: #444; }
+        .main-msg { font-size: 1.2rem; font-weight: 500; text-align: center; margin-bottom: 40px; color: #444; line-height: 1.6; }
 
         /* 学習の流れ */
         .flow-container {
@@ -45,11 +46,15 @@
         .step-img { width: 100px; height: auto; border-radius: 12px; }
         .step-bubble {
             flex: 1; padding: 18px; border-radius: 18px; line-height: 1.6; font-size: 0.95rem;
+            text-align: left; /* ステップの内容を左揃えに固定 */
         }
         .step-blue { background: #E6F3F7; border: 1px solid #BEE1EB; }
         .step-pink { background: #FDF2F5; border: 1px solid #F7DDE8; }
         .step-yellow { background: #FFFBE6; border: 1px solid #F0E6A5; }
-        .step-number { display: block; font-weight: bold; color: #D84B81; font-size: 0.85rem; margin-bottom: 3px; }
+        .step-number { 
+            display: block; font-weight: bold; color: #D84B81; font-size: 0.85rem; margin-bottom: 3px; 
+            text-align: center; /* ステップの文字だけ中央 */
+        }
         .flow-arrow { text-align: center; color: #D8C2A8; font-size: 1.2rem; margin: 5px 0; }
 
         .yoyaku-box {
@@ -79,7 +84,7 @@
             border-radius: 30px; border: 2px dashed #D8C2A8;
             font-family: 'Yomogi', cursive; font-size: 1.1rem;
             color: #7A6A2F; line-height: 1.6;
-            text-align: left; /* 左揃えに変更 */
+            text-align: left; 
             width: 100%; max-width: 600px;
             margin-top: -30px; padding-top: 50px;
             position: relative; z-index: 1;
@@ -93,11 +98,19 @@
         .back-btn:hover { transform: scale(1.05); background: #C5AB8D; }
 
         @media (max-width: 600px) {
-            .card { padding: 30px 20px; }
+            .card { padding: 30px 15px; }
             h1 { font-size: 1.8rem; }
-            .step-item { flex-direction: column; text-align: center; }
+            
+            /* タイトルを横いっぱいに、文字サイズ調整 */
+            .section-title { font-size: 1.1rem; gap: 5px; padding-left: 0; }
+            
+            .step-item { flex-direction: column; align-items: stretch; }
+            .step-img { width: 80px; margin: 0 auto; }
+            
+            .yoyaku-box, .target-box, .flow-container { padding: 20px 15px; }
+            
             .gurimaru-img { width: 140px; height: 140px; }
-            .speech-bubble { font-size: 1rem; padding: 45px 25px 25px; }
+            .speech-bubble { font-size: 1rem; padding: 45px 20px 20px; }
         }
     </style>
 </head>
@@ -106,7 +119,7 @@
         <h1>まるのおうちとは</h1>
 
         <div class="section">
-            <p class="main-msg">子どもをまるごと受けとめる、小さな居場所</p>
+            <p class="main-msg">子どもをまるごと受けとめる、<br>小さな居場所</p>
             <p>まるのおうちは、子どもが「自分にまるをつけられる」時間を大切にしている学びの場です。勉強が得意でも苦手でも、その子が感じた「できた」を一緒に見つけていきます。</p>
         </div>
 
@@ -158,7 +171,7 @@
         </div>
 
         <div class="section yoyaku-box">
-            <h2 class="section-title">まるのおうちが予約制である理由</h2>
+            <h2 class="section-title">まるのおうちが<br>予約制である理由</h2>
             <p>まるのおうちは、予約制で運営しています。それは、お子さんの“無理のないペース”で通えるようにしたいからです。毎週決まった時間に通うのが難しい子や、その時期によって集中できる時間が変わる子もいます。予約制にすることで、ご家庭の予定やお子さんの調子に合わせて、事前に通う日を柔軟に選べるようにしています。</p>
         </div>
 
