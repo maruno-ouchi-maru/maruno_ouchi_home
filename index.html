@@ -133,7 +133,7 @@
             cursor: pointer; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             display: flex; align-items: center; justify-content: center; font-weight: bold;
         }
-        .menu-btn-pc { padding: 12px 30px; border-radius: 30px; font-size: 1.1rem; }
+        .menu-btn-pc { padding: 12px 30px; border-radius: 50px; font-size: 1.1rem; }
         .menu-btn-sp { display: none; width: 80px; height: 80px; border-radius: 50%; font-size: 1rem; }
 
         .popup-menu {
@@ -147,16 +147,14 @@
         
         .popup-item { 
             background: #FAF6F2; border: 1px solid #D8C2A8; padding: 8px 15px; 
-            border-radius: 20px; text-decoration: none; color: #444; width: 220px; 
+            border-radius: 50px; text-decoration: none; color: #444; width: 220px; 
             text-align: center; font-size: 0.95rem; transition: 0.3s;
             display: flex; align-items: center; justify-content: center; gap: 8px;
             box-sizing: border-box; white-space: nowrap;
         }
 
         @media (max-width: 768px) {
-            /* スマホでは改行タグ（sp-br）を表示する */
             .sp-br { display: block; }
-
             .main-container { flex-direction: column-reverse; padding: 30px 15px; align-items: center; overflow-x: hidden;}
             .left-column { width: 100%; }
             .right-column { width: 100%; margin-bottom: 20px; align-items: center; }
