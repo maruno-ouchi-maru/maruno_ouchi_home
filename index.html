@@ -36,7 +36,7 @@
             box-shadow: 0 15px 45px rgba(216, 194, 168, 0.2);
             backdrop-filter: blur(8px);
             margin: 20px;
-            overflow: hidden; /* はみ出し防止 */
+            overflow: hidden;
         }
 
         .left-column { flex: 1.7; }
@@ -64,7 +64,6 @@
             color: #D84B81; 
             font-weight: 600; 
             line-height: 1.5;
-            white-space: nowrap; /* 改行防止 */
         }
 
         .insta-contact-btn {
@@ -103,10 +102,11 @@
         .location-text { font-size: 1.15rem; margin-bottom: 25px; color: #444; line-height: 1.8; font-weight: 500; }
         .sub-message { font-family: 'Yomogi', cursive; font-size: 1.4rem; margin-bottom: 30px; color: #D84B81; font-weight: bold; }
 
+        /* 特徴の四角（左右の余白を調整） */
         .maru-frame { 
             width: 100%; 
             max-width: 550px; 
-            padding: 30px 40px; 
+            padding: 30px 20px; /* 左右を40pxから20pxに削減 */
             border: 3px solid #D8C2A8; 
             border-radius: 30px; 
             background-color: #FAF6F2; 
@@ -125,27 +125,13 @@
         .slide.active { opacity: 1; }
         .ehon-guide { margin-top: 15px; font-family: 'Yomogi', cursive; color: #7A6A2F; font-size: 1rem; font-weight: bold; text-align: center; }
 
-        /* --- MENUボタン（色をロゴに合わせた黄色に変更） --- */
         .menu-btn {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            z-index: 9000;
-            background: #F0E6A5; /* まるのおうちの黄色 */
-            color: #7A6A2F; /* 文字色は少し濃い茶色で見やすく */
-            border: 2px solid #D8C2A8;
-            cursor: pointer;
-            transition: 0.3s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
+            position: fixed; bottom: 25px; right: 25px; z-index: 9000;
+            background: #F0E6A5; color: #7A6A2F; border: 2px solid #D8C2A8;
+            cursor: pointer; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            display: flex; align-items: center; justify-content: center; font-weight: bold;
         }
-
         .menu-btn-pc { padding: 12px 30px; border-radius: 30px; font-size: 1.1rem; }
-        .menu-btn-pc:hover { background: #E6D98A; transform: scale(1.05); }
-
         .menu-btn-sp { display: none; width: 80px; height: 80px; border-radius: 50%; font-size: 1rem; }
 
         .popup-menu {
@@ -158,46 +144,31 @@
         .popup-menu.show { display: flex; opacity: 1; transform: translate(-50%, -50%) scale(1); }
         
         .popup-item { 
-            background: #FAF6F2; 
-            border: 1px solid #D8C2A8; 
-            padding: 8px 15px; 
-            border-radius: 20px; 
-            text-decoration: none; 
-            color: #444; 
-            width: 220px; 
-            text-align: center;
-            font-size: 0.95rem;
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            box-sizing: border-box;
-            white-space: nowrap;
+            background: #FAF6F2; border: 1px solid #D8C2A8; padding: 8px 15px; 
+            border-radius: 20px; text-decoration: none; color: #444; width: 220px; 
+            text-align: center; font-size: 0.95rem; transition: 0.3s;
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            box-sizing: border-box; white-space: nowrap;
         }
-        .popup-item:hover { transform: scale(1.1); background: #FDF2F5; border-color: #F7DDE8; }
 
-        /* スマホ用レスポンシブ設定 */
         @media (max-width: 768px) {
-            .main-container { flex-direction: column-reverse; padding: 30px 20px; align-items: center; overflow-x: hidden;}
+            .main-container { flex-direction: column-reverse; padding: 30px 15px; align-items: center; overflow-x: hidden;}
             .left-column { width: 100%; }
-            .right-column { width: 100%; margin-bottom: 20px; align-items: center; } /* ぐり丸を中央に */
-            
+            .right-column { width: 100%; margin-bottom: 20px; align-items: center; }
             .logo-philosophy-wrap { flex-direction: column; text-align: center; gap: 15px; }
             .philosophy { max-width: 100%; border-left: none; border-top: 6px solid #F0E6A5; }
-
             .menu-btn-pc { display: none; }
             .menu-btn-sp { display: flex; }
+            
+            /* 特徴枠の余白をスマホでさらに最適化 */
+            .maru-frame { padding: 25px 15px; }
+            .tokucho-list { padding-left: 1.1em; font-size: 0.95rem; }
 
-            /* 改行をさせない設定 */
-            .no-br { display: inline-block; white-space: nowrap; }
-            .location-text br, .sub-message br { display: none; } /* 指定箇所の改行を無効化 */
-            
             .open-info { font-size: 0.9rem; padding: 10px 15px; }
-            .sub-message { font-size: 1.2rem; text-align: center; }
+            .sub-message { font-size: 1.2rem; text-align: center; line-height: 1.5; }
+            .location-text { font-size: 1.05rem; text-align: left; line-height: 1.6; }
             
-            .popup-menu { width: 360px; height: 360px; padding: 20px; gap: 5px; }
-            .popup-item { width: 180px; font-size: 0.85rem; padding: 6px 12px; }
+            .popup-menu { width: 340px; height: 340px; padding: 20px; }
         }
     </style>
 </head>
@@ -223,7 +194,7 @@
                 <div class="philosophy-content">
                     <h2 class="philosophy-title">まるのおうちの理念</h2>
                     <div class="philosophy">
-                        「ちょっとやってみよう」と思える瞬間をいっしょにつくり、今日の「できた！」を大切にします。
+                        「ちょっとやってみよう」と思える瞬間をいっしょにつくり、<br>今日の「できた！」を大切にします。
                     </div>
                 </div>
             </div>
@@ -231,10 +202,10 @@
             <p class="location-text">
                 <strong style="color:#D84B81;">学校の宿題をその場で終わらせ、</strong><br>
                 分からないところの「解き直し」と「類題」で着実にステップアップ。<br>
-                元小学校教諭が一人ひとりに寄り添い、基礎から可能性の開拓まで丁寧に育みます。
+                元小学校教諭が一人ひとりに寄り添い、<br>基礎から可能性の開拓まで丁寧に育みます。
             </p>
 
-            <p class="sub-message">子どもをまるごと受けとめ、自分にまるをあげられる場所に。</p>
+            <p class="sub-message">子どもをまるごと受けとめ、<br>自分にまるをあげられる場所に。</p>
 
             <div class="maru-frame">
                 <h3 class="tokucho-title">まるのおうちの特徴</h3>
