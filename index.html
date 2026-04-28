@@ -36,6 +36,7 @@
             box-shadow: 0 15px 45px rgba(216, 194, 168, 0.2);
             backdrop-filter: blur(8px);
             margin: 20px;
+            overflow: hidden; /* はみ出し防止 */
         }
 
         .left-column { flex: 1.7; }
@@ -63,6 +64,7 @@
             color: #D84B81; 
             font-weight: 600; 
             line-height: 1.5;
+            white-space: nowrap; /* 改行防止 */
         }
 
         .insta-contact-btn {
@@ -123,15 +125,15 @@
         .slide.active { opacity: 1; }
         .ehon-guide { margin-top: 15px; font-family: 'Yomogi', cursive; color: #7A6A2F; font-size: 1rem; font-weight: bold; text-align: center; }
 
-        /* --- MENUボタン（共通設定） --- */
+        /* --- MENUボタン（色をロゴに合わせた黄色に変更） --- */
         .menu-btn {
-            position: fixed; /* 常に固定表示 */
+            position: fixed;
             bottom: 25px;
             right: 25px;
             z-index: 9000;
-            background: #D8C2A8;
-            color: white;
-            border: none;
+            background: #F0E6A5; /* まるのおうちの黄色 */
+            color: #7A6A2F; /* 文字色は少し濃い茶色で見やすく */
+            border: 2px solid #D8C2A8;
             cursor: pointer;
             transition: 0.3s;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
@@ -141,22 +143,10 @@
             font-weight: bold;
         }
 
-        /* PC版：横長で「MENUを開く」 */
-        .menu-btn-pc {
-            padding: 12px 30px;
-            border-radius: 30px;
-            font-size: 1.1rem;
-        }
-        .menu-btn-pc:hover { background: #C5AB8D; transform: scale(1.05); }
+        .menu-btn-pc { padding: 12px 30px; border-radius: 30px; font-size: 1.1rem; }
+        .menu-btn-pc:hover { background: #E6D98A; transform: scale(1.05); }
 
-        /* スマホ版：丸い形 */
-        .menu-btn-sp {
-            display: none;
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            font-size: 1rem;
-        }
+        .menu-btn-sp { display: none; width: 80px; height: 80px; border-radius: 50%; font-size: 1rem; }
 
         .popup-menu {
             position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.9);
@@ -185,20 +175,27 @@
             box-sizing: border-box;
             white-space: nowrap;
         }
-        .popup-item:hover {
-            transform: scale(1.1);
-            background: #FDF2F5;
-            border-color: #F7DDE8;
-        }
+        .popup-item:hover { transform: scale(1.1); background: #FDF2F5; border-color: #F7DDE8; }
 
+        /* スマホ用レスポンシブ設定 */
         @media (max-width: 768px) {
-            .main-container { flex-direction: column-reverse; padding: 30px 25px; }
-            .logo-philosophy-wrap { flex-direction: column; text-align: center; }
+            .main-container { flex-direction: column-reverse; padding: 30px 20px; align-items: center; overflow-x: hidden;}
+            .left-column { width: 100%; }
+            .right-column { width: 100%; margin-bottom: 20px; align-items: center; } /* ぐり丸を中央に */
             
-            .menu-btn-pc { display: none; } /* PC用を隠す */
-            .menu-btn-sp { display: flex; } /* スマホ用を出す */
+            .logo-philosophy-wrap { flex-direction: column; text-align: center; gap: 15px; }
+            .philosophy { max-width: 100%; border-left: none; border-top: 6px solid #F0E6A5; }
 
-            .sp-br { display: block; }
+            .menu-btn-pc { display: none; }
+            .menu-btn-sp { display: flex; }
+
+            /* 改行をさせない設定 */
+            .no-br { display: inline-block; white-space: nowrap; }
+            .location-text br, .sub-message br { display: none; } /* 指定箇所の改行を無効化 */
+            
+            .open-info { font-size: 0.9rem; padding: 10px 15px; }
+            .sub-message { font-size: 1.2rem; text-align: center; }
+            
             .popup-menu { width: 360px; height: 360px; padding: 20px; gap: 5px; }
             .popup-item { width: 180px; font-size: 0.85rem; padding: 6px 12px; }
         }
@@ -211,7 +208,7 @@
             <div class="teacher-badge">元小学校教諭がひらく塾</div>
             <div class="open-info">
                 2026年秋、倉敷市片島町に開校予定<br>
-                <span>（InstagramのDMから無料相談受付中！）</span>
+                <span style="font-size: 0.85rem;">（InstagramのDMから無料相談受付中！）</span>
             </div>
 
             <br>
@@ -232,28 +229,26 @@
             </div>
 
             <p class="location-text">
-                <strong style="color:#D84B81;">学校の宿題をその場で終わらせ、</strong><br class="sp-br">
-                分からないところの「解き直し」と「類題」で<br class="sp-br">
-                着実にステップアップ。<br>
-                元小学校教諭が一人ひとりに寄り添い、<br class="sp-br">
-                基礎から可能性の開拓まで丁寧に育みます。
+                <strong style="color:#D84B81;">学校の宿題をその場で終わらせ、</strong><br>
+                分からないところの「解き直し」と「類題」で着実にステップアップ。<br>
+                元小学校教諭が一人ひとりに寄り添い、基礎から可能性の開拓まで丁寧に育みます。
             </p>
 
-            <p class="sub-message">子どもをまるごと受けとめ、<br class="sp-br">自分にまるをあげられる場所に。</p>
+            <p class="sub-message">子どもをまるごと受けとめ、自分にまるをあげられる場所に。</p>
 
             <div class="maru-frame">
                 <h3 class="tokucho-title">まるのおうちの特徴</h3>
                 <ul class="tokucho-list">
-                    <li><strong>「ちょっとやってみよう」と思える関わり</strong><br>お子様の心に寄り添い、一歩踏み出す勇気を支えます。</li>
+                    <li><strong>「ちょっとやってみよう」と思える関わり</strong><br>お子さまの心に寄り添い、一歩踏み出す勇気を支えます。</li>
                     <li><strong>「楽しかった・学んだ・できた」の積み重ね</strong><br>解き直しや類題を通じ、確かな手応えを感じる時間をつくります。</li>
                     <li><strong>日々の小さなマナーを大切に</strong><br>あいさつや靴を揃えるなど、心豊かな習慣を育みます。</li>
                 </ul>
             </div>
             
-            </div>
+        </div>
 
         <div class="right-column">
-            <a href="gurimaru.book.html" style="text-decoration: none;">
+            <a href="gurimaru.book.html" style="text-decoration: none; display: flex; flex-direction: column; align-items: center;">
                 <div class="gurimaru-wrapper">
                     <img src="gurimaru.png" alt="看板犬のぐり丸1" class="slide active">
                     <img src="gurimaru2.png" alt="看板犬のぐり丸2" class="slide">
