@@ -59,22 +59,35 @@
             border-top: 1px solid #E8C7D5; color: #888; font-size: 0.85rem;
         }
 
-        /* 戻るボタンの共通スタイル */
+        /* 戻るボタンの共通スタイル（カプセル型） */
         .back-btn {
             display: block; width: fit-content;
-            padding: 12px 40px; color: white;
-            text-decoration: none; font-weight: bold; border-radius: 60% 40% 60% 40% / 45% 50% 50% 55%;
+            padding: 12px 50px; color: #7A6A2F;
+            text-decoration: none; font-weight: bold; 
+            border-radius: 30px; /* カプセル型 */
             transition: 0.3s;
             text-align: center;
             margin: 0 auto;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
-        .back-btn:hover { opacity: 0.8; transform: translateY(-2px); }
+        .back-btn:hover { opacity: 0.8; transform: scale(1.05); }
 
         /* ボタンごとの色設定 */
-        .btn-link { background-color: #D8C2A8; margin-top: 50px; }
-        .btn-home { background-color: #A8B8D8; margin-top: 15px; }
+        .btn-link { background-color: #F0E6A5; margin-top: 50px; } /* レモンイエロー */
+        .btn-home { background-color: #BEE1EB; margin-top: 20px; color: #4A6FA5; } /* 水色 */
 
-        @media (max-width: 600px) { .container { padding: 40px 20px; } h1 { font-size: 1.8rem; } }
+        @media (max-width: 600px) { 
+            .container { padding: 40px 15px; } 
+            h1 { font-size: 1.8rem; }
+            .kiyaku-card { padding: 20px 15px; } /* 左右の余白を削って横いっぱいに配置 */
+            
+            /* 第3条の「す。」落ち対策：字間をわずかに詰める */
+            .cancel-text {
+                letter-spacing: -0.03em;
+            }
+
+            .back-btn { width: 90%; padding: 14px 20px; }
+        }
     </style>
 </head>
 
@@ -111,7 +124,7 @@
             <p><strong>■ 予約制（都度払い）</strong><br>公式LINEの予約システムよりお申し込みください。</p>
             <p><strong>【キャンセルについて】</strong></p>
             <ul>
-                <li>開始30分前まで：公式LINEからご自身で変更・キャンセル可能です。</li>
+                <li class="cancel-text">開始30分前まで：公式LINEからご自身で変更・キャンセル可能です。</li>
                 <li><span class="red">30分前を過ぎた場合：必ずお電話にてご連絡ください。</span></li>
             </ul>
             <p><strong>■ 週2固定制</strong><br>公式LINEの「お問い合わせ」より、専用フォームにてお申し込みください。曜日・時間は固定となります。</p>
