@@ -102,11 +102,10 @@
         .location-text { font-size: 1.15rem; margin-bottom: 25px; color: #444; line-height: 1.8; font-weight: 500; }
         .sub-message { font-family: 'Yomogi', cursive; font-size: 1.4rem; margin-bottom: 30px; color: #D84B81; font-weight: bold; }
 
-        /* 特徴の四角（左右の余白を調整） */
         .maru-frame { 
             width: 100%; 
             max-width: 550px; 
-            padding: 30px 20px; /* 左右を40pxから20pxに削減 */
+            padding: 30px 20px; 
             border: 3px solid #D8C2A8; 
             border-radius: 30px; 
             background-color: #FAF6F2; 
@@ -160,7 +159,6 @@
             .menu-btn-pc { display: none; }
             .menu-btn-sp { display: flex; }
             
-            /* 特徴枠の余白をスマホでさらに最適化 */
             .maru-frame { padding: 25px 15px; }
             .tokucho-list { padding-left: 1.1em; font-size: 0.95rem; }
 
@@ -168,7 +166,9 @@
             .sub-message { font-size: 1.2rem; text-align: center; line-height: 1.5; }
             .location-text { font-size: 1.05rem; text-align: left; line-height: 1.6; }
             
-            .popup-menu { width: 340px; height: 340px; padding: 20px; }
+            /* メニュー項目のサイズ微調整 */
+            .popup-menu { width: 340px; height: 340px; padding: 25px; gap: 4px; }
+            .popup-item { width: 170px; font-size: 0.82rem; padding: 5px 10px; }
         }
     </style>
 </head>
@@ -262,7 +262,7 @@
             setTimeout(() => {
                 document.getElementById("popup-menu").style.display = "none";
                 document.getElementById("popup-overlay").style.display = "none";
-            }, 300);a
+            }, 300);
         }
         let currentIndex = 0;
         const slides = document.querySelectorAll(".slide");
