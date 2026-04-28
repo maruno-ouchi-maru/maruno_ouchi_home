@@ -21,41 +21,52 @@
             padding: 50px 40px; border-radius: 40px;
             box-shadow: 0 10px 30px rgba(216, 194, 168, 0.2);
             border: 3px solid #D8C2A8;
+            box-sizing: border-box; /* はみ出し防止 */
         }
         h1 { font-family: 'Yomogi', cursive; font-size: 2.5rem; text-align: center; margin-bottom: 10px; color: #7A6A2F; }
         .subtitle { text-align: center; font-size: 0.9rem; color: #888; margin-bottom: 30px; }
 
         /* 検索ボックス */
-        .search-container { margin-bottom: 40px; text-align: center; }
+        .search-container { margin-bottom: 40px; text-align: center; width: 100%; }
         #searchInput {
-            width: 80%; padding: 15px 25px; font-size: 1rem;
+            width: 85%; padding: 15px 25px; font-size: 1rem;
             border: 2px solid #D8C2A8; border-radius: 50px;
             font-family: 'Zen Maru Gothic', sans-serif; outline: none;
             background-color: #fff; transition: 0.3s;
+            box-sizing: border-box; /* これではみ出しを防ぎます */
         }
-        #searchInput:focus { box-shadow: 0 0 10px rgba(216, 194, 168, 0.5); }
+        #searchInput:focus { box-shadow: 0 0 10px rgba(216, 194, 168, 0.5); border-color: #D84B81; }
 
         .category-title {
             font-family: 'Yomogi', cursive; font-size: 1.5rem; color: #D84B81;
             margin: 40px 0 20px; border-bottom: 2px dashed #D8C2A8; padding-bottom: 5px;
         }
-        .qa-block { margin-bottom: 20px; border-radius: 20px; overflow: hidden; border: 1px solid #F7DDE8; transition: 0.3s; }
+        .qa-block { margin-bottom: 20px; border-radius: 20px; overflow: hidden; border: 1px solid #F7DDE8; transition: 0.3s; background: #fff; }
         .question { background-color: #F7DDE8; padding: 15px 20px; font-weight: bold; color: #D84B81; display: flex; align-items: flex-start; }
-        .question::before { content: "Q."; font-family: 'Yomogi', cursive; font-size: 1.3rem; margin-right: 10px; }
-        .answer { background-color: #fff; padding: 20px; white-space: pre-wrap; } /* 改行を反映 */
+        .question::before { content: "Q."; font-family: 'Yomogi', cursive; font-size: 1.3rem; margin-right: 10px; flex-shrink: 0; }
+        .answer { background-color: #fff; padding: 20px; white-space: pre-wrap; }
         .answer::before { content: "A."; font-family: 'Yomogi', cursive; font-size: 1.3rem; color: #7A6A2F; display: block; margin-bottom: 5px; }
         
         .no-result { text-align: center; color: #888; padding: 40px; display: none; }
         
+        /* 戻るボタン（カプセル型に修正） */
         .back-btn {
             display: block; width: fit-content; margin: 50px auto 0;
-            padding: 12px 40px; background-color: #D8C2A8; color: white;
-            text-decoration: none; font-weight: bold; border-radius: 60% 40% 60% 40% / 45% 50% 50% 55%;
+            padding: 14px 50px; background-color: #D8C2A8; color: white;
+            text-decoration: none; font-weight: bold; border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             transition: 0.3s;
+            text-align: center;
         }
-        .back-btn:hover { background-color: #C5AB8D; transform: scale(1.05) rotate(-1deg); }
+        .back-btn:hover { background-color: #C5AB8D; transform: scale(1.05); }
 
-        @media (max-width: 600px) { .card { padding: 30px 15px; } h1 { font-size: 2rem; } #searchInput { width: 100%; } }
+        @media (max-width: 600px) { 
+            body { padding: 20px 15px; }
+            .card { padding: 35px 20px; } 
+            h1 { font-size: 2rem; } 
+            #searchInput { width: 100%; font-size: 0.9rem; } 
+            .back-btn { width: 90%; padding: 14px 20px; box-sizing: border-box; }
+        }
     </style>
 </head>
 <body>
@@ -64,7 +75,7 @@
     <div class="subtitle">気になることがあれば検索したり、各項目をチェックしてみてください</div>
 
     <div class="search-container">
-        <input type="text" id="searchInput" placeholder="キーワードで検索（例：持ち物、予約、特性）">
+        <input type="text" id="searchInput" placeholder="キーワードで検索（例：持ち物、予約）">
     </div>
 
     <div id="noResult" class="no-result">
