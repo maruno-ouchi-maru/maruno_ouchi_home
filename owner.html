@@ -80,7 +80,7 @@
         margin-bottom: 25px;
     }
 
-    /* トップに戻るボタン（ロゴ色の黄色に修正） */
+    /* 【ここを修正】トップに戻るボタンの色をロゴカラーに変更 */
     .back-to-top-btn {
         position: fixed;
         bottom: 30px;
@@ -88,7 +88,7 @@
         z-index: 9999;
         width: 85px;
         height: 85px;
-        background: #F0E6A5; /* まるのおうちの黄色 */
+        background: #F0E6A5 !important; /* 強制的にロゴの黄色を適用 */
         color: #7A6A2F; /* 文字色は見やすい茶色に */
         border: 2px solid #D8C2A8;
         border-radius: 50%;
@@ -106,7 +106,7 @@
 
     .back-to-top-btn:hover { 
         transform: scale(1.1); 
-        background: #E6D98A; 
+        background: #E6D98A !important; 
     }
 
     @media (max-width: 600px) {
@@ -116,7 +116,6 @@
         .profile-img-wrap { padding: 10px; }
         .profile-img { max-width: 100%; }
         
-        /* スマホでお名前が切れないようにサイズを微調整 */
         .name-tag { 
             font-size: 1.15rem; 
             letter-spacing: -0.02em;
