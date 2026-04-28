@@ -43,7 +43,6 @@
             font-weight: bold; color: #D84B81; border-bottom: 2px dashed #F7DDE8;
             margin-bottom: 15px; padding-bottom: 5px; display: flex; align-items: center;
             font-size: 1.1rem;
-            white-space: nowrap; /* タイトルを1行に固定 */
         }
         .kiyaku-header span { margin-right: 10px; font-size: 1.3rem; flex-shrink: 0; }
 
@@ -76,19 +75,21 @@
         .btn-home { background-color: #BEE1EB; margin-top: 20px; color: #4A6FA5; }
 
         @media (max-width: 600px) { 
-            .container { padding: 40px 15px; } 
+            .container { padding: 40px 15px; overflow-x: hidden; } /* コンテナでの横スクロールを防止 */
             h1 { font-size: 1.8rem; }
             .kiyaku-card { padding: 20px 15px; }
             
-            /* タイトルを横いっぱいに収める */
             .kiyaku-header { 
                 font-size: 1rem; 
-                letter-spacing: -0.05em; 
+                letter-spacing: -0.05em;
+                white-space: nowrap; /* ヘッダーだけは1行に */
             }
             
+            /* 横スクロールの原因を解除し、自動改行を許可 */
             .cancel-text {
-                letter-spacing: -0.04em;
-                word-break: keep-all;
+                letter-spacing: -0.02em;
+                white-space: normal; /* 折り返しを許可 */
+                word-break: break-all;
             }
 
             .back-btn { width: 90%; padding: 14px 20px; }
@@ -176,7 +177,7 @@
         <div class="kiyaku-header"><span>🛡️</span> 第7条（免責事項）</div>
         <div class="kiyaku-body">
             <p>駐輪・駐車スペース、教室周辺および教室内での事故、怪我、盗難、紛失、アレルギー発症、生徒同士のトラブル等について、当塾に重大な過失がない限り一切の責任を負いかねます。</p>
-            <p>天災や感染症流行等の不可抗力による休塾の場合、<br>当該授業の補償は行いません。</p>
+            <p>天災や感染症流行等の不可抗力による休塾の場合、当該授業の補償は行いません。</p>
         </div>
     </div>
 
