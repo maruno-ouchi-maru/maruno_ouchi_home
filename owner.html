@@ -61,7 +61,7 @@
             background-color: #D84B81;
             color: white;
             text-decoration: none;
-            border-radius: 30px;
+            border-radius: 50px; /* カプセル型 */
             font-weight: bold;
             box-shadow: 0 4px 10px rgba(216, 75, 129, 0.2);
             transition: 0.3s;
@@ -90,16 +90,16 @@
             margin-top: 10px;
         }
 
-        /* 修正：ボタンの形をカプセル型（角丸）に変更 */
+        /* 【ここを修正】確実にカプセル型にするための指定 */
         .back-home {
             display: inline-block;
             margin-top: 20px;
-            padding: 15px 45px;
+            padding: 15px 50px;
             background-color: #D8C2A8;
             color: #fff;
             text-decoration: none;
             font-weight: bold;
-            border-radius: 30px; /* カプセル型 */
+            border-radius: 100px; /* 大きな値を指定してカプセル型を維持 */
             box-shadow: 0 6px 20px rgba(0,0,0,0.1);
             transition: 0.3s;
         }
@@ -133,7 +133,7 @@
             <h2 class="section-title">地図</h2>
             <div class="map-placeholder">
                 <p>Googleマップで詳しい場所を確認できます</p>
-                <a href="https://www.google.com/maps/search/?api=1&query=岡山県倉敷市片島町842-3" target="_blank" class="btn-map">
+                <a href="https://maps.google.com" target="_blank" class="btn-map">
                     Googleマップで見る
                 </a>
                 <p style="font-size: 0.85rem; color: #888;">※別ウィンドウで地図が開きます</p>
