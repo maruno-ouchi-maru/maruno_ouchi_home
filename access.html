@@ -1,119 +1,280 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>アクセス｜まるのおうち</title>
+    <title>倉敷市の小学生向け学習塾｜まるのおうち</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Yomogi&family=Zen+Maru+Gothic:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
         body {
             margin: 0;
             padding: 0;
-            background-color: #F7DDE8;
+            background-color: #F7DDE8; 
+            background-image: radial-gradient(#E8C7D5 1.5px, transparent 1.5px);
+            background-size: 35px 35px;
             font-family: 'Zen Maru Gothic', sans-serif;
             color: #444;
-            line-height: 1.9;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            text-align: center; /* ボタンを中央に寄せるため追加 */
-        }
+        /* PCでは改行タグ（sp-br）を表示しない */
+        .sp-br { display: none; }
 
-        h1 {
-            font-family: 'Yomogi', cursive;
-            font-size: 2.6rem;
-            color: #5a5a5a;
-            margin-bottom: 25px;
-            text-align: center;
-        }
-
-        .section {
-            background: #ffffffaa;
-            padding: 25px 30px;
-            border-radius: 20px;
-            margin-bottom: 35px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-            text-align: left; /* 文章は左寄せを維持 */
-        }
-
-        .map-frame {
+        .main-container {
+            display: flex;
             width: 100%;
-            height: 350px;
-            border: none;
-            border-radius: 18px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            max-width: 1100px;
+            padding: 50px 40px;
+            box-sizing: border-box;
+            align-items: flex-start;
+            gap: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 40px;
+            box-shadow: 0 15px 45px rgba(216, 194, 168, 0.2);
+            backdrop-filter: blur(8px);
+            margin: 20px;
+            overflow: hidden;
         }
 
-        /* 「トップページに戻る」ボタン */
-        .back-home {
+        .left-column { flex: 1.7; }
+        .right-column { flex: 0.3; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+
+        .teacher-badge {
             display: inline-block;
-            margin-top: 10px;
-            padding: 14px 35px;
-            background-color: #FFFBEB; /* クリーム色 */
-            color: #987666;           /* ココア色 */
+            background: #D8C2A8;
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .open-info { 
+            background: #FDF2F5; 
+            border: 2px solid #F7DDE8; 
+            padding: 12px 20px; 
+            border-radius: 12px; 
+            display: inline-block; 
+            margin-bottom: 20px; 
+            font-size: 1rem; 
+            color: #D84B81; 
+            font-weight: 600; 
+            line-height: 1.5;
+        }
+
+        .insta-contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
             text-decoration: none;
             font-weight: bold;
-            border-radius: 60% 40% 60% 40% / 45% 50% 50% 55%; /* いびつな丸 */
-            border: 2.5px solid #987666;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 10px rgba(220, 39, 67, 0.2);
             transition: 0.3s;
         }
+        .insta-contact-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(220, 39, 67, 0.3); }
 
-        .back-home:hover {
-            background-color: #987666;
-            color: #fff;
-            transform: translateY(-2px) rotate(-1deg);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        .logo-philosophy-wrap { display: flex; align-items: center; gap: 30px; margin-bottom: 30px; }
+        .logo-placeholder img { width: 160px; height: auto; }
+        
+        .philosophy-title { font-size: 1.2rem; font-weight: 600; color: #7A6A2F; margin: 0 0 10px 0; }
+        .philosophy { 
+            background: #FFFBE6; 
+            border-left: 6px solid #F0E6A5; 
+            padding: 15px 20px; 
+            border-radius: 10px; 
+            line-height: 1.8; 
+            font-size: 1rem; 
+            color: #555; 
+            max-width: 420px; 
+            font-family: 'Yomogi', cursive; 
+        }
+
+        .location-text { font-size: 1.15rem; margin-bottom: 25px; color: #444; line-height: 1.8; font-weight: 500; }
+        .sub-message { font-family: 'Yomogi', cursive; font-size: 1.4rem; margin-bottom: 30px; color: #D84B81; font-weight: bold; }
+
+        .maru-frame { 
+            width: 100%; 
+            max-width: 550px; 
+            padding: 30px 20px; 
+            border: 3px solid #D8C2A8; 
+            border-radius: 30px; 
+            background-color: #FAF6F2; 
+            margin: 30px 0; 
+            box-sizing: border-box; 
+        }
+        .tokucho-title { text-align: center; font-size: 1.2rem; font-weight: 600; margin-bottom: 15px; color: #7A6A2F; }
+        .tokucho-list { padding-left: 1.2em; margin: 0; font-size: 1rem; line-height: 1.8; color: #555; }
+        
+        .gurimaru-wrapper {
+            position: relative; width: 250px; height: 250px; border-radius: 50%;
+            overflow: hidden; border: 8px solid #D8C2A8; background: #fff;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1); cursor: pointer; transition: 0.3s;
+        }
+        .slide { position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1s; }
+        .slide.active { opacity: 1; }
+        .ehon-guide { margin-top: 15px; font-family: 'Yomogi', cursive; color: #7A6A2F; font-size: 1rem; font-weight: bold; text-align: center; }
+
+        .menu-btn {
+            position: fixed; bottom: 25px; right: 25px; z-index: 9000;
+            background: #F0E6A5; color: #7A6A2F; border: 2px solid #D8C2A8;
+            cursor: pointer; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            display: flex; align-items: center; justify-content: center; font-weight: bold;
+        }
+        .menu-btn-pc { padding: 12px 30px; border-radius: 50px; font-size: 1.1rem; }
+        .menu-btn-sp { display: none; width: 80px; height: 80px; border-radius: 50%; font-size: 1rem; }
+
+        .popup-menu {
+            position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.9);
+            width: 440px; height: 440px; background: white; border: 8px solid #F7DDE8;
+            border-radius: 50%; display: none; flex-direction: column; align-items: center;
+            justify-content: center; gap: 6px; z-index: 10000; opacity: 0; transition: 0.3s;
+            box-sizing: border-box; padding: 40px;
+        }
+        .popup-menu.show { display: flex; opacity: 1; transform: translate(-50%, -50%) scale(1); }
+        
+        .popup-item { 
+            background: #FAF6F2; border: 1px solid #D8C2A8; padding: 8px 15px; 
+            border-radius: 50px; text-decoration: none; color: #444; width: 220px; 
+            text-align: center; font-size: 0.95rem; transition: 0.3s;
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            box-sizing: border-box; white-space: nowrap;
         }
 
         @media (max-width: 768px) {
-            h1 { font-size: 2.2rem; }
-            .map-frame { height: 260px; }
+            .sp-br { display: block; }
+            .main-container { flex-direction: column-reverse; padding: 30px 15px; align-items: center; overflow-x: hidden;}
+            .left-column { width: 100%; }
+            .right-column { width: 100%; margin-bottom: 20px; align-items: center; }
+            .logo-philosophy-wrap { flex-direction: column; text-align: center; gap: 15px; }
+            .philosophy { max-width: 100%; border-left: none; border-top: 6px solid #F0E6A5; }
+            .menu-btn-pc { display: none; }
+            .menu-btn-sp { display: flex; }
+            
+            .maru-frame { padding: 25px 15px; }
+            .tokucho-list { padding-left: 1.1em; font-size: 0.95rem; }
+
+            .open-info { font-size: 0.9rem; padding: 10px 15px; }
+            .sub-message { font-size: 1.2rem; text-align: center; line-height: 1.5; }
+            .location-text { font-size: 1.05rem; text-align: left; line-height: 1.6; }
+            
+            .popup-menu { width: 340px; height: 340px; padding: 25px; gap: 4px; }
+            .popup-item { width: 170px; font-size: 0.82rem; padding: 5px 10px; }
         }
     </style>
 </head>
 
 <body>
+    <div class="main-container">
+        <div class="left-column">
+            <div class="teacher-badge">元小学校教諭がひらく塾</div>
+            <div class="open-info">
+                2026年秋、倉敷市片島町に開校予定<br>
+                <span style="font-size: 0.85rem;">（InstagramのDMから無料相談受付中！）</span>
+            </div>
 
-    <div class="container">
+            <br>
+            <a href="https://www.instagram.com/maruno_ouchi/" class="insta-contact-btn" target="_blank">
+                <i class="fab fa-instagram"></i> Instagramで無料相談する
+            </a>
 
-        <h1>アクセス</h1>
+            <div class="logo-philosophy-wrap">
+                <div class="logo-placeholder">
+                    <img src="logo.png" alt="まるのおうち ロゴ">
+                </div>
+                <div class="philosophy-content">
+                    <h2 class="philosophy-title">まるのおうちの理念</h2>
+                    <div class="philosophy">
+                        「ちょっとやってみよう」と思える瞬間をいっしょにつくり、<br class="sp-br">今日の「できた！」を大切にします。
+                    </div>
+                </div>
+            </div>
 
-        <div class="section">
-            <p><strong>まるのおうち</strong><br>
-            倉敷市片島町842-3 にあります。<br>
-            静かな住宅街の中にある、小さな学びの場所です。</p>
-        </div>
-
-        <div class="section">
-            <h2 style="font-family:'Yomogi'; font-size:1.6rem; margin-bottom:15px;">地図</h2>
-            <iframe 
-                class="map-frame"
-                src="https://www.google.com/maps?q=倉敷市片島町842-3&output=embed">
-            </iframe>
-        </div>
-
-        <div class="section">
-            <h2 style="font-family:'Yomogi'; font-size:1.6rem; margin-bottom:15px;">駐車場について</h2>
-            <p>
-                敷地内に <strong>2台分の駐車スペース</strong> があります。<br>
-                送迎の一時停車も大丈夫です。<br><br>
-
-                新築が完成したら、入口や駐車場の写真も追加していきます。<br>
-                いまは準備中ですが、安心してお越しいただけるように整えていきます。
+            <p class="location-text">
+                <strong style="color:#D84B81;">学校の宿題をその場で終わらせ、</strong><br class="sp-br">
+                分からないところの「解き直し」と「類題」で着実にステップアップ。<br>
+                元小学校教諭が一人ひとりに寄り添い、<br class="sp-br">基礎から可能性の開拓まで丁寧に育みます。
             </p>
+
+            <p class="sub-message">子どもをまるごと受けとめ、<br class="sp-br">自分にまるをあげられる場所に。</p>
+
+            <div class="maru-frame">
+                <h3 class="tokucho-title">まるのおうちの特徴</h3>
+                <ul class="tokucho-list">
+                    <li><strong>「ちょっとやってみよう」<br class="sp-br">と思える関わり</strong><br>お子さまの心に寄り添い、一歩踏み出す勇気を支えます。</li>
+                    <li><strong>「楽しかった・学んだ・できた」<br class="sp-br">の積み重ね</strong><br>解き直しや類題を通じ、確かな手応えを感じる時間をつくります。</li>
+                    <li><strong>日々の小さなマナーを大切に</strong><br>あいさつや靴を揃えるなど、心豊かな習慣を育みます。</li>
+                </ul>
+            </div>
+            
         </div>
 
-        <a href="index.html" class="back-home">
-            トップページに戻る
-        </a>
-
+        <div class="right-column">
+            <a href="gurimaru.book.html" style="text-decoration: none; display: flex; flex-direction: column; align-items: center;">
+                <div class="gurimaru-wrapper">
+                    <img src="gurimaru.png" alt="看板犬のぐり丸1" class="slide active">
+                    <img src="gurimaru2.png" alt="看板犬のぐり丸2" class="slide">
+                    <img src="gurimaru3.png" alt="看板犬のぐり丸3" class="slide">
+                </div>
+                <div class="ehon-guide">
+                    ＼ ぐり丸をタップして ／<br>えほんを読んでね
+                </div>
+            </a>
+        </div>
     </div>
 
+    <button class="menu-btn menu-btn-pc" onclick="openMenu()">詳しく見る（MENU）</button>
+    <button class="menu-btn menu-btn-sp" onclick="openMenu()">MENU</button>
+
+    <div id="popup-overlay" onclick="closeMenu()" style="position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.4); display:none; z-index:9990; backdrop-filter:blur(3px);"></div>
+    
+    <div id="popup-menu" class="popup-menu">
+        <button onclick="closeMenu()" style="background:none; border:none; font-size:2rem; color:#D8C2A8; cursor:pointer; margin-bottom:2px;">×</button>
+        <a href="about.html" class="popup-item">まるのおうちとは</a>
+        <a href="link.html" class="popup-item">料金・利用案内</a>
+        <a href="owner.html" class="popup-item">運営者紹介</a>
+        <a href="access.html" class="popup-item">アクセス</a>
+        <a href="faq.html" class="popup-item">よくある質問</a>
+        <a href="https://lin.ee/RL8yKoQ" class="popup-item">公式LINE（ご予約）</a>
+        <a href="https://www.instagram.com/maruno_ouchi/" class="popup-item" target="_blank">
+            <i class="fab fa-instagram"></i> Instagram
+        </a>
+    </div>
+
+    <script>
+        function openMenu() {
+            document.getElementById("popup-overlay").style.display = "block";
+            const menu = document.getElementById("popup-menu");
+            menu.style.display = "flex";
+            setTimeout(() => { menu.classList.add("show"); }, 10);
+        }
+        function closeMenu() {
+            document.getElementById("popup-menu").classList.remove("show");
+            setTimeout(() => {
+                document.getElementById("popup-menu").style.display = "none";
+                document.getElementById("popup-overlay").style.display = "none";
+            }, 300);
+        }
+        let currentIndex = 0;
+        const slides = document.querySelectorAll(".slide");
+        setInterval(() => {
+            slides[currentIndex].classList.remove("active");
+            currentIndex = (currentIndex + 1) % slides.length;
+            slides[currentIndex].classList.add("active");
+        }, 3000);
+    </script>
 </body>
 </html>
