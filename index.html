@@ -23,6 +23,9 @@
             justify-content: center;
         }
 
+        /* PCでは改行タグ（sp-br）を表示しない */
+        .sp-br { display: none; }
+
         .main-container {
             display: flex;
             width: 100%;
@@ -151,6 +154,9 @@
         }
 
         @media (max-width: 768px) {
+            /* スマホでは改行タグ（sp-br）を表示する */
+            .sp-br { display: block; }
+
             .main-container { flex-direction: column-reverse; padding: 30px 15px; align-items: center; overflow-x: hidden;}
             .left-column { width: 100%; }
             .right-column { width: 100%; margin-bottom: 20px; align-items: center; }
@@ -166,7 +172,6 @@
             .sub-message { font-size: 1.2rem; text-align: center; line-height: 1.5; }
             .location-text { font-size: 1.05rem; text-align: left; line-height: 1.6; }
             
-            /* メニュー項目のサイズ微調整 */
             .popup-menu { width: 340px; height: 340px; padding: 25px; gap: 4px; }
             .popup-item { width: 170px; font-size: 0.82rem; padding: 5px 10px; }
         }
@@ -194,24 +199,24 @@
                 <div class="philosophy-content">
                     <h2 class="philosophy-title">まるのおうちの理念</h2>
                     <div class="philosophy">
-                        「ちょっとやってみよう」と思える瞬間をいっしょにつくり、<br>今日の「できた！」を大切にします。
+                        「ちょっとやってみよう」と思える瞬間をいっしょにつくり、<br class="sp-br">今日の「できた！」を大切にします。
                     </div>
                 </div>
             </div>
 
             <p class="location-text">
-                <strong style="color:#D84B81;">学校の宿題をその場で終わらせ、</strong><br>
+                <strong style="color:#D84B81;">学校の宿題をその場で終わらせ、</strong><br class="sp-br">
                 分からないところの「解き直し」と「類題」で着実にステップアップ。<br>
-                元小学校教諭が一人ひとりに寄り添い、<br>基礎から可能性の開拓まで丁寧に育みます。
+                元小学校教諭が一人ひとりに寄り添い、<br class="sp-br">基礎から可能性の開拓まで丁寧に育みます。
             </p>
 
-            <p class="sub-message">子どもをまるごと受けとめ、<br>自分にまるをあげられる場所に。</p>
+            <p class="sub-message">子どもをまるごと受けとめ、<br class="sp-br">自分にまるをあげられる場所に。</p>
 
             <div class="maru-frame">
                 <h3 class="tokucho-title">まるのおうちの特徴</h3>
                 <ul class="tokucho-list">
-                    <li><strong>「ちょっとやってみよう」<br>と思える関わり</strong><br>お子さまの心に寄り添い、一歩踏み出す勇気を支えます。</li>
-                    <li><strong>「楽しかった・学んだ・できた」<br>の積み重ね</strong><br>解き直しや類題を通じ、確かな手応えを感じる時間をつくります。</li>
+                    <li><strong>「ちょっとやってみよう」<br class="sp-br">と思える関わり</strong><br>お子さまの心に寄り添い、一歩踏み出す勇気を支えます。</li>
+                    <li><strong>「楽しかった・学んだ・できた」<br class="sp-br">の積み重ね</strong><br>解き直しや類題を通じ、確かな手応えを感じる時間をつくります。</li>
                     <li><strong>日々の小さなマナーを大切に</strong><br>あいさつや靴を揃えるなど、心豊かな習慣を育みます。</li>
                 </ul>
             </div>
