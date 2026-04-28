@@ -43,8 +43,9 @@
             font-weight: bold; color: #D84B81; border-bottom: 2px dashed #F7DDE8;
             margin-bottom: 15px; padding-bottom: 5px; display: flex; align-items: center;
             font-size: 1.1rem;
+            white-space: nowrap; /* タイトルを1行に固定 */
         }
-        .kiyaku-header span { margin-right: 10px; font-size: 1.3rem; }
+        .kiyaku-header span { margin-right: 10px; font-size: 1.3rem; flex-shrink: 0; }
 
         .kiyaku-body { font-size: 0.95rem; }
         .kiyaku-body p { margin: 8px 0; }
@@ -59,12 +60,11 @@
             border-top: 1px solid #E8C7D5; color: #888; font-size: 0.85rem;
         }
 
-        /* 戻るボタンの共通スタイル（カプセル型） */
         .back-btn {
             display: block; width: fit-content;
             padding: 12px 50px; color: #7A6A2F;
             text-decoration: none; font-weight: bold; 
-            border-radius: 30px; /* カプセル型 */
+            border-radius: 30px;
             transition: 0.3s;
             text-align: center;
             margin: 0 auto;
@@ -72,18 +72,23 @@
         }
         .back-btn:hover { opacity: 0.8; transform: scale(1.05); }
 
-        /* ボタンごとの色設定 */
-        .btn-link { background-color: #F0E6A5; margin-top: 50px; } /* レモンイエロー */
-        .btn-home { background-color: #BEE1EB; margin-top: 20px; color: #4A6FA5; } /* 水色 */
+        .btn-link { background-color: #F0E6A5; margin-top: 50px; }
+        .btn-home { background-color: #BEE1EB; margin-top: 20px; color: #4A6FA5; }
 
         @media (max-width: 600px) { 
             .container { padding: 40px 15px; } 
             h1 { font-size: 1.8rem; }
-            .kiyaku-card { padding: 20px 15px; } /* 左右の余白を削って横いっぱいに配置 */
+            .kiyaku-card { padding: 20px 15px; }
             
-            /* 第3条の「す。」落ち対策：字間をわずかに詰める */
+            /* タイトルを横いっぱいに収める */
+            .kiyaku-header { 
+                font-size: 1rem; 
+                letter-spacing: -0.05em; 
+            }
+            
             .cancel-text {
-                letter-spacing: -0.03em;
+                letter-spacing: -0.04em;
+                word-break: keep-all;
             }
 
             .back-btn { width: 90%; padding: 14px 20px; }
@@ -106,7 +111,7 @@
         <div class="kiyaku-header"><span>❤️</span> 第1条（理念・目的）</div>
         <div class="kiyaku-body">
             <p>当塾は、<strong>「子どもをまるごと受けとめ、自分にまるをあげられる場所」</strong>であることを大切にしています。</p>
-            <p>講師がお子さまのありのままを認め、自己肯定感を育める環境を整えることで、<strong>「ちょっとやってみよう」と思える瞬間をいっしょにつくり、今日の「できた！」を積み重ねていくこと</strong>を目的とします。あわせて、保護者さまの安心も全力でサポートいたします。</p>
+            <p>講師がお子さまのありのままを認め、自己肯定感を育める環境を整えることで、<br><strong>「ちょっとやってみよう」と思える瞬間をいっしょにつくり、<br>今日の「できた！」を積み重ねていくこと</strong>を目的とします。あわせて、保護者さまの安心も全力でサポートいたします。</p>
         </div>
     </div>
 
@@ -127,7 +132,7 @@
                 <li class="cancel-text">開始30分前まで：公式LINEからご自身で変更・キャンセル可能です。</li>
                 <li><span class="red">30分前を過ぎた場合：必ずお電話にてご連絡ください。</span></li>
             </ul>
-            <p><strong>■ 週2固定制</strong><br>公式LINEの「お問い合わせ」より、専用フォームにてお申し込みください。曜日・時間は固定となります。</p>
+            <p><strong>■ 週2固定制</strong><br>公式LINEの「お問い合わせ」より、専用フォームにてお申し込みください。<br>曜日・時間は固定となります。</p>
         </div>
     </div>
 
@@ -171,7 +176,7 @@
         <div class="kiyaku-header"><span>🛡️</span> 第7条（免責事項）</div>
         <div class="kiyaku-body">
             <p>駐輪・駐車スペース、教室周辺および教室内での事故、怪我、盗難、紛失、アレルギー発症、生徒同士のトラブル等について、当塾に重大な過失がない限り一切の責任を負いかねます。</p>
-            <p>天災や感染症流行等の不可抗力による休塾の場合、当該授業の補償は行いません。</p>
+            <p>天災や感染症流行等の不可抗力による休塾の場合、<br>当該授業の補償は行いません。</p>
         </div>
     </div>
 
@@ -191,7 +196,7 @@
         <div class="kiyaku-body">
             <ul>
                 <li>個人情報は運営目的以外に使用せず、厳重に管理いたします。</li>
-                <li>SNSへの写真掲載時は、お顔を隠すなどプライバシーに十分配慮いたします。</li>
+                <li>SNSへの写真掲載時は、お顔を隠すなど<br>プライバシーに十分配慮いたします。</li>
             </ul>
         </div>
     </div>
