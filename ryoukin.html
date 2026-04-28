@@ -52,22 +52,45 @@
             margin: 15px 0 30px; border: 1px solid #FFE0B2; font-size: 0.95rem;
         }
 
-        /* 戻るボタン共通スタイル */
+        /* 相談料金のレイアウト */
+        .sodan-grid {
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 20px;
+        }
+
+        /* 戻るボタン共通スタイル（トップページに合わせた有機的な形） */
         .back-btn {
             display: block; width: fit-content;
-            padding: 12px 40px; color: white;
-            text-decoration: none; font-weight: bold; border-radius: 60% 40% 60% 40% / 45% 50% 50% 55%;
+            padding: 14px 50px; color: #7A6A2F; /* 文字色は少し濃い茶色で見やすく */
+            text-decoration: none; font-weight: bold; 
+            border-radius: 60% 40% 60% 40% / 45% 50% 50% 55%;
             transition: 0.3s;
             text-align: center;
             margin: 0 auto;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
-        .back-btn:hover { opacity: 0.8; transform: translateY(-2px); }
+        .back-btn:hover { opacity: 0.8; transform: scale(1.05); }
 
         /* ボタンごとの色設定 */
-        .btn-link { background-color: #D8C2A8; margin-top: 50px; }
-        .btn-home { background-color: #A8B8D8; margin-top: 15px; }
+        .btn-link { background-color: #F0E6A5; margin-top: 50px; } /* レモンイエロー */
+        .btn-home { background-color: #BEE1EB; margin-top: 20px; color: #4A6FA5; } /* 綺麗な水色 */
 
-        @media (max-width: 600px) { .container { padding: 40px 20px; } h1 { font-size: 2rem; } }
+        @media (max-width: 600px) { 
+            .container { padding: 40px 20px; } 
+            h1 { font-size: 2rem; } 
+            .section-box { padding: 20px; }
+            
+            /* 相談料金を縦並びにして横幅を確保 */
+            .sodan-grid {
+                grid-template-columns: 1fr;
+            }
+            .sodan-grid .section-box {
+                margin-bottom: 10px;
+            }
+
+            .back-btn { padding: 12px 30px; font-size: 0.95rem; }
+        }
     </style>
 </head>
 
@@ -122,10 +145,10 @@
     </table>
 
     <h2>相談料金</h2>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+    <div class="sodan-grid">
         <div class="section-box">
             <span class="section-title">■ 初回無料相談</span>
-            <p>時間：15分<br><span class="blue">料金：無料</span></p>
+            <p>時間：30分<br><span class="blue">料金：無料</span></p>
         </div>
         <div class="section-box">
             <span class="section-title">■ 有料相談</span>
@@ -148,7 +171,7 @@
     <div class="section-box" style="background-color:#FFF0F0; border-color:#FFDada;">
         <span class="section-title" style="color:#C45A5A;">■ 犬アレルギーについて</span>
         <p class="red">安全のため、犬アレルギーのあるお子さまはご利用いただけません。</p>
-        <p style="font-size:0.9rem;">犬のいる環境で症状が出る可能性があり、その際の責任は負いかねます。ご了承ください。</p>
+        <p style="font-size:0.9rem;">犬のいる環境で症状が出る場合があり、その際の責任は負いかねます。<br>ご了承ください。</p>
     </div>
 
     <a href="link.html" class="back-btn btn-link">一覧（リンクページ）へ戻る</a>
