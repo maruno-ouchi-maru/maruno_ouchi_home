@@ -34,49 +34,106 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
-        /* スタイル部分は変更なしのため中略 */
         body { margin: 0; padding: 0; background-color: #F7DDE8; background-image: radial-gradient(#E8C7D5 1.5px, transparent 1.5px); background-size: 35px 35px; font-family: 'Zen Maru Gothic', sans-serif; color: #444; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
         .sp-br { display: none; }
-        .main-container { display: flex; width: 100%; max-width: 1100px; padding: 50px 40px; box-sizing: border-box; align-items: flex-start; gap: 40px; background: rgba(255, 255, 255, 0.95); border-radius: 40px; box-shadow: 0 15px 45px rgba(216, 194, 168, 0.2); backdrop-filter: blur(8px); margin: 20px; overflow: hidden; }
+
+        /* メインコンテナ */
+        .main-container { 
+            display: flex; 
+            width: 100%; 
+            max-width: 1100px; 
+            padding: 50px 40px; 
+            box-sizing: border-box; 
+            align-items: flex-start; 
+            gap: 40px; 
+            background: rgba(255, 255, 255, 0.95); 
+            border-radius: 40px; 
+            box-shadow: 0 15px 45px rgba(216, 194, 168, 0.2); 
+            backdrop-filter: blur(8px); 
+            margin: 20px; 
+            position: relative; 
+            overflow: hidden; 
+        }
+
         .left-column { flex: 1.7; }
         .right-column { flex: 0.3; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-        .teacher-badge { display: inline-block; background: #D8C2A8; color: #fff; padding: 4px 12px; border-radius: 20px; font-size: 0.9rem; margin-bottom: 10px; font-weight: 500; }
+        
+        /* バッジと先生向けリンクを並べるコンテナ */
+        .header-labels { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+
+        .teacher-badge { display: inline-block; background: #D8C2A8; color: #fff; padding: 4px 12px; border-radius: 20px; font-size: 0.9rem; font-weight: 500; }
+        
+        /* 若手教員サポートへのリンク（先生向けはこちら） */
+        .support-link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: #FFFBE6;
+            border: 1px solid #F0E6A5;
+            color: #7A6A2F;
+            padding: 4px 12px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .support-link-btn:hover { background: #F0E6A5; }
+
         .open-info { background: #FDF2F5; border: 2px solid #F7DDE8; padding: 12px 20px; border-radius: 12px; display: inline-block; margin-bottom: 20px; font-size: 1rem; color: #D84B81; font-weight: 600; line-height: 1.5; }
         .insta-contact-btn { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; padding: 12px 24px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 0.95rem; margin-bottom: 25px; box-shadow: 0 4px 10px rgba(220, 39, 67, 0.2); transition: 0.3s; }
         .insta-contact-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(220, 39, 67, 0.3); }
+        
         .logo-philosophy-wrap { display: flex; align-items: center; gap: 30px; margin-bottom: 30px; }
         .logo-placeholder img { width: 160px; height: auto; }
         .philosophy-title { font-size: 1.2rem; font-weight: 600; color: #7A6A2F; margin: 0 0 10px 0; }
         .philosophy { background: #FFFBE6; border-left: 6px solid #F0E6A5; padding: 15px 20px; border-radius: 10px; line-height: 1.8; font-size: 1rem; color: #555; max-width: 420px; font-family: 'Yomogi', cursive; }
+        
         .location-text { font-size: 1.15rem; margin-bottom: 25px; color: #444; line-height: 1.8; font-weight: 500; }
         .sub-message { font-family: 'Yomogi', cursive; font-size: 1.4rem; margin-bottom: 30px; color: #D84B81; font-weight: bold; }
+        
         .maru-frame { width: 100%; max-width: 550px; padding: 30px 20px; border: 3px solid #D8C2A8; border-radius: 30px; background-color: #FAF6F2; margin: 30px 0; box-sizing: border-box; }
         .tokucho-title { text-align: center; font-size: 1.2rem; font-weight: 600; margin-bottom: 15px; color: #7A6A2F; }
         .tokucho-list { padding-left: 1.2em; margin: 0; font-size: 1rem; line-height: 1.8; color: #555; }
+        
         .gurimaru-wrapper { position: relative; width: 250px; height: 250px; border-radius: 50%; overflow: hidden; border: 8px solid #D8C2A8; background: #fff; box-shadow: 0 10px 25px rgba(0,0,0,0.1); cursor: pointer; transition: 0.3s; }
         .slide { position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1s; }
         .slide.active { opacity: 1; }
         .ehon-guide { margin-top: 15px; font-family: 'Yomogi', cursive; color: #7A6A2F; font-size: 1rem; font-weight: bold; text-align: center; }
-        .menu-btn { position: fixed; bottom: 25px; right: 25px; z-index: 9000; background: #F0E6A5; color: #7A6A2F; border: 2px solid #D8C2A8; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center; font-weight: bold; }
+
+        /* MENUボタン配置 */
+        .menu-btn { 
+            position: absolute; 
+            bottom: 30px; 
+            right: 30px; 
+            z-index: 1000; 
+            background: #F0E6A5; 
+            color: #7A6A2F; 
+            border: 2px solid #D8C2A8; 
+            cursor: pointer; 
+            transition: 0.3s; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-weight: bold; 
+        }
         .menu-btn-pc { padding: 12px 30px; border-radius: 50px; font-size: 1.1rem; }
         .menu-btn-sp { display: none; width: 80px; height: 80px; border-radius: 50%; font-size: 1rem; }
+
         .popup-menu { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.9); width: 440px; height: 440px; background: white; border: 8px solid #F7DDE8; border-radius: 50%; display: none; flex-direction: column; align-items: center; justify-content: center; gap: 6px; z-index: 10000; opacity: 0; transition: 0.3s; box-sizing: border-box; padding: 40px; }
         .popup-menu.show { display: flex; opacity: 1; transform: translate(-50%, -50%) scale(1); }
         .popup-item { background: #FAF6F2; border: 1px solid #D8C2A8; padding: 8px 15px; border-radius: 50px; text-decoration: none; color: #444; width: 220px; text-align: center; font-size: 0.95rem; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 8px; box-sizing: border-box; white-space: nowrap; }
+
         @media (max-width: 768px) {
             .sp-br { display: block; }
-            .main-container { flex-direction: column-reverse; padding: 30px 15px; align-items: center; overflow-x: hidden;}
+            .main-container { flex-direction: column-reverse; padding: 30px 15px; align-items: center; }
             .left-column { width: 100%; }
             .right-column { width: 100%; margin-bottom: 20px; align-items: center; }
             .logo-philosophy-wrap { flex-direction: column; text-align: center; gap: 15px; }
             .philosophy { max-width: 100%; border-left: none; border-top: 6px solid #F0E6A5; }
             .menu-btn-pc { display: none; }
-            .menu-btn-sp { display: flex; }
-            .maru-frame { padding: 25px 15px; }
-            .tokucho-list { padding-left: 1.1em; font-size: 0.95rem; }
-            .open-info { font-size: 0.9rem; padding: 10px 15px; }
-            .sub-message { font-size: 1.2rem; text-align: center; line-height: 1.5; }
-            .location-text { font-size: 1.05rem; text-align: left; line-height: 1.6; }
+            .menu-btn-sp { display: flex; bottom: 20px; right: 20px; }
             .popup-menu { width: 340px; height: 340px; padding: 25px; gap: 4px; }
             .popup-item { width: 170px; font-size: 0.82rem; padding: 5px 10px; }
         }
@@ -85,13 +142,20 @@
 
 <body>
     <div class="main-container">
-        <!-- ページ最上部に隠し見出し（SEO用：h1は1回のみが理想） -->
+        <!-- SEO用隠し見出し -->
         <h1 style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0;">
             倉敷市片島町の小学生向け学習塾 まるのおうち｜宿題サポートと少人数指導
         </h1>
 
         <div class="left-column">
-            <div class="teacher-badge">元小学校教諭がひらく少人数制の塾</div>
+            <!-- バッジと先生向けリンクを横並びで配置 -->
+            <div class="header-labels">
+                <div class="teacher-badge">元小学校教諭がひらく少人数制の塾</div>
+                <a href="https://maruno-ouchi-maru.github.io/maruno_ouchi_home2/" class="support-link-btn" target="_blank" rel="noopener">
+                    <i class="fas fa-chalkboard-teacher"></i> 先生向けはこちら
+                </a>
+            </div>
+
             <div class="open-info">
                 2026年秋、<strong>倉敷市片島町</strong>に開校予定（完全予約制）<br>
                 <span style="font-size: 0.85rem;">（InstagramのDMから無料相談・先行予約受付中！）</span>
@@ -104,7 +168,6 @@
 
             <div class="logo-philosophy-wrap">
                 <div class="logo-placeholder">
-                    <!-- SEO：alt属性にキーワードを配置 -->
                     <img src="logo.png" alt="倉敷市片島町の学習塾 まるのおうち ロゴ">
                 </div>
                 <div class="philosophy-content">
@@ -137,10 +200,10 @@
                     <li><strong>元小学校教諭による安心の指導</strong><br>日々の学習だけでなく、あいさつ等の小さなマナーも大切に育みます。</li>
                 </ul>
             </div>
-            
         </div>
 
         <div class="right-column">
+            <!-- ぐり丸タップでえほんへのリンク -->
             <a href="gurimaru.book.html" style="text-decoration: none; display: flex; flex-direction: column; align-items: center;">
                 <div class="gurimaru-wrapper">
                     <img src="gurimaru.png" alt="倉敷市の塾まるのおうち 看板犬ぐり丸1" class="slide active">
@@ -152,11 +215,13 @@
                 </div>
             </a>
         </div>
+
+        <!-- 修正箇所：白い枠(main-container)の中にMENUボタンを配置 -->
+        <button class="menu-btn menu-btn-pc" onclick="openMenu()">詳しく見る（MENU）</button>
+        <button class="menu-btn menu-btn-sp" onclick="openMenu()">MENU</button>
     </div>
 
-    <button class="menu-btn menu-btn-pc" onclick="openMenu()">詳しく見る（MENU）</button>
-    <button class="menu-btn menu-btn-sp" onclick="openMenu()">MENU</button>
-
+    <!-- ポップアップメニュー -->
     <div id="popup-overlay" onclick="closeMenu()" style="position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.4); display:none; z-index:9990; backdrop-filter:blur(3px);"></div>
     
     <div id="popup-menu" class="popup-menu">
