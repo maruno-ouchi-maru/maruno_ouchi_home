@@ -7,9 +7,9 @@
     <title>倉敷市片島町の小学生向け学習塾｜まるのおうち｜元小学校教諭による少人数制指導</title>
     
     <!-- SEO対策：検索結果に表示される説明文（120文字程度） -->
-    <meta name="description" content="倉敷市片島町に2026年秋開校。元小学校教諭がひらく小学生対象の少人数制学習塾「まるのおうち」です。学校の宿題サポートから苦手克服まで、予約制で丁寧に指導。通いやすい安い料金設定で、お子様の「できた！」を育みます。Instagramで無料相談受付中。">
+    <meta name="description" content="倉敷市片島町に2026年秋開校。元小学校教諭がひらく小学生対象の少人数制学習塾「まるのおうち」です。学校の宿題サポートから苦手克服まで、予約制で丁寧に指導。通いやすい安い料金設定で,お子様の「できた！」を育みます。Instagramで無料相談受付中。">
     
-    <!-- SEO対策：構造化データ（検索エンジンに塾の情報を正しく伝える） -->
+    <!-- SEO対策：構造化データ -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -58,31 +58,14 @@
         .left-column { flex: 1.7; }
         .right-column { flex: 0.3; display: flex; flex-direction: column; justify-content: center; align-items: center; }
         
-        /* バッジと先生向けリンクを並べるコンテナ */
+        /* ヘッダーラベル */
         .header-labels { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
-
-        .teacher-badge { display: inline-block; background: #D8C2A8; color: #fff; padding: 4px 12px; border-radius: 20px; font-size: 0.9rem; font-weight: 500; }
-        
-        /* 若手教員サポートへのリンク（先生向けはこちら） */
-        .support-link-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            background: #FFFBE6;
-            border: 1px solid #F0E6A5;
-            color: #7A6A2F;
-            padding: 4px 12px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-size: 0.8rem;
-            font-weight: 600;
-            transition: 0.3s;
-        }
+        .teacher-badge { display: inline-block; background: #D8C2A8; color: #fff; padding: 4px 12px; border-radius: 20px; font-size: 0.9rem; font-weight: 500; white-space: nowrap; }
+        .support-link-btn { display: inline-flex; align-items: center; gap: 5px; background: #FFFBE6; border: 1px solid #F0E6A5; color: #7A6A2F; padding: 4px 12px; border-radius: 20px; text-decoration: none; font-size: 0.8rem; font-weight: 600; transition: 0.3s; white-space: nowrap; }
         .support-link-btn:hover { background: #F0E6A5; }
 
         .open-info { background: #FDF2F5; border: 2px solid #F7DDE8; padding: 12px 20px; border-radius: 12px; display: inline-block; margin-bottom: 20px; font-size: 1rem; color: #D84B81; font-weight: 600; line-height: 1.5; }
         .insta-contact-btn { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; padding: 12px 24px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 0.95rem; margin-bottom: 25px; box-shadow: 0 4px 10px rgba(220, 39, 67, 0.2); transition: 0.3s; }
-        .insta-contact-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(220, 39, 67, 0.3); }
         
         .logo-philosophy-wrap { display: flex; align-items: center; gap: 30px; margin-bottom: 30px; }
         .logo-placeholder img { width: 160px; height: auto; }
@@ -92,8 +75,9 @@
         .location-text { font-size: 1.15rem; margin-bottom: 25px; color: #444; line-height: 1.8; font-weight: 500; }
         .sub-message { font-family: 'Yomogi', cursive; font-size: 1.4rem; margin-bottom: 30px; color: #D84B81; font-weight: bold; }
         
-        .maru-frame { width: 100%; max-width: 550px; padding: 30px 20px; border: 3px solid #D8C2A8; border-radius: 30px; background-color: #FAF6F2; margin: 30px 0; box-sizing: border-box; }
-        .tokucho-title { text-align: center; font-size: 1.2rem; font-weight: 600; margin-bottom: 15px; color: #7A6A2F; }
+        /* 特徴フレームの余白調整：PCでは幅を十分に持たせる */
+        .maru-frame { width: 100%; max-width: 600px; padding: 30px 25px; border: 3px solid #D8C2A8; border-radius: 30px; background-color: #FAF6F2; margin: 30px 0; box-sizing: border-box; }
+        .tokucho-title { text-align: center; font-size: 1.15rem; font-weight: 600; margin-bottom: 15px; color: #7A6A2F; white-space: nowrap; }
         .tokucho-list { padding-left: 1.2em; margin: 0; font-size: 1rem; line-height: 1.8; color: #555; }
         
         .gurimaru-wrapper { position: relative; width: 250px; height: 250px; border-radius: 50%; overflow: hidden; border: 8px solid #D8C2A8; background: #fff; box-shadow: 0 10px 25px rgba(0,0,0,0.1); cursor: pointer; transition: 0.3s; }
@@ -101,7 +85,7 @@
         .slide.active { opacity: 1; }
         .ehon-guide { margin-top: 15px; font-family: 'Yomogi', cursive; color: #7A6A2F; font-size: 1rem; font-weight: bold; text-align: center; }
 
-        /* MENUボタン配置 */
+        /* MENUボタン配置：PCでは白い枠内に収める */
         .menu-btn { 
             position: absolute; 
             bottom: 30px; 
@@ -131,11 +115,14 @@
             .left-column { width: 100%; }
             .right-column { width: 100%; margin-bottom: 20px; align-items: center; }
             .logo-philosophy-wrap { flex-direction: column; text-align: center; gap: 15px; }
-            .philosophy { max-width: 100%; border-left: none; border-top: 6px solid #F0E6A5; }
+            .philosophy { max-width: 100%; border-left: none; border-top: 6px solid #F0E6A5; text-align: left; }
+            .menu-btn { position: fixed; bottom: 20px; right: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
             .menu-btn-pc { display: none; }
-            .menu-btn-sp { display: flex; bottom: 20px; right: 20px; }
+            .menu-btn-sp { display: flex; }
             .popup-menu { width: 340px; height: 340px; padding: 25px; gap: 4px; }
             .popup-item { width: 170px; font-size: 0.82rem; padding: 5px 10px; }
+            .tokucho-title { font-size: 1.05rem; }
+            .maru-frame { padding: 30px 15px; }
         }
     </style>
 </head>
@@ -148,7 +135,6 @@
         </h1>
 
         <div class="left-column">
-            <!-- バッジと先生向けリンクを横並びで配置 -->
             <div class="header-labels">
                 <div class="teacher-badge">元小学校教諭がひらく少人数制の塾</div>
                 <a href="https://maruno-ouchi-maru.github.io/maruno_ouchi_home2/" class="support-link-btn" target="_blank" rel="noopener">
@@ -158,7 +144,7 @@
 
             <div class="open-info">
                 2026年秋、<strong>倉敷市片島町</strong>に開校予定（完全予約制）<br>
-                <span style="font-size: 0.85rem;">（InstagramのDMから無料相談・先行予約受付中！）</span>
+                <span style="font-size: 0.85rem;">（InstagramのDMから無料相談・出張まるのおうち受付中）</span>
             </div>
 
             <br>
@@ -173,7 +159,7 @@
                 <div class="philosophy-content">
                     <h2 class="philosophy-title">まるのおうちの理念</h2>
                     <div class="philosophy">
-                        「ちょっとやってみよう」と思える瞬間をいっしょにつくり、<br class="sp-br">今日の「できた！」を大切にします。
+                        「ちょっとやってみよう」と思える瞬間をいっしょにつくり、今日の「できた！」を大切にします。
                     </div>
                 </div>
             </div>
@@ -190,7 +176,7 @@
                 </p>
             </div>
 
-            <p class="sub-message">子どもをまるごと受けとめ、<br class="sp-br">自分にまるをあげられる場所に。</p>
+            <p class="sub-message">子どもをまるごと受けとめ、<br class="sp-br">自分にまるをあげられる場所。</p>
 
             <div class="maru-frame">
                 <h3 class="tokucho-title">まるのおうちの特徴（完全予約制）</h3>
@@ -203,7 +189,6 @@
         </div>
 
         <div class="right-column">
-            <!-- ぐり丸タップでえほんへのリンク -->
             <a href="gurimaru.book.html" style="text-decoration: none; display: flex; flex-direction: column; align-items: center;">
                 <div class="gurimaru-wrapper">
                     <img src="gurimaru.png" alt="倉敷市の塾まるのおうち 看板犬ぐり丸1" class="slide active">
@@ -216,12 +201,11 @@
             </a>
         </div>
 
-        <!-- 修正箇所：白い枠(main-container)の中にMENUボタンを配置 -->
+        <!-- MENUボタン配置：PCでは枠内固定 -->
         <button class="menu-btn menu-btn-pc" onclick="openMenu()">詳しく見る（MENU）</button>
         <button class="menu-btn menu-btn-sp" onclick="openMenu()">MENU</button>
     </div>
 
-    <!-- ポップアップメニュー -->
     <div id="popup-overlay" onclick="closeMenu()" style="position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.4); display:none; z-index:9990; backdrop-filter:blur(3px);"></div>
     
     <div id="popup-menu" class="popup-menu">
