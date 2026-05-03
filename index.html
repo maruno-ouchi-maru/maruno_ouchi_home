@@ -7,7 +7,7 @@
     <title>倉敷市片島町の小学生向け学習塾｜まるのおうち｜元小学校教諭による少人数制指導</title>
     
     <!-- SEO対策：検索結果に表示される説明文（120文字程度） -->
-    <meta name="description" content="倉敷市片島町に2026年秋開校。元小学校教諭がひらく小学生対象の少人数制学習塾「まるのおうち」です。学校の宿題サポートから苦手克服まで、予約制で丁寧に指導。通いやすい安い料金設定で,お子様の「できた！」を育みます。Instagramで無料相談受付中。">
+    <meta name="description" content="倉敷市片島町に2026年秋開校。元小学校教諭がひらく小学生対象の少人数制学習塾「まるのおうち」です。学校の宿題サポートから苦手克服まで、予約制で丁寧に指導。通いやすい安い料金設定で、お子様の「できた！」を育みます。Instagramで無料相談受付中。">
     
     <!-- SEO対策：構造化データ -->
     <script type="application/ld+json">
@@ -75,7 +75,7 @@
         .location-text { font-size: 1.15rem; margin-bottom: 25px; color: #444; line-height: 1.8; font-weight: 500; }
         .sub-message { font-family: 'Yomogi', cursive; font-size: 1.4rem; margin-bottom: 30px; color: #D84B81; font-weight: bold; }
         
-        /* 特徴フレームの余白調整：PCでは幅を十分に持たせる */
+        /* 特徴フレームの余白調整 */
         .maru-frame { width: 100%; max-width: 600px; padding: 30px 25px; border: 3px solid #D8C2A8; border-radius: 30px; background-color: #FAF6F2; margin: 30px 0; box-sizing: border-box; }
         .tokucho-title { text-align: center; font-size: 1.15rem; font-weight: 600; margin-bottom: 15px; color: #7A6A2F; white-space: nowrap; }
         .tokucho-list { padding-left: 1.2em; margin: 0; font-size: 1rem; line-height: 1.8; color: #555; }
@@ -85,7 +85,7 @@
         .slide.active { opacity: 1; }
         .ehon-guide { margin-top: 15px; font-family: 'Yomogi', cursive; color: #7A6A2F; font-size: 1rem; font-weight: bold; text-align: center; }
 
-        /* MENUボタン配置：PCでは白い枠内に収める */
+        /* MENUボタン：PCでは枠内固定、スマホでは fixed に切り替え */
         .menu-btn { 
             position: absolute; 
             bottom: 30px; 
@@ -116,9 +116,18 @@
             .right-column { width: 100%; margin-bottom: 20px; align-items: center; }
             .logo-philosophy-wrap { flex-direction: column; text-align: center; gap: 15px; }
             .philosophy { max-width: 100%; border-left: none; border-top: 6px solid #F0E6A5; text-align: left; }
-            .menu-btn { position: fixed; bottom: 20px; right: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+            
+            /* スマホでMENUを追従させる設定 */
+            .menu-btn { 
+                position: fixed; 
+                bottom: 20px; 
+                right: 20px; 
+                z-index: 9999; 
+                box-shadow: 0 4px 15px rgba(0,0,0,0.2); 
+            }
             .menu-btn-pc { display: none; }
             .menu-btn-sp { display: flex; }
+            
             .popup-menu { width: 340px; height: 340px; padding: 25px; gap: 4px; }
             .popup-item { width: 170px; font-size: 0.82rem; padding: 5px 10px; }
             .tokucho-title { font-size: 1.05rem; }
@@ -201,7 +210,7 @@
             </a>
         </div>
 
-        <!-- MENUボタン配置：PCでは枠内固定 -->
+        <!-- MENUボタン配置 -->
         <button class="menu-btn menu-btn-pc" onclick="openMenu()">詳しく見る（MENU）</button>
         <button class="menu-btn menu-btn-sp" onclick="openMenu()">MENU</button>
     </div>
