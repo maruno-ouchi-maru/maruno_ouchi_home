@@ -6,7 +6,7 @@
     <!-- SEO対策：タイトルに重要キーワードを凝縮 -->
     <title>倉敷市片島町の小学生向け学習塾｜まるのおうち｜元小学校教諭による少人数制指導</title>
     
-    <!-- SEO対策：検索結果に表示される説明文（120文字程度） -->
+    <!-- SEO対策：検索結果に表示される説明文 -->
     <meta name="description" content="倉敷市片島町に2026年秋開校。元小学校教諭がひらく小学生対象の少人数制学習塾「まるのおうち」です。学校の宿題サポートから苦手克服まで、予約制で丁寧に指導。通いやすい安い料金設定で、お子様の「できた！」を育みます。Instagramで無料相談受付中。">
     
     <!-- SEO対策：構造化データ -->
@@ -67,6 +67,7 @@
         .open-info { background: #FDF2F5; border: 2px solid #F7DDE8; padding: 12px 20px; border-radius: 12px; display: inline-block; margin-bottom: 20px; font-size: 1rem; color: #D84B81; font-weight: 600; line-height: 1.5; }
         .insta-contact-btn { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; padding: 12px 24px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 0.95rem; margin-bottom: 25px; box-shadow: 0 4px 10px rgba(220, 39, 67, 0.2); transition: 0.3s; }
         
+        /* ロゴと理念のラップ */
         .logo-philosophy-wrap { display: flex; align-items: center; gap: 30px; margin-bottom: 30px; }
         .logo-placeholder img { width: 160px; height: auto; }
         .philosophy-title { font-size: 1.2rem; font-weight: 600; color: #7A6A2F; margin: 0 0 10px 0; }
@@ -85,7 +86,7 @@
         .slide.active { opacity: 1; }
         .ehon-guide { margin-top: 15px; font-family: 'Yomogi', cursive; color: #7A6A2F; font-size: 1rem; font-weight: bold; text-align: center; }
 
-        /* --- MENUボタン設定：PC --- */
+        /* --- MENUボタン設定 --- */
         .menu-btn { 
             position: fixed; 
             z-index: 9999; 
@@ -101,10 +102,9 @@
             font-weight: bold; 
         }
 
-        /* PCでの表示位置調整（白い枠の右下に擬似的に固定） */
+        /* PC表示位置 */
         @media (min-width: 769px) {
             .menu-btn {
-                /* 画面中央から見て白い枠の右下にくるように調整 */
                 right: calc(50% - 550px + 30px); 
                 bottom: 50px;
                 padding: 12px 30px; 
@@ -114,14 +114,17 @@
             .menu-btn-sp { display: none; }
         }
 
-        /* --- MENUボタン設定：スマホ --- */
+        /* --- スマホレスポンシブ修正 --- */
         @media (max-width: 768px) {
             .sp-br { display: block; }
             .main-container { flex-direction: column-reverse; padding: 30px 15px; align-items: center; }
             .left-column, .right-column { width: 100%; }
             .right-column { margin-bottom: 20px; }
             
-            .philosophy { text-align: left; }
+            /* スマホでロゴと理念を縦並びに修正（とんでもなく細長くなるのを防止） */
+            .logo-philosophy-wrap { flex-direction: column; text-align: center; gap: 15px; }
+            .philosophy { max-width: 100%; border-left: none; border-top: 6px solid #F0E6A5; text-align: left; }
+            
             .tokucho-title { font-size: 1.05rem; }
 
             .menu-btn { 
@@ -139,7 +142,6 @@
             .popup-item { width: 170px; font-size: 0.82rem; }
         }
 
-        /* ポップアップメニュー共通 */
         .popup-menu { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.9); width: 440px; height: 440px; background: white; border: 8px solid #F7DDE8; border-radius: 50%; display: none; flex-direction: column; align-items: center; justify-content: center; gap: 6px; z-index: 10000; opacity: 0; transition: 0.3s; box-sizing: border-box; padding: 40px; }
         .popup-menu.show { display: flex; opacity: 1; transform: translate(-50%, -50%) scale(1); }
         .popup-item { background: #FAF6F2; border: 1px solid #D8C2A8; padding: 8px 15px; border-radius: 50px; text-decoration: none; color: #444; width: 220px; text-align: center; font-size: 0.95rem; display: flex; align-items: center; justify-content: center; gap: 8px; }
@@ -221,14 +223,14 @@
         </div>
     </div>
 
-    <!-- MENUボタン：body直下に配置し、fixedで追従を確実にしました -->
+    <!-- MENUボタン -->
     <button class="menu-btn menu-btn-pc" onclick="openMenu()">詳しく見る（MENU）</button>
     <button class="menu-btn menu-btn-sp" onclick="openMenu()">MENU</button>
 
     <div id="popup-overlay" onclick="closeMenu()" style="position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.4); display:none; z-index:9990; backdrop-filter:blur(3px);"></div>
     
     <div id="popup-menu" class="popup-menu">
-        <button onclick="closeMenu()" style="background:none; border:none; font-size:2rem; color:#D8C2A8; cursor:pointer; margin-bottom:2px;">×</button>
+        <button onclick="closeMenu()" style="background:none; border:none; font-size:2rem; color:#D8C2A8; cursor:pointer; margin-bottom:2px;" aria-label="メニューを閉じる">×</button>
         <a href="about.html" class="popup-item">まるのおうちとは</a>
         <a href="link.html" class="popup-item">安い・安心の料金案内</a>
         <a href="owner.html" class="popup-item">元小学校教諭の紹介</a>
