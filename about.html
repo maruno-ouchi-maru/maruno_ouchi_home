@@ -90,6 +90,27 @@
             position: relative; z-index: 1;
         }
 
+/* 公式LINEボタン */
+        .line-btn {
+            display: block;
+            width: fit-content;
+            margin: 15px auto;
+            background: #06C755; /* LINEのブランドカラー */
+            color: white;
+            text-decoration: none;
+            padding: 10px 35px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-family: 'Zen Maru Gothic', sans-serif; /* 読みやすさ重視 */
+            font-size: 0.95rem;
+            box-shadow: 0 4px 12px rgba(6, 199, 85, 0.3);
+            transition: 0.3s;
+            text-align: center;
+        }
+        .line-btn:hover {
+            transform: scale(1.05);
+            background: #05b34c;
+        }
         .back-btn {
             display: block; width: fit-content; margin: 50px auto 0;
             background: #D8C2A8; color: white; text-decoration: none;
@@ -189,12 +210,19 @@
                 <li>自分の可能性を伸ばしたい子（自主学習のやり方がわからない子、もっと学びたい子）</li>
             </ul>
         </div>
-
-        <div class="gurimaru-section">
+       <div class="gurimaru-section">
             <img src="gurimaru3.png" alt="ぐり丸" class="gurimaru-img">
             <div class="speech-bubble">
-                ぼく、ぐり丸！まるのおうちでは、勉強だけじゃなくて、あいさつや靴を揃えるマナーも大切にしているんだ。<br>
+                ぼく、ぐり丸！まるのおうちでは、勉強だけじゃなくて、<br>
+                あいさつや靴を揃えるマナーも大切にしているんだ。<br><br>
+                
                 公式LINEでは、まるのおうちのことを動画でもう少し詳しく紹介してるよ。<br>
+                お友だち登録して、リッチメニューの「まるのおうちとは」<br>
+                のボタンから動画を見てみてね！
+                
+                <!-- LINEボタン -->
+                <a href="https://lin.ee/TLrrAbT" class="line-btn" target="_blank" rel="noopener noreferrer">▶ 公式LINEで動画を見る</a>
+                
                 みんなに会えるのを楽しみに待ってるよ！
             </div>
         </div>
