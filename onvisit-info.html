@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>出張まるのおうちについて｜倉敷市片島町の小学生向け学習塾 まるのおうち</title>
+    
+    <meta name="description" content="本オープンまでの期間限定サービス「出張まるのおうち」のご案内。元小学校教諭がご自宅に伺い、マンツーマンで宿題サポートや苦手復習を行います。音の出る宿題も大歓迎です。">
+
+    <link href="https://fonts.googleapis.com/css2?family=Yomogi&family=Zen+Maru+Gothic:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        body { margin: 0; padding: 0; background-color: #F7DDE8; background-image: radial-gradient(#E8C7D5 1.5px, transparent 1.5px); background-size: 35px 35px; font-family: 'Zen Maru Gothic', sans-serif; color: #444; min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; }
+        .sp-br { display: none; }
+
+        /* メインコンテナ */
+        .main-container { 
+            width: 100%; 
+            max-width: 800px; 
+            padding: 50px 40px; 
+            box-sizing: border-box; 
+            background: rgba(255, 255, 255, 0.95); 
+            border-radius: 40px; 
+            box-shadow: 0 15px 45px rgba(216, 194, 168, 0.2); 
+            backdrop-filter: blur(8px); 
+            margin: 40px 20px; 
+            position: relative; 
+            overflow: hidden; 
+        }
+
+        /* ページヘッダー */
+        .page-title-wrap { text-align: center; margin-bottom: 30px; }
+        .badge { display: inline-block; background: #D84B81; color: #fff; padding: 4px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: 500; margin-bottom: 10px; }
+        .page-title { font-size: 1.8rem; color: #7A6A2F; margin: 0; font-weight: bold; }
+
+        /* 各セクション */
+        .section-box { margin-bottom: 35px; }
+        .section-title { font-size: 1.25rem; color: #7A6A2F; border-bottom: 3px dashed #F0E6A5; padding-bottom: 8px; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+        .section-title i { color: #D8C2A8; }
+
+        /* リード文風 */
+        .intro-text { background: #FFFBE6; border-left: 6px solid #F0E6A5; padding: 15px 20px; border-radius: 10px; line-height: 1.8; font-size: 1rem; color: #555; margin-bottom: 30px; }
+        
+        /* リストスタイル */
+        .info-list { padding-left: 1.2em; margin: 0; font-size: 1rem; line-height: 1.8; color: #555; }
+        .info-list li { margin-bottom: 8px; }
+
+        /* 料金表用 */
+        .price-box { background-color: #FAF6F2; border: 2px solid #D8C2A8; border-radius: 20px; padding: 20px; margin-bottom: 15px; }
+        .price-item { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px dashed #D8C2A8; }
+        .price-item:last-child { border-bottom: none; }
+        .price-label { font-weight: bold; }
+        .price-value { font-size: 1.3rem; color: #D84B81; font-weight: bold; }
+        .price-notes { font-size: 0.9rem; color: #666; line-height: 1.6; margin-top: 10px; }
+
+        /* ボタンエリア用スタイル */
+        .btn-container { display: flex; flex-direction: column; gap: 15px; margin-top: 20px; }
+        .sns-btn { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 16px 20px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: 0.3s; color: #fff; box-sizing: border-box; }
+        .sns-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+        .btn-line { background-color: #06C755; }
+        .btn-line:hover { background-color: #05b34c; }
+        .btn-instagram { background: linear-gradient(135deg, #4f5bd5, #962fbf, #d62976, #fa7e1e); }
+        .btn-instagram:hover { opacity: 0.9; }
+        .line-attention { background-color: #FFF2F7; border: 1px solid #F3C6D7; border-radius: 12px; padding: 12px 15px; margin-bottom: 10px; font-size: 0.95rem; line-height: 1.6; color: #444; }
+
+        /* アクションエリア */
+        .action-area { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 2px solid #FAF6F2; }
+        .sub-message { font-family: 'Yomogi', cursive; font-size: 1.3rem; margin-bottom: 25px; color: #D84B81; font-weight: bold; }
+        
+        /* 戻るボタン */
+        .back-btn { display: inline-flex; align-items: center; gap: 8px; background: #FAF6F2; border: 2px solid #D8C2A8; color: #7A6A2F; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1rem; transition: 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .back-btn:hover { background: #F0E6A5; transform: translateY(-2px); }
+
+        /* スマホレスポンシブ */
+        @media (max-width: 768px) {
+            .sp-br { display: block; }
+            .main-container { padding: 30px 20px; margin: 20px 10px; }
+            .page-title { font-size: 1.5rem; }
+            .price-item { flex-direction: column; align-items: flex-start; gap: 4px; }
+            .price-value { align-self: flex-end; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-container">
+        
+        <!-- ページヘッダー -->
+        <div class="page-title-wrap">
+            <span class="badge">おうちに先生がやってくる！</span>
+            <h1 class="page-title">出張まるのおうちのご案内</h1>
+        </div>
+
+        <!-- 概要 -->
+        <div class="section-box">
+            <div class="intro-text">
+                「出張まるのおうち」は、講師がご家庭に伺う家庭教師スタイルの学習サポートです。<br>
+                お子さんのペースに合わせて<strong>マンツーマン（1対1）</strong>で丁寧に対応いたします。<br>
+                <span style="color: #D84B81; font-weight: bold;">※2026年10月の本オープン（新築）が始まるまでの期間限定サービスとなります。</span>
+            </div>
+        </div>
+
+        <!-- できること -->
+        <div class="section-box">
+            <h2 class="section-title"><i class="fas fa-star"></i> 出張指導でできること</h2>
+            <ul class="info-list">
+                <li><strong>学校の宿題サポート</strong>（毎日の宿題をしっかり終わらせます）</li>
+                <li><strong>苦手分野の徹底復習</strong>（つまずいたところを一緒に見直します）</li>
+                <li><strong>自学（自主学習）の練習</strong>（自分で進める力を育みます）</li>
+                <li><strong>音の出る宿題も大歓迎！</strong><br>お家での指導だから、音読、計算カード、鍵盤ハーモニカ、リコーダーなども周りを気にせず思いきり練習できます。</li>
+                <li><strong>解き直し・類題サポート</strong><br>宿題が終わったあとも時間があれば、間違えた問題の解き直しや、似た問題（類題）への挑戦までしっかり行います。</li>
+                <li><strong>おしゃべりや相談もOK</strong><br>先生に話したいこと、聞いてほしいことがあれば、時間を区切らずにじっくり耳を傾けます。</li>
+            </ul>
+        </div>
+
+        <!-- 料金について -->
+        <div class="section-box">
+            <h2 class="section-title"><i class="fas fa-yen-sign"></i> 料金案内</h2>
+            <div class="price-box">
+                <div class="price-item">
+                    <span class="price-label">車で10分以内（10分を含む）の地域</span>
+                    <span class="price-value">3,000円</span>
+                </div>
+                <div class="price-item">
+                    <span class="price-label">車で11分以上の地域</span>
+                    <span class="price-value">3,500円</span>
+                </div>
+                <div class="price-notes">
+                    <strong>【駐車場についてのお願い】</strong><br>
+                    ご自宅に駐車スペースがない場合は、近隣のコインパーキングを利用いたします。<br>
+                    その際の<span style="color: #D84B81; font-weight: bold;">駐車料金のみ、実費でのご負担</span>をお願いしております。何卒ご了承ください。
+                </div>
+            </div>
+        </div>
+
+        <!-- ご予約方法 -->
+        <div class="section-box">
+            <h2 class="section-title"><i class="fas fa-calendar-alt"></i> ご予約・スケジュール</h2>
+            <ul class="info-list">
+                <li>出張まるのおうちは <strong>いつでも受付中</strong> です。</li>
+                <li>公式LINEの登録なしでもお気軽ご利用いただけます。</li>
+                <li>InstagramのDM（ダイレクトメッセージ）からでも簡単に予約が可能です。</li>
+                <li>ご家庭のご都合やご希望に合わせて、柔軟に日程調整を行います。</li>
+            </ul>
+        </div>
+
+        <!-- ご予約はこちら -->
+        <div class="section-box" id="reservation">
+            <h2 class="section-title"><i class="fas fa-paper-plane"></i> ご予約はこちらから</h2>
+            
+            <div class="line-attention">
+                <span style="color: #D84B81; font-weight: bold;">【公式LINEからご予約の方へ】</span><br>
+                LINEメニュー内の予約ボタンからではなく、通常の<strong>チャット（メッセージ）</strong>にて直接「出張希望」とお送りください。
+            </div>
+
+            <div class="btn-container">
+                <!-- 実際の公式LINEリンクを反映しました -->
+                <a href="https://lin.ee/RL8yKoQ" class="sns-btn btn-line" target="_blank" rel="noopener">
+                    <i class="fab fa-line" style="font-size: 1.5rem;"></i> 公式LINEからメッセージで予約する
+                </a>
+                <!-- 実際のInstagramリンクを反映しました -->
+                <a href="https://www.instagram.com/maruno_ouchi/" class="sns-btn btn-instagram" target="_blank" rel="noopener">
+                    <i class="fab fa-instagram" style="font-size: 1.5rem;"></i> InstagramのDMから予約する
+                </a>
+            </div>
+        </div>
+
+        <!-- 注意事項 -->
+        <div class="section-box">
+            <h2 class="section-title"><i class="fas fa-exclamation-circle"></i> 注意事項</h2>
+            <ul class="info-list">
+                <li>ご自宅での実施となるため、<strong>犬アレルギーのあるお子さまも安心</strong>してご利用いただけます。</li>
+                <li>移動の都合により、一部対応できない地域がある場合がございます。お気軽にお問い合わせ・ご相談ください。</li>
+            </ul>
+        </div>
+
+        <!-- アクションエリア -->
+        <div class="action-area">
+            <p class="sub-message">お子さまをまるごと受けとめ、<br class="sp-br">お家での「できた！」を一緒に増やします。</p>
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> トップページへ戻る
+            </a>
+        </div>
+
+    </div>
+</body>
+</html>
