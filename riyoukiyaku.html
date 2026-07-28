@@ -17,6 +17,7 @@
             color: #444; line-height: 1.8;
             display: flex; justify-content: center;
             padding: 50px 20px;
+            box-sizing: border-box;
         }
 
         .container {
@@ -25,18 +26,28 @@
             padding: 50px 40px; border-radius: 40px;
             box-shadow: 0 10px 30px rgba(216, 194, 168, 0.2);
             border: 3px solid #D8C2A8;
+            box-sizing: border-box;
         }
 
         h1 { font-family: 'Yomogi', cursive; font-size: 2.2rem; text-align: center; margin-bottom: 20px; color: #7A6A2F; }
 
+        /* 【修正】導入テキストボックス（左揃え＋自然な改行へ調整） */
         .intro-text {
-            text-align: center; margin-bottom: 40px; padding: 25px;
+            text-align: left; /* PCでの不自然な中央揃え改行を防ぐため左揃えに */
+            margin-bottom: 40px; padding: 25px;
             background: #fff; border-radius: 25px; border: 1px dashed #D8C2A8; font-size: 0.95rem;
+            line-height: 1.9;
+        }
+        .intro-title {
+            text-align: center;
+            display: block;
+            margin-bottom: 10px;
         }
 
         .kiyaku-card {
             background-color: #fff; border: 2px solid #F7DDE8;
             border-radius: 25px; padding: 25px; margin-bottom: 25px;
+            box-sizing: border-box;
         }
 
         .kiyaku-header {
@@ -68,6 +79,7 @@
             text-align: center;
             margin: 0 auto;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-sizing: border-box;
         }
         .back-btn:hover { opacity: 0.8; transform: scale(1.05); }
 
@@ -75,14 +87,16 @@
         .btn-home { background-color: #BEE1EB; margin-top: 20px; color: #4A6FA5; }
 
         @media (max-width: 600px) { 
-            .container { padding: 40px 15px; overflow-x: hidden; }
+            body { padding: 20px 10px; }
+            .container { padding: 30px 15px; overflow-x: hidden; width: calc(100% - 10px); }
             h1 { font-size: 1.8rem; }
             .kiyaku-card { padding: 20px 15px; }
              
             .kiyaku-header { 
                 font-size: 1rem; 
-                letter-spacing: -0.05em;
-                white-space: nowrap;
+                letter-spacing: -0.02em;
+                white-space: normal;
+                flex-wrap: wrap;
             }
              
             .cancel-text {
@@ -91,7 +105,7 @@
                 word-break: break-all;
             }
 
-            .back-btn { width: 90%; padding: 14px 20px; }
+            .back-btn { width: 100%; max-width: 300px; padding: 14px 20px; }
         }
     </style>
 </head>
@@ -102,9 +116,9 @@
     <h1>利用規約</h1>
 
     <div class="intro-text">
-        <p><strong>まるのおうち 利用規約</strong></p>
-        <p>本規約は、学習塾「まるのおうち」が提供するサービスをご利用いただく際のルールを定めたものです。<br>
-        お子さまと保護者さまが安心して過ごせる場所であるために、ご一読とご理解をお願いいたします。</p>
+        <strong class="intro-title">まるのおうち 利用規約</strong>
+        本規約は、学習塾「まるのおうち」が提供するサービスをご利用いただく際のルールを定めたものです。<br>
+        お子さまと保護者さまが安心して過ごせる場所であるために、ご一読とご理解をお願いいたします。
     </div>
 
     <div class="kiyaku-card">
@@ -130,6 +144,9 @@
 
             <p><strong>■ 週2固定制</strong><br>
             専用フォームよりお申し込みください（曜日・時間は固定）。</p>
+
+            <p><strong>■ 学校復帰サポート（午前の学び）</strong><br>
+            1コマ60分・予約制です。公式LINEよりお申し込みください。（※有料相談枠と並行運営のため、予約状況により受付を締め切る場合がございます。）</p>
 
             <p style="margin-top: 15px; border-top: 1px dashed #F7DDE8; padding-top: 15px;">
                 <strong>■ 1コマ60分・延長</strong>
@@ -212,7 +229,7 @@
             <p><strong>■ 支払い方法：</strong> 現金 または PayPay</p>
 
             <p><strong>■ 支払い時期：</strong><br>
-            ・予約制： <span class="blue">授業当日</span><br>
+            ・予約制・学校復帰サポート： <span class="blue">授業当日（※出張時は訪問時）</span><br>
             ・週2固定制： <span class="blue">月の最終授業日まで（後払い）</span></p>
 
             <p style="margin-top: 15px; border-top: 1px dashed #F7DDE8; padding-top: 15px;">
@@ -242,8 +259,21 @@
         </div>
     </div>
 
+    <!-- 旧 第6条 を 第5条 へ入れ替え -->
     <div class="kiyaku-card">
-        <div class="kiyaku-header"><span>💬</span> 第5条（相談支援サービス）</div>
+        <div class="kiyaku-header"><span>🚗</span> 第5条（出張まるのおうち）</div>
+        <div class="kiyaku-body">
+            <p>ご自宅等へ訪問して指導を行う「出張まるのおうち」のご利用にあたり、以下の点にご協力をお願いいたします。</p>
+            <ul>
+                <li>安全な指導環境保持のため、サービス提供時間中は保護者さま（または成人のおご家族）のご在宅をお願いいたします。</li>
+                <li>駐車スペースの確保にご協力をお願いいたします。有料パーキング等を利用する場合は、実費をご負担いただきます。</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 旧 第5条 を 第6条 へ入れ替え -->
+    <div class="kiyaku-card">
+        <div class="kiyaku-header"><span>💬</span> 第6条（相談支援サービス）</div>
         <div class="kiyaku-body">
             <p>子育て・学校生活の悩みを伺う「有料相談（30分1,500円）」を実施しています。</p>
             <p><strong>■ お支払い：</strong><br>
@@ -253,12 +283,12 @@
     </div>
 
     <div class="kiyaku-card">
-        <div class="kiyaku-header"><span>📌</span> 第6条（欠席・連絡・受講終了）</div>
+        <div class="kiyaku-header"><span>📌</span> 第7条（欠席・連絡・受講終了）</div>
         <div class="kiyaku-body">
             <p><strong>■ 欠席について</strong></p>
             <ul>
                 <li>
-                    <strong>予約制（都度払い）：</strong><br>
+                    <strong>予約制（都度払い）・学校復帰サポート：</strong><br>
                     お客さま都合による欠席の場合、料金は発生しません。
                 </li>
                 <li>
@@ -293,26 +323,27 @@
             <p style="margin-top: 15px; border-top: 1px dashed #F7DDE8; padding-top: 15px;"><strong>■ 受講終了（退塾）について</strong></p>
             <ul>
                 <li>
-                    <strong>予約制（都度払い）：</strong><br>
+                    <strong>予約制（都度払い）・学校復帰サポート：</strong><br>
                     手続きは不要です。いつでも受講を終了していただけます。
                 </li>
                 <li>
-                    <strong>週2固定制：</strong><br>
-                    受講を終了（解約）される場合は、専用フォームより申請してください。（<span class="blue">翌月から停止したい場合は前月末まで</span>にご連絡ください。）
-                </li>
+    <strong>週2固定制：</strong><br>
+    受講を終了（解約）される場合は、専用フォームより申請してください。（<span class="blue">翌月から停止したい場合は前月末まで</span>にご連絡ください。）<br>
+    <span class="red">固定制の月謝は「月単位」で発生します。月途中で通塾が難しくなった場合や、解約のご希望があった場合も、当月分の月謝は発生いたします。解約は翌月からの適用となります。</span>
+</li>
             </ul>
         </div>
     </div>
 
     <div class="kiyaku-card">
-        <div class="kiyaku-header"><span>🛡️</span> 第7条（免責事項）</div>
+        <div class="kiyaku-header"><span>🛡️</span> 第8条（免責事項）</div>
         <div class="kiyaku-body">
          <p>教室周辺・室内での事故、怪我、盗難、アレルギー発症、生徒間トラブル等について、当塾に重大な過失がない限り責任を負いかねます。</p>
         </div>
     </div>
 
     <div class="kiyaku-card">
-        <div class="kiyaku-header"><span>🏘️</span> 第8条（近隣への配慮・送迎）</div>
+        <div class="kiyaku-header"><span>🏘️</span> 第9条（近隣への配慮・送迎）</div>
         <div class="kiyaku-body">
             <p>当塾には駐車場があります。
             送迎時はご利用いただけますが、
@@ -329,7 +360,7 @@
     </div>
 
     <div class="kiyaku-card">
-        <div class="kiyaku-header"><span>👤</span> 第9条（個人情報）</div>
+        <div class="kiyaku-header"><span>👤</span> 第10条（個人情報）</div>
         <div class="kiyaku-body">
             <p>個人情報は運営目的以外に使用せず厳重に管理します。</p>
             <p>SNS掲載は、事前に確認し、<span class="blue">同意いただいた方のみ</span>行います。お顔は隠すなどプライバシーに配慮します。</p>
@@ -337,7 +368,7 @@
     </div>
 
     <div class="kiyaku-card">
-        <div class="kiyaku-header"><span>⚠️</span> 第10条（利用停止）</div>
+        <div class="kiyaku-header"><span>⚠️</span> 第11条（利用停止）</div>
         <div class="kiyaku-body">
             <p>当塾は、次のいずれかに該当すると判断した場合、事前の通知なく受講の停止または利用をお断りすることがあります。</p>
             <ul>
@@ -352,7 +383,7 @@
     </div>
 
     <div class="kiyaku-card">
-        <div class="kiyaku-header"><span>📝</span> 第11条（規約の変更）</div>
+        <div class="kiyaku-header"><span>📝</span> 第12条（規約の変更）</div>
         <div class="kiyaku-body">
             <p>当塾は、必要に応じて本規約を変更することがあります。<br>
             規約を変更する場合は、ホームページ、公式LINEその他当塾が適当と判断する方法によりお知らせします。<br>
@@ -362,7 +393,7 @@
 
     <footer>
         <p>【制定日】 2026年4月5日</p>
-        <p>【最終改定日】 2026年7月7日</p>
+        <p>【最終改定日】 2026年7月28日</p>
         <p><strong>まるのおうち 代表 倉本 僚子</strong></p>
         <p>岡山県倉敷市片島町842-3</p>
     </footer>
