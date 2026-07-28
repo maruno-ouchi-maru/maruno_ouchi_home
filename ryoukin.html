@@ -17,6 +17,7 @@
             color: #444; line-height: 1.8;
             display: flex; justify-content: center;
             padding: 50px 20px;
+            box-sizing: border-box;
         }
 
         .container {
@@ -25,6 +26,7 @@
             padding: 50px 40px; border-radius: 40px;
             box-shadow: 0 10px 30px rgba(216, 194, 168, 0.2);
             border: 3px solid #D8C2A8;
+            box-sizing: border-box;
         }
 
         h1 { font-family: 'Yomogi', cursive; font-size: 2.5rem; text-align: center; margin-bottom: 40px; color: #7A6A2F; }
@@ -33,6 +35,7 @@
         .section-box {
             background-color: #fff; border: 2px solid #F7DDE8;
             border-radius: 30px; padding: 30px; margin-bottom: 25px;
+            box-sizing: border-box;
         }
 
         .section-title { font-weight: bold; font-size: 1.2rem; color: #4A6FA5; margin-bottom: 15px; display: block; }
@@ -43,6 +46,7 @@
         table {
             width: 100%; border-collapse: collapse; margin: 20px 0;
             background: #fff; border-radius: 15px; overflow: hidden;
+            box-sizing: border-box;
         }
         th, td { border: 1px solid #E8C7D5; padding: 12px; text-align: center; }
         th { background: #F7DDE8; color: #7A6A2F; }
@@ -50,6 +54,7 @@
         .bubble {
             background: #FFF7E6; border-radius: 20px; padding: 15px 20px;
             margin: 15px 0 30px; border: 1px solid #FFE0B2; font-size: 0.95rem;
+            box-sizing: border-box;
         }
 
         .sodan-grid {
@@ -64,39 +69,79 @@
             overflow-wrap: normal;
         }
 
-        /* 戻るボタン共通スタイル（カプセル型・角丸） */
+        /* 【修正】学校復帰サポート用案内枠（左揃え＋自然な文章スタイルへ調整） */
+        .school-support-box {
+            background: #FFFBE6;
+            border: 2px solid #F0E6A5;
+            border-radius: 25px;
+            padding: 20px 25px;
+            margin-bottom: 35px;
+            text-align: left; /* 左揃えにして不自然な改行を抑止 */
+            box-sizing: border-box;
+            line-height: 1.8;
+        }
+        .school-support-title {
+            color: #D84B81;
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 8px;
+            text-align: center; /* 見出し部分のみ中央揃えで読みやすく */
+        }
+        .school-support-btn-wrap {
+            text-align: center; /* ボタンは中央揃え */
+            margin-top: 15px;
+        }
+        .school-support-link {
+            display: inline-block;
+            background: #D84B81;
+            color: #fff;
+            padding: 8px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+        .school-support-link:hover {
+            background: #B83B6C;
+            transform: translateY(-2px);
+        }
+
+        /* 戻るボタン共通スタイル */
         .back-btn {
             display: block; width: fit-content;
             padding: 12px 50px; color: #7A6A2F;
             text-decoration: none; font-weight: bold; 
-            border-radius: 30px; /* きれいな角丸に変更 */
+            border-radius: 30px;
             transition: 0.3s;
             text-align: center;
             margin: 0 auto;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-sizing: border-box;
         }
         .back-btn:hover { opacity: 0.8; transform: scale(1.05); }
 
-        /* ボタンごとの色設定 */
-        .btn-link { background-color: #F0E6A5; margin-top: 50px; } /* レモンイエロー */
-        .btn-home { background-color: #BEE1EB; margin-top: 20px; color: #4A6FA5; } /* 綺麗な水色 */
+        .btn-link { background-color: #F0E6A5; margin-top: 50px; }
+        .btn-home { background-color: #BEE1EB; margin-top: 20px; color: #4A6FA5; }
 
         @media (max-width: 600px) { 
-            .container { padding: 40px 15px; } 
+            body { padding: 20px 10px; }
+            .container { padding: 30px 15px; width: calc(100% - 10px); } 
             h1 { font-size: 2rem; } 
-            .section-box { padding: 20px; }
+            .section-box { padding: 20px 15px; }
             
             .sodan-grid { grid-template-columns: 1fr; }
 
-            /* スケジュールを1行に収めるための調整 */
+            th, td { padding: 8px 5px; font-size: 0.85rem; }
+
             .schedule-title { font-size: 0.95rem; }
             .schedule-text { 
                 font-size: 0.85rem; 
-                letter-spacing: -0.05em; /* 字間を詰めて横並びを死守 */
+                letter-spacing: -0.05em;
                 white-space: nowrap; 
             }
 
-            .back-btn { width: 90%; padding: 14px 20px; } /* スマホでは押しやすく幅広に */
+            .back-btn { width: 100%; max-width: 300px; padding: 14px 20px; }
         }
     </style>
 </head>
@@ -106,10 +151,21 @@
 <div class="container">
     <h1>料金・利用案内</h1>
 
+    <!-- 学校復帰サポートについての案内枠 -->
+    <div class="school-support-box">
+        <strong class="school-support-title">【午前の学び】学校復帰サポートの料金・詳細について</strong>
+        <span style="font-size: 0.95rem; color: #555;">
+            学校復帰サポート（午前の時間帯）の受講料や出張料金、詳細につきましては専用ページをご確認ください。
+        </span>
+        <div class="school-support-btn-wrap">
+            <a href="school-support.html" class="school-support-link">学校復帰サポートの詳細・料金はこちら</a>
+        </div>
+    </div>
+
     <h2>授業料金</h2>
 
     <div class="section-box">
-   <span class="section-title">【予約制（都度払い）】</span>
+        <span class="section-title">【予約制（都度払い）】</span>
         <p>■ 授業時間：<strong>1回 60分</strong></p>
         <p class="price-text">■ 料金<br>
         <strong>初回：</strong><span class="blue">2,000円</span><br>
@@ -119,7 +175,7 @@
         <p>■ お支払い方法：<br>
         ・PayPay（<span class="red">間違い防止のため、必ず玄関先でお顔を合わせての決済をお願いいたします。</span>お迎えの際などにお声がけください）<br>
         ・現金（<span class="blue">お子さまが持ってきても大丈夫です</span>。おつりのないよう、封筒などに入れて<strong>必ず封をして</strong>持たせてください。）</p>
-</div>
+    </div>
 
     <div class="section-box">
         <span class="section-title">【週2固定制（月謝）】</span>
@@ -172,7 +228,7 @@
         ・<span class="blue">事前払い</span>となります。<br>
         ・予約後にPayPayのQRコードをお送りします。</p>
         <p>【対面の場合】<br>
-        ・PayPay または 現金でお支払いください。<br>
+        ・PayPay または 現金でお支払いください。</p>
         
         <p style="margin-top:20px;">
             <strong class="schedule-title">■ 有料相談スケジュール（月〜金）：</strong><br>
