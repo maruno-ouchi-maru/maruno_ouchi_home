@@ -30,7 +30,7 @@
     }
     </script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Yomogi&family=Zen+Maru+Gothic:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yomogi&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
@@ -55,14 +55,12 @@
             overflow: hidden; 
         }
 
-        .left-column { flex: 1.7; }
+        .left-column { flex: 1.7; width: 100%; }
         .right-column { flex: 0.3; display: flex; flex-direction: column; justify-content: center; align-items: center; }
         
         /* ヘッダーラベル */
         .header-labels { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
         .teacher-badge { display: inline-block; background: #D8C2A8; color: #fff; padding: 4px 12px; border-radius: 20px; font-size: 0.9rem; font-weight: 500; white-space: nowrap; }
-        .support-link-btn { display: inline-flex; align-items: center; gap: 5px; background: #FFFBE6; border: 1px solid #F0E6A5; color: #7A6A2F; padding: 4px 12px; border-radius: 20px; text-decoration: none; font-size: 0.8rem; font-weight: 600; transition: 0.3s; white-space: nowrap; }
-        .support-link-btn:hover { background: #F0E6A5; }
 
         /* 新築本オープン案内 */
         .open-info { background: #FDF2F5; border: 2px solid #F7DDE8; padding: 12px 20px; border-radius: 12px; display: inline-block; margin-bottom: 25px; font-size: 1rem; color: #D84B81; font-weight: 600; line-height: 1.5; width: 100%; box-sizing: border-box; }
@@ -88,16 +86,18 @@
         .sub-message { font-family: 'Yomogi', cursive; font-size: 1.4rem; margin-bottom: 30px; color: #D84B81; font-weight: bold; }
         
         /* 特徴フレーム */
-        .maru-frame { width: 100%; max-width: 600px; padding: 30px 25px; border: 3px solid #D8C2A8; border-radius: 30px; background-color: #FAF6F2; margin: 30px 0; box-sizing: border-box; }
-        .tokucho-title { text-align: center; font-size: 1.15rem; font-weight: 600; margin-bottom: 15px; color: #7A6A2F; white-space: nowrap; }
+        .maru-frame { width: 100%; max-width: 100%; padding: 30px 25px; border: 3px solid #D8C2A8; border-radius: 30px; background-color: #FAF6F2; margin: 30px 0; box-sizing: border-box; }
+        .tokucho-title { text-align: center; font-size: 1.15rem; font-weight: 600; margin-bottom: 15px; color: #7A6A2F; }
         .tokucho-list { padding-left: 1.2em; margin: 0; font-size: 1rem; line-height: 1.8; color: #555; }
+        .tokucho-list li { margin-bottom: 12px; }
+        .tokucho-list li:last-child { margin-bottom: 0; }
         
         .gurimaru-wrapper { position: relative; width: 250px; height: 250px; border-radius: 50%; overflow: hidden; border: 8px solid #D8C2A8; background: #fff; box-shadow: 0 10px 25px rgba(0,0,0,0.1); cursor: pointer; transition: 0.3s; }
         .slide { position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1s; }
         .slide.active { opacity: 1; }
         .ehon-guide { margin-top: 15px; font-family: 'Yomogi', cursive; color: #7A6A2F; font-size: 1rem; font-weight: bold; text-align: center; }
 
-        /* --- MENUボタン設定 --- */
+        /* --- MENUボタン設定（PC・スマホ共にスクロール追従） --- */
         .menu-btn { 
             position: fixed; 
             z-index: 9999; 
@@ -113,11 +113,11 @@
             font-weight: bold; 
         }
 
-        /* PC表示位置 */
+        /* PC表示位置：画面右下に追従固定しつつ、ピンクエリアへのはみ出しを防止 */
         @media (min-width: 769px) {
             .menu-btn {
-                right: calc(50% - 550px + 30px); 
-                bottom: 50px;
+                right: max(30px, calc(50vw - 510px)); /* 画面中央の白いカードの内側に留まるよう自動計算 */
+                bottom: 30px;
                 padding: 12px 30px; 
                 border-radius: 50px; 
                 font-size: 1.1rem;
@@ -128,38 +128,58 @@
         /* --- スマホレスポンシブ修正 --- */
         @media (max-width: 768px) {
             .sp-br { display: block; }
-            .main-container { flex-direction: column-reverse; padding: 30px 15px; align-items: center; }
+            .main-container { flex-direction: column-reverse; padding: 25px 15px; align-items: center; margin: 10px; width: calc(100% - 20px); }
             .left-column, .right-column { width: 100%; }
             .right-column { margin-bottom: 20px; }
             
-            /* スマホでロゴと理念を縦並びに修正（とんでもなく細長くなるのを防止） */
             .logo-philosophy-wrap { flex-direction: column; text-align: center; gap: 15px; }
             .philosophy { max-width: 100%; border-left: none; border-top: 6px solid #F0E6A5; text-align: left; }
             
-            .tokucho-title { font-size: 1.05rem; }
+            .tokucho-title { font-size: 1.05rem; white-space: normal; }
+            .maru-frame { padding: 20px 15px; }
+            .tokucho-list { padding-left: 1em; }
 
-            /* スマホでのボタンの縦並びと幅の調整 */
             .action-buttons { flex-direction: column; gap: 12px; width: 100%; }
             .summer-info-btn, .insta-contact-btn { width: 100%; min-width: 100%; }
 
+            /* スマホ用MENUボタン（固定） */
             .menu-btn { 
-                bottom: 20px; 
-                right: 20px; 
-                width: 80px; 
-                height: 80px; 
+                bottom: 15px; 
+                right: 15px; 
+                width: 70px; 
+                height: 70px; 
                 border-radius: 50%; 
-                font-size: 1rem; 
+                font-size: 0.9rem; 
             }
             .menu-btn-pc { display: none; }
             .menu-btn-sp { display: flex; }
             
-            .popup-menu { width: 340px; height: 340px; padding: 25px; gap: 4px; }
-            .popup-item { width: 180px; font-size: 0.8rem; padding: 6px 12px; }
+            .popup-menu { 
+                width: 320px; 
+                height: 320px; 
+                padding: 15px; 
+                gap: 3px; 
+                border-width: 6px; 
+            }
+            .popup-item { 
+                width: 190px; 
+                font-size: 0.8rem; 
+                padding: 5px 10px; 
+                gap: 5px; 
+            }
         }
 
-        .popup-menu { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.9); width: 440px; height: 440px; background: white; border: 8px solid #F7DDE8; border-radius: 50%; display: none; flex-direction: column; align-items: center; justify-content: center; gap: 6px; z-index: 10000; opacity: 0; transition: 0.3s; box-sizing: border-box; padding: 40px; }
+        #popup-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); display: none; z-index: 10000; backdrop-filter: blur(3px);
+        }
+        .popup-menu { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.9); width: 440px; height: 440px; background: white; border: 8px solid #F7DDE8; border-radius: 50%; display: none; flex-direction: column; align-items: center; justify-content: center; gap: 5px; z-index: 10001; opacity: 0; transition: 0.3s; box-sizing: border-box; padding: 35px; }
         .popup-menu.show { display: flex; opacity: 1; transform: translate(-50%, -50%) scale(1); }
-        .popup-item { background: #FAF6F2; border: 1px solid #D8C2A8; padding: 8px 15px; border-radius: 50px; text-decoration: none; color: #444; width: 220px; text-align: center; font-size: 0.95rem; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        
+        .popup-close { background:none; border:none; font-size:2.2rem; color:#D8C2A8; cursor:pointer; margin-bottom:0px; line-height: 1; padding: 0 10px; }
+        .popup-close:hover { color: #D84B81; }
+
+        .popup-item { background: #FAF6F2; border: 1px solid #D8C2A8; padding: 7px 15px; border-radius: 50px; text-decoration: none; color: #444; width: 220px; text-align: center; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer; position: relative; z-index: 10002; transition: 0.2s; }
+        .popup-item:hover { background: #F0E6A5; border-color: #D8C2A8; }
     </style>
 </head>
 
@@ -173,12 +193,9 @@
         <div class="left-column">
             <div class="header-labels">
                 <div class="teacher-badge">元小学校教諭がひらく少人数制の塾</div>
-                <a href="https://maruno-ouchi-maru.github.io/maruno_ouchi_home2/" class="support-link-btn" target="_blank" rel="noopener">
-                    <i class="fas fa-chalkboard-teacher"></i> 先生向けはこちら
-                </a>
             </div>
 
-            <!-- ① 未来の予定・お知らせ（重複していた文字を削り、本オープンの時期に集中させてシンプルに） -->
+            <!-- ① 未来の予定・お知らせ -->
             <div class="open-info">
                 2026年10月、<strong>倉敷市片島町</strong>に新築本オープン予定です🌸<br>
                 <span style="font-size: 0.85rem; font-weight: normal; color: #666;">（ただいま新しいおうちを建築中です。完成をお楽しみに！）</span>
@@ -186,7 +203,7 @@
 
             <br>
 
-            <!-- ② いま動いているアクションを役割ごとに綺麗な2つの大ボタンに整理 -->
+            <!-- ② ボタンコンテナ -->
             <div class="action-buttons">
                 <!-- 【夏休み用の教室指導を求めている方向け】 -->
                 <a href="summer-preopen.html" class="summer-info-btn">
@@ -194,9 +211,9 @@
                 </a>
 
                 <!-- 【お家にきてほしい・まずは相談したい方向け】 -->
-<a href="onvisit-info.html" class="insta-contact-btn">
-    出張まるのおうち【詳細】
-</a>   
+                <a href="onvisit-info.html" class="insta-contact-btn">
+                    出張まるのおうち【詳細】
+                </a>   
             </div>
 
             <div class="logo-philosophy-wrap">
@@ -231,6 +248,11 @@
                     <li><strong>小学生一人ひとりに合わせた「少人数制」</strong><br>お子さまの心に寄り添い、一歩踏み出す勇気を支えます。</li>
                     <li><strong>「宿題」の習慣化と学力向上</strong><br>解き直しや類題を通じ、確かな手応えを感じる時間をつくります。</li>
                     <li><strong>元小学校教諭による安心の指導</strong><br>日々の学習だけでなく、あいさつ等の小さなマナーも大切に育みます。</li>
+                    <li style="margin-top: 15px; padding-top: 15px; border-top: 1px dashed #D8C2A8;">
+                        <strong style="color: #D84B81;">■ 午前の学び（学校復帰サポート）</strong><br>
+                        学校に戻りたい気持ちを大切にしながら、そのための学習の土台づくりを午前の時間に行います。<br>
+                        対象は「学校に行きたいけど今は行けない」「行き渋りで午前中に家にいる」など、学校復帰を目指す小学生です。
+                    </li>
                 </ul>
             </div>
         </div>
@@ -253,12 +275,13 @@
     <button class="menu-btn menu-btn-pc" onclick="openMenu()">詳しく見る（MENU）</button>
     <button class="menu-btn menu-btn-sp" onclick="openMenu()">MENU</button>
 
-    <div id="popup-overlay" onclick="closeMenu()" style="position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.4); display:none; z-index:9990; backdrop-filter:blur(3px);"></div>
+    <div id="popup-overlay" onclick="closeMenu()"></div>
     
     <div id="popup-menu" class="popup-menu">
-        <button onclick="closeMenu()" style="background:none; border:none; font-size:2rem; color:#D8C2A8; cursor:pointer; margin-bottom:2px;" aria-label="メニューを閉じる">×</button>
+        <button onclick="closeMenu()" class="popup-close" aria-label="メニューを閉じる">×</button>
        
         <a href="about.html" class="popup-item">まるのおうちとは</a>
+        <a href="school-support.html" class="popup-item">学校復帰サポート</a>
         <a href="link.html" class="popup-item">料金案内・利用規約</a>
         <a href="owner.html" class="popup-item">運営者紹介</a>
         <a href="access.html" class="popup-item">まるのおうちへのアクセス</a>
@@ -283,6 +306,7 @@
                 document.getElementById("popup-overlay").style.display = "none";
             }, 300);
         }
+
         let currentIndex = 0;
         const slides = document.querySelectorAll(".slide");
         setInterval(() => {
