@@ -66,14 +66,36 @@
         .open-info { background: #FDF2F5; border: 2px solid #F7DDE8; padding: 12px 20px; border-radius: 12px; display: inline-block; margin-bottom: 25px; font-size: 1rem; color: #D84B81; font-weight: 600; line-height: 1.5; width: 100%; box-sizing: border-box; }
         
         /* ボタン配置コンテナ */
-        .action-buttons { display: flex; gap: 15px; margin-bottom: 30px; flex-wrap: wrap; width: 100%; }
+        .action-buttons { display: flex; gap: 10px; margin-bottom: 30px; flex-wrap: nowrap; width: 100%; }
+
+        /* ボタン共通スタイル（PC横並び時に収まる設定） */
+        .action-btn { 
+            flex: 1; 
+            display: inline-flex; 
+            align-items: center; 
+            justify-content: center; 
+            gap: 4px; 
+            padding: 13px 6px; 
+            border-radius: 30px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            font-size: 0.88rem; 
+            white-space: nowrap; 
+            transition: 0.3s; 
+            box-sizing: border-box; 
+            text-align: center; 
+        }
 
         /* 夏休み限定プレオープンボタン */
-        .summer-info-btn { flex: 1; min-width: 260px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: #FFF9E6; border: 2px dashed #E6A15C; color: #B36217; padding: 15px 20px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 1.05rem; box-shadow: 0 4px 12px rgba(230, 161, 92, 0.15); transition: 0.3s; box-sizing: border-box; text-align: center; }
+        .summer-info-btn { background: #FFF9E6; border: 2px dashed #E6A15C; color: #B36217; box-shadow: 0 4px 12px rgba(230, 161, 92, 0.15); }
         .summer-info-btn:hover { background: #FFEFC2; transform: translateY(-2px); }
 
-        /* Instagram相談・予約ボタン */
-        .insta-contact-btn { flex: 1; min-width: 260px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; padding: 15px 20px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 1.01rem; box-shadow: 0 4px 12px rgba(220, 39, 67, 0.2); transition: 0.3s; box-sizing: border-box; text-align: center; }
+        /* ９月プレオープンボタン */
+        .september-info-btn { background: #E8F5E9; border: 2px dashed #66BB6A; color: #2E7D32; box-shadow: 0 4px 12px rgba(102, 187, 106, 0.15); }
+        .september-info-btn:hover { background: #C8E6C9; transform: translateY(-2px); }
+
+        /* Instagram相談・予約ボタン（出張まるのおうち） */
+        .insta-contact-btn { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; box-shadow: 0 4px 12px rgba(220, 39, 67, 0.2); }
         .insta-contact-btn:hover { opacity: 0.9; transform: translateY(-2px); }
         
         /* ロゴと理念のラップ */
@@ -113,10 +135,10 @@
             font-weight: bold; 
         }
 
-        /* PC表示位置：画面右下に追従固定しつつ、ピンクエリアへのはみ出しを防止 */
+        /* PC表示位置 */
         @media (min-width: 769px) {
             .menu-btn {
-                right: max(30px, calc(50vw - 510px)); /* 画面中央の白いカードの内側に留まるよう自動計算 */
+                right: max(30px, calc(50vw - 510px)); 
                 bottom: 30px;
                 padding: 12px 30px; 
                 border-radius: 50px; 
@@ -139,8 +161,9 @@
             .maru-frame { padding: 20px 15px; }
             .tokucho-list { padding-left: 1em; }
 
-            .action-buttons { flex-direction: column; gap: 12px; width: 100%; }
-            .summer-info-btn, .insta-contact-btn { width: 100%; min-width: 100%; }
+            /* スマホ時は縦並びにして見やすく大きめのボタンに */
+            .action-buttons { flex-direction: column; gap: 12px; width: 100%; flex-wrap: wrap; }
+            .action-btn { width: 100%; font-size: 1.05rem; padding: 15px 10px; }
 
             /* スマホ用MENUボタン（固定） */
             .menu-btn { 
@@ -206,14 +229,19 @@
             <!-- ② ボタンコンテナ -->
             <div class="action-buttons">
                 <!-- 【夏休み用の教室指導を求めている方向け】 -->
-                <a href="summer-preopen.html" class="summer-info-btn">
+                <a href="summer-preopen.html" class="action-btn summer-info-btn">
                     <i class="fas fa-sun"></i> 夏休み限定プレオープン【詳細】
                 </a>
 
+                <!-- 【９月プレオープン】 -->
+                <a href="september-preopen.html" class="action-btn september-info-btn">
+                    <i class="fas fa-calendar-alt"></i> ９月プレオープン【詳細】
+                </a>
+
                 <!-- 【お家にきてほしい・まずは相談したい方向け】 -->
-                <a href="onvisit-info.html" class="insta-contact-btn">
+                <a href="onvisit-info.html" class="action-btn insta-contact-btn">
                     出張まるのおうち【詳細】
-                </a>   
+                </a>    
             </div>
 
             <div class="logo-philosophy-wrap">
@@ -279,7 +307,7 @@
     
     <div id="popup-menu" class="popup-menu">
         <button onclick="closeMenu()" class="popup-close" aria-label="メニューを閉じる">×</button>
-       
+        
         <a href="about.html" class="popup-item">まるのおうちとは</a>
         <a href="school-support.html" class="popup-item">学校復帰サポート</a>
         <a href="link.html" class="popup-item">料金案内・利用規約</a>
