@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO対策：プレオープン用のキーワードを設定 -->
+    <title>９月プレオープンのお知らせ｜倉敷市片島町の学習塾 まるのおうち</title>
+    
+    <meta name="description" content="倉敷市片島町の小学生向け学習塾「まるのおうち」９月プレオープン（先行体験）のご案内。元小学校教諭がマンツーマンで通常授業（宿題・苦手克服）と学校復帰サポートを丁寧に指導します。">
+
+    <link href="https://fonts.googleapis.com/css2?family=Yomogi&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        body { margin: 0; padding: 0; background-color: #F7DDE8; background-image: radial-gradient(#E8C7D5 1.5px, transparent 1.5px); background-size: 35px 35px; font-family: 'Zen Maru Gothic', sans-serif; color: #444; min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; }
+        .sp-br { display: none; }
+
+        /* メインコンテナ（中央1カラムでスッキリ配置） */
+        .main-container { 
+            width: 100%; 
+            max-width: 760px; 
+            padding: 50px 40px; 
+            box-sizing: border-box; 
+            background: rgba(255, 255, 255, 0.95); 
+            border-radius: 40px; 
+            box-shadow: 0 15px 45px rgba(216, 194, 168, 0.2); 
+            backdrop-filter: blur(8px); 
+            margin: 40px 20px; 
+            position: relative; 
+        } 
+        
+        /* ヘッダーバッジ */
+        .header-labels { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+        .page-badge { display: inline-block; background: #2E7D32; color: #fff; padding: 4px 14px; border-radius: 20px; font-size: 0.9rem; font-weight: 500; white-space: nowrap; }
+        
+        .page-title { font-size: 1.8rem; color: #2E7D32; margin: 0 0 35px 0; font-weight: 700; line-height: 1.4; }
+
+        /* セクション共通 */
+        .content-section { margin-bottom: 35px; }
+        .content-section p { line-height: 1.8; font-size: 1rem; margin: 0 0 15px 0; }
+
+        h2 { font-size: 1.25rem; color: #7A6A2F; margin: 0 0 15px 0; display: flex; align-items: center; gap: 8px; font-weight: 600; }
+        h2::before { content: '🏠'; font-size: 1.1rem; }
+
+        /* 特徴・リストのフレーム */
+        .maru-frame { width: 100%; padding: 25px 25px; border: 3px solid #D8C2A8; border-radius: 30px; background-color: #FAF6F2; margin: 20px 0; box-sizing: border-box; }
+        .maru-frame ul { padding-left: 1.2em; margin: 0; font-size: 1rem; line-height: 1.8; color: #444; }
+        .maru-frame li { margin-bottom: 12px; }
+        .maru-frame li:last-child { margin-bottom: 0; }
+
+        /* 注意書きアラート */
+        .alert-box { background-color: #FFF0F2; border-left: 6px solid #D84B81; padding: 15px 20px; border-radius: 4px 15px 15px 4px; margin: 15px 0; }
+        .alert-box .alert-title { font-weight: bold; color: #D84B81; margin-bottom: 5px; display: flex; align-items: center; gap: 5px; }
+        .alert-box p { margin: 0; font-size: 0.95rem; line-height: 1.6; }
+
+        /* スケジュール案内 */
+        .schedule-box { background: #FFFBE6; border: 1px solid #F0E6A5; padding: 20px; border-radius: 20px; margin-top: 15px; }
+        .schedule-title { font-weight: bold; color: #7A6A2F; margin-bottom: 5px; font-size: 1.05rem; }
+
+        /* サポート枠カード */
+        .course-card { background: #fff; border: 2px solid #EADCC9; border-radius: 20px; padding: 20px; margin-bottom: 20px; }
+        .course-card h3 { font-size: 1.15rem; color: #D84B81; margin: 0 0 10px 0; border-bottom: 2px dashed #F7DDE8; padding-bottom: 8px; }
+
+        /* 料金表テーブル */
+        .price-table { width: 100%; border-collapse: collapse; margin: 15px 0; background: #fff; border-radius: 15px; overflow: hidden; border: 1px solid #EADCC9; }
+        .price-table td { padding: 14px 20px; border-bottom: 1px solid #FAF6F2; font-size: 1rem; }
+        .price-table tr:last-child td { border-bottom: none; }
+        .price-table td:first-child { font-weight: 500; color: #555; }
+        .price-table td:last-child { text-align: right; font-size: 1.2rem; color: #D84B81; font-weight: bold; }
+
+        /* 予約セクション */
+        .reserve-section { border: 3px dashed #66BB6A; background: #F1F8E9; border-radius: 30px; padding: 30px 25px; text-align: center; margin-top: 40px; }
+        .reserve-title { font-size: 1.2rem; color: #2E7D32; font-weight: bold; margin-bottom: 15px; }
+
+        /* ボタン配置 */
+        .action-buttons { display: flex; justify-content: center; margin-top: 20px; width: 100%; }
+        .line-reserve-btn { width: 100%; max-width: 400px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: #06C755; color: white; padding: 15px 25px; border-radius: 35px; text-decoration: none; font-weight: bold; font-size: 1.1rem; box-shadow: 0 6px 16px rgba(6, 199, 85, 0.25); transition: 0.3s; box-sizing: border-box; }
+        .line-reserve-btn:hover { background: #05B34C; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(6, 199, 85, 0.35); }
+
+        /* 戻るボタン */
+        .back-home-wrap { text-align: center; margin-top: 30px; }
+        .btn-back { display: inline-block; color: #7A6A2F; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: 0.2s; }
+        .btn-back:hover { color: #D84B81; text-decoration: underline; }
+
+        /* スマホレスポンシブ対応 */
+        @media (max-width: 768px) {
+            .sp-br { display: block; }
+            .main-container { padding: 35px 20px; margin: 20px 15px; border-radius: 30px; }
+            .page-title { font-size: 1.5rem; text-align: center; }
+            .header-labels { justify-content: center; }
+            
+            .maru-frame { padding: 20px 15px; }
+            .reserve-section { padding: 25px 15px; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-container">
+        
+        <div class="header-labels">
+            <div class="page-badge">９月限定イベント</div>
+        </div>
+
+        <h1 class="page-title">９月プレオープンのお知らせ</h1>
+
+        <!-- セクション1 -->
+        <div class="content-section">
+            <h2>９月プレオープンとは？</h2>
+            <p>新学期が始まり、生活のリズムが変わる9月。新築での本オープン（10月予定）に先駆けて、シルバーウィークが始まる前の<strong>9月18日(金)まで</strong>先行体験（プレオープン）を実施いたします！</p>
+            <p>9月のプレオープンでは、本オープンと同じ時間帯・指導スタイルで「通常授業」と「学校復帰サポート」の両方を行っていきます。</p>
+            <p>どちらも<strong>完全マンツーマン（1対1）</strong>の丁寧な指導で、お子さま一人ひとりのペースや気持ちにしっかり寄り添います。</p>
+        </div>
+
+        <!-- セクション2 -->
+        <div class="content-section">
+            <h2>コース内容・お時間帯</h2>
+            
+            <!-- コース1：通常授業 -->
+            <div class="course-card">
+                <h3>📚 通常授業（完全マンツーマン / 1コマ60分）</h3>
+                <p>日々の宿題のサポートから苦手分野の復習、解き直しや類題演習までしっかり対応します。</p>
+                <div class="schedule-title" style="margin-top: 10px;">⏰ 授業時間（４コマ）</div>
+                <p style="margin-bottom: 10px;">① 15:30〜 ／ ② 16:45〜 ／ ③ 18:00〜 ／ ④ 19:15〜</p>
+                <p style="font-size: 0.9rem; color: #666; margin-bottom: 0;">
+                    ※2回目以降ご利用の方は、<strong>2コマ連続予約</strong>も可能です。じっくり集中して学びたい場合にご活用ください。
+                </p>
+            </div>
+
+            <!-- コース2：学校復帰サポート -->
+            <div class="course-card">
+                <h3>🌱 学校復帰サポート（完全マンツーマン）</h3>
+                <p>「学校に行きたいけれど今は難しい」「行き渋りで午前中に家にいる」といったお子さまのためのサポートです。学校復帰に向けた学習の土台づくりを午前中に行います。必要に応じて学校との連携も図ります。</p>
+                <div class="schedule-title" style="margin-top: 10px;">⏰ 時間帯</div>
+                <p style="margin-bottom: 10px;"><strong>10:00 〜 13:00</strong> の間</p>
+                <div class="schedule-title" style="margin-top: 10px;">📝 ご予約・時間決定の流れ</div>
+                <p style="font-size: 0.9rem; color: #555; line-height: 1.7; margin-bottom: 0;">
+                    ご予約ボタンから日付を選択していただくと、システムの仕様上「10:00」の枠が表示されます。実際の開始時間や授業時間は、予約フォーム内でご希望やその日のお子さまの様子に合わせて柔軟に決めることができます。
+                </p>
+            </div>
+        </div>
+
+        <!-- セクション3 -->
+        <div class="content-section">
+            <h2>実施日（9月スケジュール）</h2>
+            <div class="schedule-box">
+                <div class="schedule-title">📅 実施日［計10日間］</div>
+                <p style="font-size: 1.05rem; font-weight: bold; color: #2E7D32; margin-bottom: 10px;">
+                    9月 1日(火) ・ 3日(木) ・ 4日(金) ・ 7日(月) ・ 8日(火)<br>
+                    9月10日(木) ・ 14日(月) ・ 15日(火) ・ 16日(水) ・ 18日(金)
+                </p>
+                <p style="font-size: 0.85rem; color: #666; margin-bottom: 0;">
+                    ※シルバーウィークが始まる前の9月18日(金)までの限定開催となります。
+                </p>
+            </div>
+        </div>
+
+        <!-- セクション4 -->
+        <div class="content-section">
+            <h2>教室の場所・環境について</h2>
+            <p>賃貸の一室を利用した、落ち着いた<strong>マンツーマン（1対1）</strong>の個別指導環境です。</p>
+            <div class="maru-frame" style="background:#fff;">
+                <ul style="list-style-type: '📍 ';">
+                    <li>授業は【1階】で行います。</li>
+                    <li>【2階】には犬（ぐり丸）がおります。</li>
+                </ul>
+            </div>
+            
+            <div class="alert-box">
+                <div class="alert-title"><i class="fas fa-exclamation-triangle"></i> 重要なお願い</div>
+                <p>授業スペースとペット（犬）スペースは分かれておりますが、安全のため<strong>犬アレルギーのあるお子さまのご利用は不可</strong>とさせていただきます。何卒ご了承ください。</p>
+            </div>
+            <p style="color: #666; margin-top: 10px;">
+                ※詳しい住所は、防犯の観点から【ご予約前日の17時】に個別でお送りいたします。
+            </p>
+        </div>
+
+        <!-- セクション5 -->
+        <div class="content-section">
+            <h2>初回相談について</h2>
+            <p>初めてご利用いただく方には、事前に<strong>15分間のオンライン面談</strong>を実施しております。お子さまの学習状況やご要望を授業前にぜひお聞かせください。（ご予約完了後に面談用のURLをお送りします）</p>
+            <p style="font-size: 0.85rem; color: #666; font-family: 'Yomogi', cursive; font-weight: bold;">
+                ※これまでに「出張まるのおうち」や「夏休みプレオープン」をご利用いただいたことがある方は、事前の初回相談は不要です。
+            </p>
+        </div>
+
+        <!-- セクション6 -->
+        <div class="content-section">
+            <h2>ご利用料金</h2>
+            <table class="price-table">
+                <tr>
+                    <td>初回（カウンセリング含む）</td>
+                    <td>1,500 円</td>
+                </tr>
+                <tr>
+                    <td>2回目以降</td>
+                    <td>2,000 円</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- セクション7：予約エリア -->
+        <div class="reserve-section">
+            <p style="font-size: 0.95rem; font-weight: 500; margin-bottom: 0;">９月プレオープンのご予約は、<strong>公式LINEの「予約メニュー」</strong>から簡単に手続きが行えます。<br>お気軽にご登録・ご連絡ください！</p>
+            
+            <div class="action-buttons">
+                <a href="https://lin.ee/RL8yKoQ" class="line-reserve-btn" target="_blank" rel="noopener">
+                    <i class="fab fa-line" style="font-size: 1.3rem;"></i> 公式LINEから予約する
+                </a>
+            </div>
+        </div>
+
+        <!-- ホームへ戻るリンク -->
+        <div class="back-home-wrap">
+            <a href="index.html" class="btn-back">← トップページへ戻る</a>
+        </div>
+
+    </div>
+</body>
+</html>
