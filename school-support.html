@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>学校復帰サポート｜まるのおうち</title>
     <meta name="description" content="学校に戻りたい気持ちを大切にしながら、午前の時間に学習の土台づくりを行うサービスです。元小学校教諭が丁寧にサポートします。">
-    
+
     <link href="https://fonts.googleapis.com/css2?family=Yomogi&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
         body { 
             margin: 0; 
-            padding: 0; 
+            padding: 0;
             background-color: #F7DDE8; 
             background-image: radial-gradient(#E8C7D5 1.5px, transparent 1.5px); 
             background-size: 35px 35px; 
@@ -24,7 +24,10 @@
             justify-content: center; 
             position: relative; 
         }
-        .sp-br { display: none; }
+
+        .sp-br {
+            display: none;
+        }
 
         /* メインコンテナ */
         .main-container { 
@@ -40,11 +43,12 @@
             position: relative; 
         }
 
-        /* ヘッダー・タイトル */
+        /* ヘッダー */
         .page-header {
             text-align: center;
             margin-bottom: 30px;
         }
+
         .teacher-badge { 
             display: inline-block; 
             background: #D8C2A8; 
@@ -55,6 +59,7 @@
             font-weight: 500; 
             margin-bottom: 12px;
         }
+
         .page-title {
             font-size: 1.8rem;
             color: #D84B81;
@@ -62,7 +67,7 @@
             font-weight: 700;
         }
 
-        /* 導入メッセージ */
+        /* 導入 */
         .intro-box {
             background: #FFFBE6;
             border-left: 6px solid #F0E6A5;
@@ -74,7 +79,7 @@
             margin-bottom: 35px;
         }
 
-        /* セクション共通枠 */
+        /* セクション共通 */
         .section-frame {
             width: 100%;
             padding: 25px 30px;
@@ -84,6 +89,7 @@
             margin-bottom: 30px;
             box-sizing: border-box;
         }
+
         .section-title {
             font-size: 1.2rem;
             font-weight: 700;
@@ -94,7 +100,7 @@
             gap: 8px;
         }
 
-        /* リストスタイル */
+        /* リスト */
         .custom-list {
             padding-left: 1.2em;
             margin: 0;
@@ -102,9 +108,11 @@
             line-height: 1.9;
             color: #555;
         }
+
         .custom-list li {
             margin-bottom: 6px;
         }
+
         .custom-list li:last-child {
             margin-bottom: 0;
         }
@@ -116,7 +124,7 @@
             font-weight: bold;
         }
 
-        /* 学習内容サブブロック */
+        /* 学習内容 */
         .sub-block {
             background: #fff;
             border: 1px solid #E8C7D5;
@@ -124,9 +132,11 @@
             padding: 15px 20px;
             margin-bottom: 15px;
         }
+
         .sub-block:last-child {
             margin-bottom: 0;
         }
+
         .sub-title {
             font-weight: bold;
             color: #D84B81;
@@ -134,7 +144,7 @@
             font-size: 1.05rem;
         }
 
-        /* 料金表スタイル */
+        /* 料金 */
         .price-list {
             list-style: none;
             padding: 0;
@@ -143,23 +153,48 @@
             line-height: 1.8;
             color: #555;
         }
+
         .price-list > li {
             margin-bottom: 15px;
         }
+
         .price-list > li:last-child {
             margin-bottom: 0;
         }
+
         .price-category {
             font-weight: bold;
             color: #7A6A2F;
             display: inline-block;
             margin-bottom: 4px;
         }
+
         .price-detail {
             padding-left: 1em;
         }
 
-        /* 理念セクション */
+        /* 予約方法 */
+        .reservation-step {
+            background: #fff;
+            border: 1px solid #E8C7D5;
+            border-radius: 15px;
+            padding: 15px 20px;
+            margin-bottom: 12px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .reservation-step strong {
+            color: #D84B81;
+        }
+
+        /* 無料相談 */
+        .consultation-box {
+            background: #FFF7E6;
+            border: 2px solid #FFE0B2;
+        }
+
+        /* 理念 */
         .philosophy-box {
             text-align: center;
             background: #FDF2F5;
@@ -168,6 +203,7 @@
             border-radius: 20px;
             margin-bottom: 35px;
         }
+
         .philosophy-text {
             font-family: 'Yomogi', cursive;
             font-size: 1.25rem;
@@ -176,6 +212,7 @@
             line-height: 1.8;
             margin: 0 0 10px 0;
         }
+
         .philosophy-sub {
             font-size: 0.95rem;
             color: #555;
@@ -191,157 +228,279 @@
             gap: 15px;
             margin-top: 10px;
         }
-        .back-home-btn {
+
+        .back-btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            background: #F0E6A5;
-            color: #7A6A2F;
-            border: 2px solid #D8C2A8;
-            padding: 12px 30px;
+            width: fit-content;
+            padding: 12px 35px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
             font-size: 1rem;
             transition: 0.3s;
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            box-sizing: border-box;
         }
-        .back-home-btn:hover {
+
+        .back-price-btn {
+            background: #F0E6A5;
+            color: #7A6A2F;
+            border: 2px solid #D8C2A8;
+        }
+
+        .back-price-btn:hover {
             background: #E8C7D5;
             color: #fff;
         }
 
-        /* スマホレスポンシブ修正 */
+        .back-home-btn {
+            background: #BEE1EB;
+            color: #4A6FA5;
+            border: 2px solid #A2C8D5;
+        }
+
+        .back-home-btn:hover {
+            opacity: 0.8;
+            transform: scale(1.05);
+        }
+
+        /* スマホ */
         @media (max-width: 768px) {
-            .sp-br { display: block; }
-            .main-container { padding: 30px 20px; margin: 10px; border-radius: 30px; width: calc(100% - 20px); } /* スマホでの画面横幅溢れ（ブレ）防止 */
-            .page-title { font-size: 1.5rem; }
-            .section-frame { padding: 20px 18px; border-radius: 20px; }
-            .intro-box { padding: 15px 18px; font-size: 0.98rem; }
-            .philosophy-text { font-size: 1.1rem; }
+            .sp-br {
+                display: block;
+            }
+
+            .main-container {
+                padding: 30px 20px;
+                margin: 10px;
+                border-radius: 30px;
+                width: calc(100% - 20px);
+            }
+
+            .page-title {
+                font-size: 1.5rem;
+            }
+
+            .section-frame {
+                padding: 20px 18px;
+                border-radius: 20px;
+            }
+
+            .intro-box {
+                padding: 15px 18px;
+                font-size: 0.98rem;
+            }
+
+            .philosophy-text {
+                font-size: 1.1rem;
+            }
+
+            .back-btn {
+                width: 100%;
+                max-width: 300px;
+                padding: 14px 20px;
+            }
         }
     </style>
 </head>
 
 <body>
-    <div class="main-container">
-        <!-- ヘッダー -->
-        <div class="page-header">
-            <div class="teacher-badge">午前の学び</div>
-            <h1 class="page-title">学校復帰サポート</h1>
+<div class="main-container">
+
+    <!-- ヘッダー -->
+    <div class="page-header">
+        <div class="teacher-badge">午前の学び</div>
+        <h1 class="page-title">学校復帰サポート</h1>
+    </div>
+
+    <!-- 導入 -->
+    <div class="intro-box">
+        学校に戻りたい気持ちを大切にしながら、<br class="sp-br">
+        午前の時間に学習の土台づくりを行うサービスです。
+    </div>
+
+    <!-- 対象 -->
+    <div class="section-frame">
+        <h2 class="section-title">
+            <i class="fas fa-child"></i>
+            対象となるお子さま
+        </h2>
+        <ul class="custom-list">
+            <li>学校に行きたい気持ちがある</li>
+            <li>でも今は行けていない</li>
+            <li>行き渋りで午前中に家にいる</li>
+            <li>学習の遅れが不安</li>
+            <li>少し学校に行く日もあるが、学習の立て直しが必要</li>
+        </ul>
+        <p class="note-text">
+            ※「学校に行かなくていい」というスタンスの支援ではありません。
+        </p>
+    </div>
+
+    <!-- 学習内容 -->
+    <div class="section-frame">
+        <h2 class="section-title">
+            <i class="fas fa-book-open"></i>
+            学習内容
+        </h2>
+
+        <div class="sub-block">
+            <h3 class="sub-title">● 宿題がある場合</h3>
+            <p style="margin:0; font-size:0.95rem; color:#555;">
+                学校の宿題をやり切ることを最優先にします。
+            </p>
         </div>
 
-        <!-- 導入文 -->
-        <div class="intro-box">
-            学校に戻りたい気持ちを大切にしながら、<br class="sp-br">
-            午前の時間に学習の土台づくりを行うサービスです。
-        </div>
-
-        <!-- 対象となるお子さま -->
-        <div class="section-frame">
-            <h2 class="section-title"><i class="fas fa-child"></i> 対象となるお子さま</h2>
+        <div class="sub-block">
+            <h3 class="sub-title">● 宿題が出ていない場合</h3>
             <ul class="custom-list">
-                <li>学校に行きたい気持ちがある</li>
-                <li>でも今は行けていない</li>
-                <li>行き渋りで午前中に家にいる</li>
-                <li>学習の遅れが不安</li>
-                <li>少し学校に行く日もあるが、学習の立て直しが必要</li>
+                <li>学校の教科書</li>
+                <li>学校のドリル</li>
+                <li>ご家庭でご用意いただいたワーク（※あれば）</li>
+                <li>学校から渡されているプリント（※あれば）</li>
             </ul>
-            <p class="note-text">※「学校に行かなくていい」というスタンスの支援ではありません。</p>
-        </div>
-
-        <!-- 学習内容 -->
-        <div class="section-frame">
-            <h2 class="section-title"><i class="fas fa-book-open"></i> 学習内容</h2>
-            
-            <div class="sub-block">
-                <h3 class="sub-title">● 宿題がある場合</h3>
-                <p style="margin: 0; font-size: 0.95rem; color: #555;">学校の宿題をやり切ることを最優先にします。</p>
-            </div>
-
-            <div class="sub-block">
-                <h3 class="sub-title">● 宿題が出ていない場合</h3>
-                <ul class="custom-list">
-                    <li>学校の教科書</li>
-                    <li>学校のドリル</li>
-                    <li>ご家庭でご用意いただいたワーク（※あれば）</li>
-                    <li>学校から渡されているプリント（※あれば）</li>
-                </ul>
-                <p style="margin: 10px 0 0 0; font-size: 0.95rem; color: #555;">
-                    わからないところを解き直し、類題で理解を深めます。
-                </p>
-            </div>
-        </div>
-
-        <!-- 学校との連携 -->
-        <div class="section-frame">
-            <h2 class="section-title"><i class="fas fa-school"></i> 学校との連携</h2>
-            <p style="margin: 0; font-size: 0.95rem; line-height: 1.8; color: #555;">
-                必要に応じて、ご希望があれば学校との連携も図ります。
+            <p style="margin:10px 0 0 0; font-size:0.95rem; color:#555;">
+                わからないところを解き直し、類題で理解を深めます。
             </p>
-        </div>
-               <!-- 時間 -->
-        <div class="section-frame">
-            <h2 class="section-title"><i class="far fa-clock"></i> 時間</h2>
-            <ul class="custom-list">
-                <li><strong>10:00〜13:00</strong></li>
-                <li>この時間内で、ご希望の時間をご予約いただけます。</li>
-                <li><strong>利用時間は60分以上</strong></li>
-                <li>60分、90分、120分など、お子さまの状態やその日の予定に合わせてご利用いただけます。</li>
-            </ul>
-            <p class="note-text">※料金は利用時間にかかわらず同一です。</p>
-        </div>
-
-        <!-- 料金 -->
-        <div class="section-frame">
-            <h2 class="section-title"><i class="fas fa-yen-sign"></i> 料金</h2>
-            <ul class="price-list">
-                <li>
-                    <span class="price-category">● 来室</span>
-                    <div class="price-detail">
-                        ・初回：2,000円<br>
-                        ・2回目以降：2,700円
-                    </div>
-                </li>
-                <li style="border-top: 1px dashed #D8C2A8; padding-top: 12px;">
-                    <span class="price-category">● 出張まるのおうち</span>
-                    <p style="margin: 0 0 6px 0; font-size: 0.85rem; color: #666; padding-left: 1em;">
-                        ※ご家庭に伺って同様のサポートを行います。
-                    </p>
-                    <div class="price-detail">
-                        ・初回：2,000円<br>
-                        ・2回目以降：<br>
-                         車で10分以内：3,000円<br>
-                         11分以上：3,500円
-                    </div>
-                </li>
-            </ul>
-        </div>
-
-        <!-- 予約方法 -->
-        <div class="section-frame">
-            <h2 class="section-title"><i class="far fa-calendar-check"></i> 予約方法</h2>
-            <p style="margin: 0; font-size: 0.95rem; line-height: 1.8; color: #555;">
-                有料相談と同じ時間帯のため、どちらかの予約が入った時点で、もう片方の枠を手動で閉じています。
-            </p>
-        </div>
-
-        <!-- 理念とのつながり -->
-        <div class="philosophy-box">
-            <p class="philosophy-text">「できた！」を積み重ねて、<br>学校に戻る自信を育てる。</p>
-            <p class="philosophy-sub">
-                まるのおおうちは、子どもが自信を取り戻すための学習塾です。<br>
-                午前の時間は、そのための学習の土台づくりを丁寧に行います。
-            </p>
-        </div>
-
-        <!-- ボタンエリア -->
-        <div class="bottom-buttons">
-            <a href="index.html" class="back-home-btn">
-                <i class="fas fa-arrow-left"></i> トップページへ戻る
-            </a>
         </div>
     </div>
+
+    <!-- 学校との連携 -->
+    <div class="section-frame">
+        <h2 class="section-title">
+            <i class="fas fa-school"></i>
+            学校との連携
+        </h2>
+        <p style="margin:0; font-size:0.95rem; line-height:1.8; color:#555;">
+            必要に応じて、ご希望があれば学校との連携も図ります。
+        </p>
+    </div>
+
+    <!-- 時間 -->
+    <div class="section-frame">
+        <h2 class="section-title">
+            <i class="far fa-clock"></i>
+            利用時間
+        </h2>
+        <ul class="custom-list">
+            <li><strong>平日 10:00〜13:00</strong></li>
+            <li>この時間内で、ご希望の開始時間をお選びいただけます。</li>
+            <li><strong>利用時間は60分以上</strong></li>
+            <li>60分・90分・120分など、お子さまの状態やその日の予定に合わせてご利用いただけます。</li>
+        </ul>
+        <p class="note-text">
+            ※料金は利用時間にかかわらず同一です。
+        </p>
+    </div>
+
+    <!-- 料金 -->
+    <div class="section-frame">
+        <h2 class="section-title">
+            <i class="fas fa-yen-sign"></i>
+            料金
+        </h2>
+        <ul class="price-list">
+            <li>
+                <span class="price-category">● 来室</span>
+                <div class="price-detail">
+                    ・初回：<strong>2,000円</strong><br>
+                    ・2回目以降：<strong>2,700円</strong>
+                </div>
+            </li>
+            <li style="border-top:1px dashed #D8C2A8; padding-top:12px;">
+                <span class="price-category">● 出張まるのおうち</span>
+                <p style="margin:0 0 6px 0; font-size:0.85rem; color:#666; padding-left:1em;">
+                    ※ご家庭に伺って同様のサポートを行います。
+                </p>
+                <div class="price-detail">
+                    ・初回：<strong>2,000円</strong><br>
+                    ・2回目以降：<br>
+                    車で10分以内：<strong>3,000円</strong><br>
+                    車で11分以上：<strong>3,500円</strong>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 初回無料相談（整理版） -->
+    <div class="section-frame consultation-box">
+        <h2 class="section-title">
+            <i class="far fa-comments"></i>
+            初めてご利用になる方へ（初回無料相談）
+        </h2>
+        <p style="margin:0 0 15px 0; font-size:0.95rem; line-height:1.8; color:#555;">
+            初めてまるのおうちをご利用になる方は、ご利用前に<strong>15分の無料相談</strong>を行っています。お子さまの現在の様子やお困りごとなど、気になることをお聞かせください。
+        </p>
+
+        <!-- オンラインの場合 -->
+        <div style="background: #fff; padding: 12px 15px; border-radius: 12px; margin-bottom: 10px; border: 1px solid #FFE0B2;">
+            <p style="margin:0; font-size:0.95rem; color:#555;">
+                <strong>💻 オンラインで相談したい場合</strong><br>
+                → 予約フォームから「初回無料相談」をご予約ください。
+            </p>
+        </div>
+
+        <!-- 対面＋そのまま利用する場合 -->
+        <div style="background: #fff; padding: 12px 15px; border-radius: 12px; border: 1px solid #FFE0B2;">
+            <p style="margin:0; font-size:0.95rem; color:#555;">
+                <strong>🏠 対面で相談し、そのままサポートを利用する場合</strong><br>
+                → 「学校復帰サポート」のみをご予約ください。<br>
+                <span style="font-size:0.85rem; color:#666;">（無料相談の単体予約は不要です。来室時間は公式LINEでご案内します）</span>
+            </p>
+        </div>
+    </div>
+
+    <!-- 予約方法 -->
+    <div class="section-frame">
+        <h2 class="section-title">
+            <i class="far fa-calendar-check"></i>
+            予約方法
+        </h2>
+
+        <div class="reservation-step">
+            ご予約は<strong>公式LINE</strong>から受け付けています。
+        </div>
+
+        <div class="reservation-step">
+            予約画面では、学校復帰サポートの予約枠は
+            <strong>「10:00」と表示されますが、開始時間は10:00に限りません。</strong><br>
+            予約フォームで、
+            <strong>希望の開始時間・利用時間・「来室」または「出張まるのおうち」</strong>
+            をお選びいただけます。
+        </div>
+
+        <div class="reservation-step">
+            ご予約は<strong>前日22:00まで</strong>にお願いいたします。
+        </div>
+    </div>
+
+    <!-- 理念 -->
+    <div class="philosophy-box">
+        <p class="philosophy-text">
+            「できた！」を積み重ねて、<br>
+            学校に戻る自信を育てる。
+        </p>
+        <p class="philosophy-sub">
+            まるのおおうちは、子どもが自信を取り戻すための学習塾です。<br>
+            午前の時間は、そのための学習の土台づくりを丁寧に行います。
+        </p>
+    </div>
+
+    <!-- ボタン -->
+    <div class="bottom-buttons">
+        <a href="ryoukin.html" class="back-btn back-price-btn">
+            料金・利用案内へ戻る
+        </a>
+
+        <a href="index.html" class="back-btn back-home-btn">
+            <i class="fas fa-arrow-left"></i>
+            トップページへ戻る
+        </a>
+    </div>
+
+</div>
 </body>
 </html>
