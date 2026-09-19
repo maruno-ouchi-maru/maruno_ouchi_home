@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>なーなの絵本</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Yomogi&family=Zen+Maru+Gothic:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+      font-family: 'Zen Maru Gothic', sans-serif;
+      color: #444;
+      overflow-x: hidden;
+    }
+
+    .swiper {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      /* 下側に追従ボタンと被らないための「絶対領域」を確保 */
+      padding: 20px 0 120px; 
+    }
+
+    .swiper-slide {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      /* スライドの高さを少し抑えて、下の方に文字が溜まらないように調整 */
+      min-height: 70vh;
+      justify-content: flex-start;
+      padding-top: 30px;
+    }
+
+    .page-photo {
+      width: 65%;
+      max-width: 280px;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      object-fit: cover; 
+      border: 3px solid #D8C2A8; 
+      margin-bottom: 24px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      flex-shrink: 0;
+    }
+
+    .fit-photo {
+      object-fit: contain;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    .page-text {
+      font-size: 1.1rem;
+      line-height: 2;
+      color: #7A6A2F; 
+      white-space: pre-line;
+      text-align: center;
+      /* 左右の余白をしっかり取り、下側は絶対に入らせない */
+      padding: 0 30px 20px; 
+      margin: 0;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+      font-family: 'Yomogi', cursive;
+    }
+
+    /* 追従する「トップに戻る」ボタン */
+    .back-to-top-btn {
+      position: fixed;
+      bottom: 25px;
+      right: 20px;
+      z-index: 9999;
+      width: 85px;
+      height: 85px;
+      background: #FFF7C8;
+      color: #7A6A2F;
+      border: 4px solid #F0E6A5;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      text-align: center;
+      line-height: 1.2;
+      transition: transform 0.3s ease;
+    }
+
+    .swiper-pagination {
+      /* ドットの位置を少し上げる */
+      bottom: 110px !important; 
+    }
+
+    .swiper-button-next, .swiper-button-prev {
+      color: #D8C2A8 !important;
+      top: 40% !important;
+    }
+
+    @media (max-width: 600px) {
+      .swiper {
+        /* スマホではさらに下の空きを広げる */
+        padding-bottom: 150px;
+      }
+      .page-photo {
+        width: 70%;
+      }
+      .page-text {
+        font-size: 1rem;
+        /* 文字エリアの下限をボタンより高い位置に設定 */
+        margin-bottom: 30px;
+      }
+      .swiper-button-next, .swiper-button-prev {
+        display: none;
+      }
+      .back-to-top-btn {
+        width: 75px;
+        height: 75px;
+        bottom: 20px;
+        right: 15px;
+        font-size: 0.8rem;
+      }
+      .swiper-pagination {
+        bottom: 100px !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="swiper">
+    <div class="swiper-wrapper">
+
+      <!-- ① 1ページ目：na-na.png -->
+      <div class="swiper-slide">
+        <img src="na-na.png" class="page-photo fit-photo">
+        <p class="page-text">なーな は、まるのおうちの一員です。
+          犬種：バーニードゥードル
+          （バーニーズマウンテンドッグ×プードル）
+          誕生日：2026年7月9日
+          性別：女の子</p>
+      </div>
+
+      <!-- ② 2ページ目：na-na2.png -->
+      <div class="swiper-slide">
+        <img src="na-na2.png" class="page-photo fit-photo">
+        <p class="page-text">なーな は、
+          ぐり丸の 血の つながった いもうとです。
+
+          まだ 赤ちゃんなので、かんばん犬 みならい。
+
+          これから いろんなことを まんで
+          りっぱな かんばん犬に なります。</p>
+      </div>
+
+      <!-- ③ 3ページ目：na-na3.png -->
+      <div class="swiper-slide">
+        <img src="na-na3.png" class="page-photo fit-photo">
+        <p class="page-text">なーな は、お兄ちゃんの ぐり丸の ことを見て、
+          ちょっとだけ 「ハウス」や 「ダウン（ふせ）」をすることが できます。
+
+          いっしょうけんめい まるのおうちに なれようと がんばっています。</p>
+      </div>
+
+      <!-- ④ 4ページ目：na-na4.png -->
+      <div class="swiper-slide">
+        <img src="na-na4.png" class="page-photo fit-photo">
+        <p class="page-text">なーな は とっても くいしんぼう。
+          ぐり丸と おなじ タイミングで たべおわります。
+          たべおわったら おさらから はなれて おぎょうぎよく しています。</p>
+      </div>
+
+      <!-- ⑤ 5ページ目：na-na5.png -->
+      <div class="swiper-slide">
+        <img src="na-na5.png" class="page-photo fit-photo">
+        <p class="page-text">なーな は ぐり丸と あそびたくて たまりません。
+          ぴょんぴょん はねて、ぐり丸の ところへ かけよります。
+          でも、赤ちゃんだから すぐ つかれてしまうので、長くは あそべません。
+
+          みんな、なーなが 元気に大きく せいちょうするのを みまもってね！</p>
+      </div>
+
+    </div>
+
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+
+  <a href="index.html" class="back-to-top-btn">トップに<br>戻る</a>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script>
+    const swiper = new Swiper('.swiper', {
+      loop: false,
+      mousewheel: true,
+      grabCursor: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  </script>
+
+</body>
+</html>
