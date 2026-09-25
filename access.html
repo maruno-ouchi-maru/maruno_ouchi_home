@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>アクセス・ご利用時のお願い｜まるのおうち</title>
+    <title>アクセス・来室ルール｜まるのおうち</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Yomogi&family=Zen+Maru+Gothic:wght@400;500&display=swap" rel="stylesheet">
 
@@ -94,6 +94,32 @@
             margin-top: 10px;
         }
 
+        .time-box {
+            background-color: #FAF6F2;
+            padding: 25px;
+            border-radius: 20px;
+            border: 1px solid #D8C2A8;
+            margin-bottom: 15px;
+        }
+
+        .time-box h3 {
+            font-family: 'Yomogi', cursive;
+            color: #7A6A2F;
+            margin-top: 0;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .time-list {
+            padding-left: 1.2em;
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .time-list li {
+            margin-bottom: 8px;
+        }
+
         .back-home {
             display: inline-block;
             margin-top: 20px;
@@ -123,6 +149,7 @@
             /* 点線枠がはみ出さないように調整 */
             .map-placeholder { padding: 30px 15px; width: 100%; }
             
+            .time-box, .parking-info { padding: 20px 15px; }
             .back-home { width: 90%; padding: 15px 20px; box-sizing: border-box; }
         }
     </style>
@@ -149,6 +176,32 @@
             </div>
         </div>
 
+        <!-- 営業時間・開校時間 -->
+        <div class="section">
+            <h2 class="section-title">営業時間・開校時間</h2>
+            
+            <div class="time-box">
+                <h3>🕒 月曜日 〜 金曜日（10:00 〜 21:15）</h3>
+                <ul class="time-list">
+                    <li><strong>10:00 〜 13:00：</strong>学校復帰サポート（午前の学び）</li>
+                    <li><strong>10:00 〜 14:30：</strong>保護者相談</li>
+                    <li style="font-size: 0.85rem; color: #666; list-style: none; margin-left: -1em; margin-bottom: 10px;">
+                        ※「学校復帰サポート」と「保護者相談」は時間を並行して運営しているため、どちらかの予約が入った場合はもう一方の同時間枠は受付締め切りとなります。
+                    </li>
+                    <li><strong>15:30 〜 20:15：</strong>通常授業</li>
+                    <li><strong>20:45 〜 21:15：</strong>保護者相談</li>
+                </ul>
+            </div>
+
+            <div class="time-box" style="background-color: #FFFBE6; border-color: #F0E6A5; margin-bottom: 0;">
+                <h3>🗓️ 土曜日・日曜日</h3>
+                <p style="margin: 0; font-size: 0.95rem;">
+                    土日は不定期にて<strong>授業のみ</strong>開校しております。<br>
+                    詳しい開校日時や空き状況につきましては、公式LINEの予約システムよりご確認いただけます。
+                </p>
+            </div>
+        </div>
+
         <div class="section">
             <h2 class="section-title">駐車場について</h2>
             <div class="parking-info">
@@ -171,19 +224,35 @@
                 <ul style="padding-left: 1.2em; margin: 0;">
                     <li style="margin-bottom: 10px;"><strong>入室時間：</strong>授業開始<strong style="color: #2B7A9E;">5分前から</strong>（<span style="color: #D84B81; font-weight: bold;">時間前の入室はご遠慮ください</span>）</li>
                     <li style="margin-bottom: 10px;"><strong>インターホン：</strong>到着時に<strong style="color: #D84B81;">1回だけ</strong>押してください。</li>
-                    <li style="margin-bottom: 10px;"><strong>鍵と入室：</strong>授業時間（15:30〜20:15）は玄関を開けています。<strong style="color: #D84B81;">お子さま本人のみ</strong>、静かに廊下を通ってリビングへお入りください。（保護者さま・ご兄弟の同行はご遠慮ください）</li>
+                    <li style="margin-bottom: 10px;"><strong>解錠と入室：</strong>インターホンが鳴るとアプリで遠隔解錠します。カギが開いたら<strong style="color: #D84B81;">お子さま本人のみ</strong>、静かに廊下を通ってリビングへお入りください。（保護者さま・ご兄弟の同行はご遠慮ください）</li>
                     <li style="margin-bottom: 10px;"><strong>看板犬ぐり丸：</strong>玄関を入り、廊下の右手にいます。<span style="color: #D84B81; font-weight: bold;">立ち止まらず・声をかけずに通過してください。</span></li>
                     <li style="margin-bottom: 0;"><strong>防犯：</strong>玄関に防犯カメラを設置し、授業中はモニタリングを行っています。</li>
                 </ul>
             </div>
 
             <!-- お迎えについて -->
-            <div style="background-color: #FFFBE6; padding: 25px; border-radius: 20px; border: 1px solid #F0E6A5;">
+            <div style="background-color: #FFFBE6; padding: 25px; border-radius: 20px; border: 1px solid #F0E6A5; margin-bottom: 25px;">
                 <h3 style="font-family: 'Yomogi', cursive; color: #7A6A2F; margin-top: 0; font-size: 1.3rem; margin-bottom: 15px;">🚗 お迎えについて</h3>
                 <ul style="padding-left: 1.2em; margin: 0;">
                     <li style="margin-bottom: 10px;"><strong>インターホン：</strong>授業中断や集中の妨げとなるため、お迎え時の<strong style="color: #D84B81;">インターホンは押さず、外でお待ちください</strong>。</li>
                     <li style="margin-bottom: 10px;"><strong>お支払い（PayPay・現金）：</strong>お子さまが外に出てきてから、玄関にて行います。</li>
                     <li style="margin-bottom: 0;"><strong>お車でお越しの方：</strong>駐車場でお待ちいただけます。近隣への配慮のため、<strong style="color: #2B7A9E;">アイドリングストップ</strong>にご協力をお願いします。</li>
+                </ul>
+            </div>
+
+            <!-- 公式LINEチャットのご利用について -->
+            <div style="background-color: #EBF7F3; padding: 25px; border-radius: 20px; border: 1px solid #BEE1EB;">
+                <h3 style="font-family: 'Yomogi', cursive; color: #2E5A44; margin-top: 0; font-size: 1.3rem; margin-bottom: 15px;">📱 公式LINEチャットのご利用について</h3>
+                <ul style="padding-left: 1.2em; margin: 0; font-size: 0.95rem;">
+                    <li style="margin-bottom: 10px;">
+                        <strong>日常の事務連絡：</strong>キャンセルのご連絡、時間変更のご相談、予約確認、到着時間等の簡単なやり取りにご利用いただけます。
+                    </li>
+                    <li style="margin-bottom: 10px;">
+                        <strong>「まるのひとこと」へのお返事：</strong>授業後にお送りする「まるのひとこと」送信後<strong style="color: #1B8355;">24時間以内</strong>は、その内容に関するご確認やメッセージのやり取りが可能です。
+                    </li>
+                    <li style="margin-bottom: 0;">
+                        <strong>ご相談について：</strong>学校生活での悩みや子育て全般に関するご相談は、LINEチャットではなく<strong style="color: #D84B81;">有料の保護者相談（30分1,500円）</strong>にてじっくり伺っております。
+                    </li>
                 </ul>
             </div>
         </div>
