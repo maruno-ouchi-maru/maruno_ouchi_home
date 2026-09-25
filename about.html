@@ -90,7 +90,7 @@
             position: relative; z-index: 1;
         }
 
-/* 公式LINEボタン */
+        /* 公式LINEボタン */
         .line-btn {
             display: block;
             width: fit-content;
@@ -101,7 +101,7 @@
             padding: 10px 35px;
             border-radius: 25px;
             font-weight: bold;
-            font-family: 'Zen Maru Gothic', sans-serif; /* 読みやすさ重視 */
+            font-family: 'Zen Maru Gothic', sans-serif;
             font-size: 0.95rem;
             box-shadow: 0 4px 12px rgba(6, 199, 85, 0.3);
             transition: 0.3s;
@@ -118,36 +118,14 @@
         }
         .back-btn:hover { transform: scale(1.05); background: #C5AB8D; }
 
-        @media (max-width: 600px) {
-            .card { padding: 30px 15px; }
-            h1 { font-size: 1.8rem; }
-            
-            /* タイトルを横いっぱいに配置するための調整 */
-            .section-title { 
-                font-size: 1.05rem; /* 1行に収まりやすいよう微減 */
-                gap: 5px; 
-                padding-left: 0; 
-                letter-spacing: -0.05em; /* 文字を少しだけ詰める */
-                white-space: nowrap; /* 強制的に1行にする */
-            }
-            
-            .step-item { flex-direction: column; align-items: stretch; }
-            .step-img { width: 80px; margin: 0 auto; }
-            
-            .yoyaku-box, .target-box, .flow-container { padding: 20px 15px; }
-            
-            .gurimaru-img { width: 140px; height: 140px; }
-            .speech-bubble { font-size: 1rem; padding: 45px 20px 20px; }
-        }
-
-/* まるのひとことの追加スタイル */
+        /* まるのひとことの追加スタイル */
         .report-box {
             background: rgba(255, 255, 255, 0.6);
             border-radius: 30px;
             padding: 10px 0;
         }
         .report-info-container {
-            display: flex; gap: 20px; margin: 30px 0;
+            display: flex; gap: 20px; margin: 30px 0 20px;
         }
         .report-info-item {
             flex: 1; background: #FAF6F2; border: 1px solid #D8C2A8;
@@ -180,13 +158,45 @@
         .policy-ok { background: #EBF7F3; color: #2E5A44; }
         .policy-ok span { color: #1B8355; }
         
-        .policy-footer { font-size: 0.95rem; line-height: 1.6; margin-bottom: 0; padding-top: 15px; border-top: 1px dashed #E8C7D5; text-align: center; }
+        /* 指定文言を左揃えに変更 */
+        .policy-footer { 
+            font-size: 0.95rem; 
+            line-height: 1.6; 
+            margin-bottom: 0; 
+            padding-top: 15px; 
+            border-top: 1px dashed #E8C7D5; 
+            text-align: left; 
+        }
 
-        /* スマホ用調整 */
+        /* スマホ用最適化（レスポンシブ対応） */
         @media (max-width: 600px) {
-            .report-info-container, .policy-flex { flex-direction: column; gap: 15px; }
-            .report-policy { padding: 20px 15px; }
-            .policy-footer { text-align: left; }
+            body { padding: 20px 10px; }
+            .card { padding: 30px 15px; border-radius: 25px; }
+            h1 { font-size: 1.8rem; margin-bottom: 25px; }
+            
+            .section { margin-bottom: 35px; }
+            .section-title { 
+                font-size: 1.1rem; 
+                gap: 6px; 
+                letter-spacing: -0.03em;
+            }
+            .main-msg { font-size: 1.05rem; margin-bottom: 25px; }
+            
+            .step-item { flex-direction: column; align-items: stretch; gap: 10px; }
+            .step-img { width: 80px; margin: 0 auto; }
+            .step-bubble { font-size: 0.9rem; padding: 15px; }
+            
+            .yoyaku-box, .target-box, .flow-container { padding: 20px 15px; border-radius: 20px; }
+            
+            .report-info-container, .policy-flex { flex-direction: column; gap: 15px; margin: 20px 0; }
+            .report-info-item, .policy-card { padding: 15px; }
+            .report-policy { padding: 20px 15px; border-radius: 20px; }
+            
+            .gurimaru-img { width: 130px; height: 130px; }
+            .speech-bubble { font-size: 0.95rem; padding: 40px 15px 20px; margin-top: -25px; }
+            
+            .line-btn { width: 100%; max-width: 280px; padding: 12px 20px; font-size: 0.9rem; }
+            .back-btn { width: 100%; max-width: 280px; padding: 12px 20px; text-align: center; }
         }
     </style>
 </head>
@@ -246,12 +256,12 @@
             </div>
         </div>
 
- <!-- ▼ ここから追加 ▼ -->
         <div class="section report-box">
             <h2 class="section-title">授業後に届く「まるのひとこと」</h2>
             <p class="main-msg">お家では見えない、学習中の小さな成長。<br>その瞬間を保護者の方へお届けします。</p>
             
             <p>まるのおうちでは、その日の最終授業後（または有料相談の終了後）に、お子さんの様子をまとめた「まるのひとこと」をお送りします。</p>
+            <p style="font-size: 0.9rem; color: #666; margin-top: -10px; line-height: 1.6;">※自宅兼教室のため、授業終了後に家事や愛犬のお世話などを終えてからの作成となります。そのため、夜遅い時間帯のお届けとなることがございますが、あらかじめご了承いただけますと幸いです。</p>
             
             <div class="report-info-container">
                 <div class="report-info-item">
@@ -260,8 +270,16 @@
                 </div>
                 <div class="report-info-item">
                     <strong>⏳ お返事について</strong>
-                    <p>まるのひとことをお送りしてから【3時間以内】は、メッセージの返信・ご相談が可能です。それ以降や普段の時間帯は、システム上、個別チャットでのやり取りはできませんのでご了承ください。</p>
+                    <p>まるのひとことをお送りしてから【24時間以内】は、メッセージの返信やお送りした内容に関するご質問・やり取りが可能です。それ以降や普段の時間帯は、システム上、個別チャットでのやり取りはできませんのでご了承ください。</p>
                 </div>
+            </div>
+
+            <div style="background: #FFFBE6; border: 1px solid #F0E6A5; padding: 15px 20px; border-radius: 15px; margin-bottom: 25px; font-size: 0.9rem; line-height: 1.6;">
+                <p style="margin: 0 0 5px 0; font-weight: bold; color: #7A6A2F;">💡 LINEチャットでのご相談範囲について</p>
+                <p style="margin: 0;">
+                    LINEチャットでお受けしているのは、「まるのひとこと」でお届けしたお子さまの様子に関するご確認や、簡単なやり取りとなります。<br>
+                    <span style="color: #D84B81; font-weight: bold;">学校生活での悩みや子育て全般に関するご相談につきましては、お時間を十分にお取りできる有料の保護者相談（30分1,500円）にてじっくり伺っております。</span>
+                </p>
             </div>
 
             <div class="report-policy">
@@ -287,9 +305,8 @@
                 <p class="policy-footer">本当の成長は、数字や点数だけでは見えません。元小学校教諭の視点から、お子さんの「その子らしい素敵な姿」をしっかり見つけてカタチにします。</p>
             </div>
         </div>
-        <!-- ▲ ここまで追加 ▲ -->      
 
- <div class="section yoyaku-box">
+        <div class="section yoyaku-box">
             <h2 class="section-title">まるのおうちが予約制である理由</h2>
             <p>まるのおうちは、予約制で運営しています。それは、お子さんの“無理のないペース”で通えるようにしたいからです。毎週決まった時間に通うのが難しい子や、その時期によって集中できる時間が変わる子もいます。予約制にすることで、ご家庭の予定やお子さんの調子に合わせて、事前に通う日を柔軟に選べるようにしています。</p>
         </div>
@@ -302,7 +319,8 @@
                 <li>自分の可能性を伸ばしたい子（自主学習のやり方がわからない子、もっと学びたい子）</li>
             </ul>
         </div>
-       <div class="gurimaru-section">
+
+        <div class="gurimaru-section">
             <img src="gurimaru3.png" alt="ぐり丸" class="gurimaru-img">
             <div class="speech-bubble">
                 ぼく、ぐり丸！まるのおうちでは、勉強だけじゃなくて、<br>
