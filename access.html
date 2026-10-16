@@ -86,6 +86,53 @@
             display: inline-block;
         }
 
+        /* ショート動画用スタイル */
+        .shorts-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .shorts-item {
+            flex: 1;
+            min-width: 260px;
+            max-width: 310px;
+            text-align: center;
+        }
+
+        .shorts-title {
+            font-size: 0.95rem;
+            font-weight: bold;
+            color: #7A6A2F;
+            margin-bottom: 10px;
+            background: #FAF6F2;
+            padding: 8px 12px;
+            border-radius: 15px;
+            border: 1px solid #D8C2A8;
+            line-height: 1.5;
+        }
+
+        .shorts-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 177.77%; /* 9:16のアスペクト比 */
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            background: #000;
+        }
+
+        .shorts-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
         .parking-info {
             background-color: #FFFBE6;
             padding: 25px;
@@ -161,6 +208,15 @@
             
             .time-box, .parking-info { padding: 20px 15px; }
             .back-home { width: 90%; padding: 15px 20px; box-sizing: border-box; }
+
+            .shorts-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .shorts-item {
+                width: 100%;
+                max-width: 280px;
+            }
         }
     </style>
 </head>
@@ -183,6 +239,28 @@
                     Googleマップで見る
                 </a>
                 <p style="font-size: 0.85rem; color: #888;">※別ウィンドウで地図が開きます</p>
+            </div>
+        </div>
+
+        <!-- 道案内動画 -->
+        <div class="section">
+            <h2 class="section-title">まるのおうちまでの行き方（動画）</h2>
+            <p style="margin-bottom: 15px;">お越しになる方向（地域）に合わせて動画をご確認いただけます。</p>
+            <div class="shorts-container">
+                <!-- 左側：倉敷・中島・2号線方面 -->
+                <div class="shorts-item">
+                    <div class="shorts-title">🚗 倉敷中心部・中島・2号線方面から<br>（タイヤショップオーエックス交差点）</div>
+                    <div class="shorts-wrapper">
+                        <iframe src="https://www.youtube.com/embed/3jTjEHqhA9s" title="倉敷中心部・中島・2号線方面からのルート" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <!-- 右側：玉島・旧道方面 -->
+                <div class="shorts-item">
+                    <div class="shorts-title">🚗 玉島・船穂・旧道方面から<br>（Y字路分岐ルート）</div>
+                    <div class="shorts-wrapper">
+                        <iframe src="https://www.youtube.com/embed/H7Z-IBuLDnU" title="玉島・船穂・旧道方面からのルート" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                </div>
             </div>
         </div>
 
