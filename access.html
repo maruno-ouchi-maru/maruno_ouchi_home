@@ -141,6 +141,22 @@
             margin-top: 10px;
         }
 
+        /* 駐車場画像用のスタイリング */
+        .parking-photo-box {
+            width: 100%;
+            max-width: 500px;
+            margin: 20px auto 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 4px solid #FAF6F2;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+        }
+        .parking-photo-box img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
         .time-box {
             background-color: #FAF6F2;
             padding: 25px;
@@ -254,7 +270,7 @@
                         <iframe src="https://www.youtube.com/embed/3jTjEHqhA9s" title="倉敷中心部・中島・2号線方面からのルート" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
                 </div>
-                <!-- 右側：玉島・旧道方面 -->
+                <!-- 右側：玉島・船穂・旧道方面 -->
                 <div class="shorts-item">
                     <div class="shorts-title">🚗 玉島・船穂・旧道方面から<br>（Y字路分岐ルート）</div>
                     <div class="shorts-wrapper">
@@ -296,9 +312,14 @@
                 <p>敷地内に <strong>2台分の駐車スペース</strong> があります。<br>
                 送迎の一時停車も大丈夫です。</p>
             </div>
+            
+            <!-- 駐車場写真エリア（parking.png） -->
+            <div class="parking-photo-box">
+                <img src="parking.png" alt="まるのおうち 駐車場・外観">
+            </div>
+
             <p style="margin-top: 25px;">
-                新築が完成したら、入口や駐車場の写真も追加していきます。<br>
-                いまは準備中ですが、安心してお越しいただけるように整えていきます。
+                安心してお越しいただけるように整えていきます。どうぞお気をつけてお越しください。
             </p>
         </div>
 
@@ -312,15 +333,28 @@
                 <ul style="padding-left: 1.2em; margin: 0;">
                     <li style="margin-bottom: 10px;"><strong>入室時間：</strong>授業開始<strong style="color: #2B7A9E;">5分前から</strong>（<span style="color: #D84B81; font-weight: bold;">時間前の入室はご遠慮ください</span>）</li>
                     <li style="margin-bottom: 10px;"><strong>インターホン：</strong>到着時に<strong style="color: #D84B81;">1回だけ</strong>押してください。</li>
+                    
+                    <!-- 指定の2文を、遠隔解錠・動画の前に上にスライドして配置 -->
+                    <li style="margin-bottom: 10px;"><strong>看板犬ぐり丸と なーな：</strong>玄関を入り、廊下の右手にいます。<span style="color: #D84B81; font-weight: bold;">立ち止まらず・声をかけずに通過してください。</span></li>
+                    <li style="margin-bottom: 10px;"><strong>防犯：</strong>玄関に防犯カメラを設置し、授業中はモニタリングを行っています。</li>
+
                     <li style="margin-bottom: 10px;">
                         <strong>解錠と入室：</strong>インターホンが鳴るとアプリで遠隔解錠します。カギが開いたら<strong style="color: #D84B81;">お子さま本人のみ</strong>、静かに廊下を通ってリビングへお入りください。（保護者さま・ご兄弟の同行はご遠慮ください）
                         <div class="notice-sub">
                             💡 <strong>【初めてのお越し・他の授業がない時】</strong><br>
                             本オープン後に初めて来室される際や、他のお子さまの授業を行っていない時間帯につきましては、玄関まで直接お迎えに参りますのでご安心ください。
                         </div>
+                        
+                        <!-- 入室の仕方のショート動画埋め込み -->
+                        <div class="shorts-container" style="margin-top: 20px;">
+                            <div class="shorts-item" style="max-width: 250px;">
+                                <div class="shorts-title" style="font-size: 0.85rem;">🎬 インターホンから入室までの流れ</div>
+                                <div class="shorts-wrapper">
+                                    <iframe src="https://www.youtube.com/embed/62VlrNXNxGI" title="まるのおうち入室方法" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </div>
                     </li>
-                    <li style="margin-bottom: 10px;"><strong>看板犬ぐり丸と なーな：</strong>玄関を入り、廊下の右手にいます。<span style="color: #D84B81; font-weight: bold;">立ち止まらず・声をかけずに通過してください。</span></li>
-                    <li style="margin-bottom: 0;"><strong>防犯：</strong>玄関に防犯カメラを設置し、授業中はモニタリングを行っています。</li>
                 </ul>
             </div>
 
@@ -345,7 +379,7 @@
                         <strong>「まるのひとこと」へのお返事：</strong>授業後にお送りする「まるのひとこと」送信後<strong style="color: #1B8355;">24時間以内</strong>は、その内容に関するご確認やメッセージのやり取りが可能です。
                     </li>
                     <li style="margin-bottom: 0;">
-                        <strong>ご相談について：</strong>学校生活での悩みや子育て全般に関するご相談は、LINEチャットではなく<strong style="color: #D84B81;">有料の保護者相談（30分1,500円）</strong>にてじっくり伺っております。
+                        <strong>ご相談について：</strong>学校生活での悩みや子育て全全般に関するご相談は、LINEチャットではなく<strong style="color: #D84B81;">有料の保護者相談（30分1,500円）</strong>にてじっくり伺っております。
                     </li>
                 </ul>
             </div>
