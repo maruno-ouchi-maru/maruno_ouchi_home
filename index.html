@@ -99,6 +99,35 @@
         .logo-placeholder img { width: 160px; height: auto; }
         .philosophy-title { font-size: 1.2rem; font-weight: 600; color: #7A6A2F; margin: 0 0 10px 0; }
         .philosophy { background: #FFFBE6; border-left: 6px solid #F0E6A5; padding: 15px 20px; border-radius: 10px; line-height: 1.8; font-size: 1rem; color: #555; max-width: 420px; font-family: 'Yomogi', cursive; }
+
+        /* 学習スペース写真（サイズ調整：最大幅400px） */
+        .photo-space-box { width: 100%; max-width: 400px; margin: 25px auto; border-radius: 20px; overflow: hidden; box-shadow: 0 6px 18px rgba(0,0,0,0.08); border: 4px solid #FAF6F2; }
+        .photo-space-box img { width: 100%; height: auto; display: block; object-fit: cover; }
+        
+        /* 外観・看板・わんこ写真ギャラリー（縦長写真も切れないよう調整） */
+        .exterior-gallery { display: flex; gap: 12px; margin: 25px 0; width: 100%; }
+        .gallery-item { 
+            flex: 1; 
+            border-radius: 16px; 
+            overflow: hidden; 
+            border: 3px solid #FAF6F2; 
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08); 
+            background: #fff;
+            height: 250px; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .gallery-item img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: contain; 
+            display: block; 
+        }
+        /* 外観だけ横幅いっぱいカバー表示にする場合 */
+        .gallery-item.exterior-item img {
+            object-fit: cover;
+        }
         
         .location-text { font-size: 1.15rem; margin-bottom: 25px; color: #444; line-height: 1.8; font-weight: 500; }
         .sub-message { font-family: 'Yomogi', cursive; font-size: 1.4rem; margin-bottom: 30px; color: #D84B81; font-weight: bold; }
@@ -176,6 +205,10 @@
             .logo-philosophy-wrap { flex-direction: column; text-align: center; gap: 15px; }
             .philosophy { max-width: 100%; border-left: none; border-top: 6px solid #F0E6A5; text-align: left; }
             
+            .photo-space-box { max-width: 100%; }
+            .exterior-gallery { flex-direction: column; gap: 12px; }
+            .gallery-item { height: 220px; }
+
             .tokucho-title { font-size: 1.05rem; white-space: normal; }
             .maru-frame { padding: 20px 15px; }
             .tokucho-list { padding-left: 1em; }
@@ -301,6 +334,11 @@
                 </div>
             </div>
 
+            <!-- 学習スペース写真 -->
+            <div class="photo-space-box">
+                <img src="learning-space.png" alt="まるのおうち 学習スペース">
+            </div>
+
             <div class="location-text">
                 <p>
                     <strong style="color:#D84B81;">学校の宿題をその場で終わらせ、</strong><br class="sp-br">
@@ -314,6 +352,19 @@
             </div>
 
             <p class="sub-message">子どもをまるごと受けとめ、<br class="sp-br">自分にまるをあげられる場所。</p>
+
+            <!-- 外観・ポスト・看板犬写真ギャラリー（全体が見切れない設定） -->
+            <div class="exterior-gallery">
+                <div class="gallery-item exterior-item">
+                    <img src="exterior-main.png" alt="まるのおうち 外観">
+                </div>
+                <div class="gallery-item">
+                    <img src="entrance-sign.png" alt="まるのおうち エントランス・表札">
+                </div>
+                <div class="gallery-item">
+                    <img src="dogs.png" alt="看板犬 ぐり丸となーな">
+                </div>
+            </div>
 
             <div class="maru-frame">
                 <h3 class="tokucho-title">まるのおうちの特徴（完全予約制）</h3>
@@ -344,7 +395,7 @@
                 </div>
             </a>
 
-            <!-- なーなブロック（na-na.png, na-na2.png, na-na3.png のみ） -->
+            <!-- なーなブロック -->
             <a href="na-na.book.html" class="dog-card">
                 <div class="nana-wrapper">
                     <img src="na-na.png" alt="妹犬なーな1" class="slide-nana active">
