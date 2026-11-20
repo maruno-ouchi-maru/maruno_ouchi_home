@@ -86,6 +86,19 @@
             text-align: center; 
         }
 
+        /* 冬休みまるのおうちボタン */
+        .winter-info-btn { 
+            background: #D84B81; 
+            border: 2px solid #D84B81; 
+            color: #fff; 
+            box-shadow: 0 4px 12px rgba(216, 75, 129, 0.25); 
+        }
+        .winter-info-btn:hover { 
+            background: #c23b70; 
+            border-color: #c23b70;
+            transform: translateY(-2px); 
+        }
+
         /* ９月プレオープンボタン */
         .september-info-btn { background: #E8F5E9; border: 2px dashed #66BB6A; color: #2E7D32; box-shadow: 0 4px 12px rgba(102, 187, 106, 0.15); }
         .september-info-btn:hover { background: #C8E6C9; transform: translateY(-2px); }
@@ -215,7 +228,7 @@
 
             /* スマホ時は縦並びにして大きめのボタンに */
             .action-buttons { flex-direction: column; gap: 12px; width: 100%; }
-            .action-btn { width: 100%; font-size: 1.05rem; padding: 15px 10px; }
+            .action-btn { width: 100%; font-size: 1rem; padding: 15px 12px; white-space: normal; line-height: 1.4; }
 
             /* スマホ用MENUボタン（固定） */
             .menu-btn { 
@@ -316,6 +329,10 @@
 
             <!-- ② ボタンコンテナ -->
             <div class="action-buttons">
+                <!-- 【冬休みまるのおうち案内】 -->
+                <a href="winter.html" class="action-btn winter-info-btn">
+                    冬休み まるのおうち【詳細】
+                </a>
                 <!-- 【お家にきてほしい・まずは相談したい方向け】 -->
                 <a href="onvisit-info.html" class="action-btn insta-contact-btn">
                     日曜出張まるのおうち【詳細】
