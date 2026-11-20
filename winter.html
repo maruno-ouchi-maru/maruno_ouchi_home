@@ -83,6 +83,26 @@
         .reserve-section { border: 3px dashed #D84B81; background: #FFF9F9; border-radius: 30px; padding: 30px 25px; text-align: center; margin-top: 40px; }
         .reserve-title { font-size: 1.2rem; color: #D84B81; font-weight: bold; margin-bottom: 12px; }
 
+        /* トップに戻るボタン */
+        .back-btn-wrap { text-align: center; margin-top: 35px; }
+        .back-btn { 
+            display: inline-flex; 
+            align-items: center; 
+            justify-content: center; 
+            gap: 8px; 
+            background: #FAF6F2; 
+            border: 2px solid #D8C2A8; 
+            color: #7A6A2F; 
+            padding: 13px 32px; 
+            border-radius: 50px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            font-size: 1rem; 
+            transition: 0.3s; 
+            box-sizing: border-box;
+        }
+        .back-btn:hover { background: #F0E6A5; transform: translateY(-2px); }
+
         /* スマホレスポンシブ対応 */
         @media (max-width: 768px) {
             .sp-br { display: block; }
@@ -106,6 +126,8 @@
             
             .reserve-section { padding: 24px 15px; border-radius: 24px; }
             .reserve-title { font-size: 1.08rem; }
+
+            .back-btn { width: 100%; padding: 14px 20px; }
         }
     </style>
 </head>
@@ -173,7 +195,7 @@
             <div class="plan-card">
                 <div class="plan-card-title">📌 週2固定制をご利用の方へ</div>
                 <p><strong>11月21日〜12月11日は先行予約期間</strong>です。</p>
-                <p>冬休み期間中の受講日時をご希望の場合は、<strong>12月11日まで</strong>にチャットにてご連絡ください。ご希望の日時を確認し、こちらで予約をお取りします。</p>
+                <p>冬休み期間中の受講日時は、<strong>12月11日まで</strong>にチャットにてお知らせください。ご希望の日時を確認し、こちらで予約をお取りします。</p>
                 
                 <div class="inner-frame">
                     <ul>
@@ -233,6 +255,13 @@
             <p style="font-size: 0.9rem; color: #D84B81; font-weight: bold; margin-bottom: 0;">
                 ※上記のメニューからはご予約いただけませんので、ご注意ください。
             </p>
+        </div>
+
+        <!-- トップに戻るボタン -->
+        <div class="back-btn-wrap">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-home"></i> トップページへ戻る
+            </a>
         </div>
 
     </div>
